@@ -1,0 +1,19 @@
+# Python virtual environment
+venv/
+.env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# MkDocs build directory (only used locally; GitHub deploys from Actions)
+site/
+
+# VSCode/IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

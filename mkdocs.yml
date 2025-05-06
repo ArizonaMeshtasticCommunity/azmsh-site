@@ -1,0 +1,7 @@
+site_name: Arizona Meshtastic Community
+theme:
+  name: material
+
+site_url: https://azmsh.net
+repo_name: azmsh-site
+repo_url: https://github.com/ArizonaMeshtasticCommunity/azmsh-site
