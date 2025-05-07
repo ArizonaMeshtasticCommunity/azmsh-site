@@ -49,6 +49,9 @@ jobs:
       - name: Build site
         run: mkdocs build --strict
 
+      - name: Add CNAME File
+        run: echo "azmsh.net" > site/CNAME
+
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.name "github-actions[bot]"
