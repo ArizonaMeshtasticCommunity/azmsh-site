@@ -71,13 +71,13 @@ meshtastic \
 ```
 meshtastic \
 
-  --set position.smart_enable true \
+  --set position.position_broadcast_smart_enabled true \
 
   --set position.position_broadcast_secs 3600 \
 
   --set position.gps_update_interval 1800 \
 
-  --set position.flags 0
+  --pos-fields ALTITUDE ALTITUDE_MSL HEADING SPEED
 ```
 # LoRa Settings
 ```
@@ -87,7 +87,7 @@ meshtastic \
 
   --set lora.ignore_mqtt true \
 
-  --set lora.ok_to_mqtt true
+  --set lora.config_ok_to_mqtt true
 ```
 # Telemetry Module
 ```
@@ -97,9 +97,9 @@ meshtastic \
 
   --set telemetry.environment_update_interval 3600 \
 
-  --set telemetry.power_metrics_enabled false \
+  --set telemetry.power_measurement_enabled false \
 
-  --set telemetry.environment_enabled false \
+  --set telemetry.environment_measurement_enabled false \
 
   --set telemetry.air_quality_enabled false
 ```
@@ -111,5 +111,5 @@ meshtastic \
 
   --set neighbor_info.update_interval 14400 \
 
-  --set neighbor_info.transmit_enabled true
+  --set neighbor_info.transmit_over_lora true
 ```
