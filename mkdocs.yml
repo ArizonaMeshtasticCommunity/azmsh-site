@@ -1,7 +1,35 @@
 site_name: Arizona Meshtastic Community
 theme:
   name: material
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.png
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
 
 site_url: https://azmsh.net
 repo_name: azmsh-site
 repo_url: https://github.com/ArizonaMeshtasticCommunity/azmsh-site
+
+plugins:
+  - offline
+  - search
