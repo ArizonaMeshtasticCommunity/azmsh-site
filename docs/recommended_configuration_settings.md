@@ -75,7 +75,7 @@ meshtastic \
 
   --set position.position_broadcast_secs 3600 \
 
-  --set position.gps_update_interval 1800
+  --set position.gps_update_interval 1800 \
 
   --pos-fields ALTITUDE ALTITUDE_MSL HEADING SPEED
 ```
