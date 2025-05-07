@@ -46,11 +46,11 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git
+
       - name: Deploy site
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-          GIT_AUTHOR_NAME: github-actions
-          GIT_AUTHOR_EMAIL: github-actions@github.com
-          GIT_COMMITTER_NAME: github-actions
-          GIT_COMMITTER_EMAIL: github-actions@github.com
         run: mkdocs gh-deploy --force
