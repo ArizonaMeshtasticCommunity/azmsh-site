@@ -46,11 +46,13 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git
+      - name: Build site
+        run: mkdocs build --strict
 
-      - name: Deploy site
-        run: mkdocs gh-deploy --force
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          mkdocs gh-deploy --force --remote-name origin --message "Deployed from GitHub Actions"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
