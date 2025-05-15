@@ -33,3 +33,10 @@ repo_url: https://github.com/ArizonaMeshtasticCommunity/azmsh-site
 plugins:
   - offline
   - search
+
+markdown_extensions: 
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
