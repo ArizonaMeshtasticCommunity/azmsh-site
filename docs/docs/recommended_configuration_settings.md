@@ -1,4 +1,4 @@
-# 📡 Recommended Settings
+# Recommended Settings
 
 To help maintain a healthy and reliable mesh network across Arizona, we suggest the following configuration settings for your Meshtastic devices.
 

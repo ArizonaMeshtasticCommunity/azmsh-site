@@ -10,6 +10,8 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -40,3 +42,14 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - assets/js/nodeData.js # Node Info
+
+copyright: Copyright &copy; 2025 Arizona Meshtastic Community
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/HrKtyuFEQk
+    - icon: fontawesome/brands/github
+      link: https://github.com/ArizonaMeshtasticCommunity
