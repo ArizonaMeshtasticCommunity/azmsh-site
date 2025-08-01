@@ -12,7 +12,7 @@ Whether you're a seasoned ham radio operator looking to explore new communicatio
 <span style="display: flex; align-items: center; justify-content: center;">
     <span style="display: flex; align-items: center; justify-content: space-between;">
         <span style="margin-right: 5px;">[Join us on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary target="_blank"}</span>
-        <span style="margin-left: 5px;">[Learn More](/getting_started/){ .md-button .md-button--primary}</span>
+        <span style="margin-left: 5px;">[Learn More](/docs/connect.html){ .md-button .md-button--primary}</span>
     </span>
 </span>
 
