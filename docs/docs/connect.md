@@ -4,7 +4,7 @@ title: How to Connect
 
 ### Join the Community
 
-Beyond the meshtastic network, we're most active in our [Discord server](https://discord.gg/aVnCFPC679).
+Beyond the meshtastic network, we're most active in our [Discord server](https://discord.gg/HrKtyuFEQk).
 
 ### How to Connect
 
