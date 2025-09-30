@@ -22,4 +22,4 @@ We Provide an IRC bridge for those that may not like discord or care for its int
 
 ## Reach out by Email  
 
-We have a shared mailbox at [contact@azmsh.net](mailto:contact@azmsh.net). If you have any questions concerns or ideas, please don't hesitate to reach out.
+We have a shared mailbox at [contact@azmsh.net](mailto:contact@azmsh.net). If you have any questions, concerns or ideas, please don't hesitate to reach out.
