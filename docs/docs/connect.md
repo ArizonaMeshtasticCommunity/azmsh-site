@@ -10,7 +10,7 @@ Beyond the meshtastic network, we're most active in our [Discord server](https:/
 
 #### Get a Meshtastic Radio
 - **DIY**: Build your own for around $35. Check the [official supported hardware](https://meshtastic.org/docs/hardware/) page for guidance.
-- **Ready-to-go**: Consider the [Seeed Studio SenseCAP Card Tracker](https://meshtastic.org/docs/hardware/devices/seeed-studio/sensecap/card-tracker/), an excellent option for quickly starting with Meshtastic, needing minimal setup.
+- **Ready-to-go**: Consider the [WisMesh Tag](https://store.rakwireless.com/products/wismesh-tag-meshtastic-gps-lora-tracker-ip66), an excellent option for quickly starting with Meshtastic, needing minimal setup.
 - **Pre-built**: Battery-powered radios with 3D-printed cases are available for $50-$100 on Etsy or eBay.
 - **Outdoor Setup**: A pre-built solar-powered node ($100-$200) is ideal if you can mount it high outdoors, or you can construct your own. ( Constructing one yourself could cost as little as $50.)
 
@@ -35,11 +35,11 @@ Beyond the meshtastic network, we're most active in our [Discord server](https:/
 
 
 #### MQTT
-MQTT is a useful tool for supplementing mesh connectivity but shouldn't be relied upon as a primary mesh component. Our recommended MQTT etiquette is:
+MQTT is a useful tool for supplementing mesh connectivity but shouldn't be relied upon as a primary mesh component. (All nodes are encouraged to ignore mqtt) Our recommended MQTT etiquette is:
 
 - **Downlinking** from the primary Meshtastic MQTT server is strongly discouraged, especially in the primary channel.
 - **Uplinking** to the primary Meshtastic MQTT server is acceptable but not strongly encouraged.
-- **Uplinking** to a local MQTT server is helpful for tracking deployed nodes not connected directly to your mesh segment.
+- **Uplinking** to a local MQTT server is helpful for tracking deployed nodes not connected directly to your mesh segment. (This would be the azmsh.net mqtt server or your local own bridged mqtt server.)
 - **Downlinking** from a local MQTT server should be avoided in the primary channel; however, it's acceptable for secondary channels.
 
 #### Device Roles
