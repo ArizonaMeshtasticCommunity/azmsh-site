@@ -20,8 +20,6 @@ New to Meshtastic? Here's what to buy. It's simpler than you think.
 
 The best all-around handheld for Arizona. GPS, huge 3200 mAh battery (3+ days with GPS and screen active), compact, IP66 waterproof, solar charging connector. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
 
-**Tip:** The stock antenna is weak (~500-600m range). Upgrade to a [MESHTAC 4 dBi gooseneck](https://store.rokland.com/products/meshtac-gooseneck-tactical-antenna-4-dbi-gain-sma-male-915-mhz-flexible-for-meshtastic-lora) (~$20) for a big improvement.
-
 :material-cart: **[Buy on RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket)** | **[Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)**
 
 ### Rooftop Node: Station G2 (~$100-130)
@@ -53,6 +51,21 @@ These radios pair with your phone over Bluetooth so you can type messages on you
 
 !!! info "Battery life varies"
     These estimates assume typical use — mostly listening with occasional messages. Heavy messaging, constant screen-on, or active GPS tracking will reduce battery life. Power-saving mode can extend it significantly.
+
+!!! success "Upgrade your antenna — the single best $12 you can spend"
+    **Most handheld Meshtastic radios ship with terrible stock antennas.** The stubby antennas that come in the box are only ~69% efficient — nearly a third of your signal is wasted as heat instead of reaching the mesh.
+
+    **Our recommendation: [Muziworks 17cm Whip Antenna](https://muzi.works/products/whip-antenna-17cm) (~$12)**
+
+    - **SMA Male connector** — fits most handhelds directly
+    - **SWR of 1.3** (98% efficient) vs stock antenna SWR of 3.5 (69% efficient)
+    - 17cm flexible whip, 915 MHz tuned
+    - Available individually (~$12) or in a [4-pack (~$36)](https://muzi.works/products/4-pack-whip-antenna-17cm-915mhz)
+    - Also available on [Amazon](https://www.amazon.com/muzi-%E1%B4%A1%E1%B4%8F%CA%80%E1%B4%8B%EA%9C%B1-915Mhz-Antenna-Meshtastic/dp/B0D7D6866W)
+
+    **Works with:** RAK WisMesh Pocket (SMA), LILYGO T-Echo (SMA), Heltec V3/V4 (needs U.FL to SMA pigtail), LILYGO T-Beam (SMA), LILYGO T-Deck Plus (SMA)<br>
+    **Does NOT apply to:** Card-style trackers (WisMesh Tag, SenseCAP T-1000e) — these have sealed internal antennas with no external port.<br>
+    **Nano G2 Ultra note:** The Nano G2 Ultra has a custom wideband internal antenna engineered for body-proximity use — it doesn't have an external port and doesn't need an upgrade.
 
 ---
 
@@ -222,12 +235,43 @@ Don't want to build anything? These come fully assembled. Mount them, configure 
 | **WisMesh Repeater Mini** | Built-in | Built-in | Yes | ~$50-70 | [RAK Store](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater-mini) |
 | **SenseCAP Solar P1 Pro** | 5W panel | 4x 18650 included | Yes | ~$90 | [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html) |
 | **Atlavox Beacon** | Built-in | Built-in | Yes | ~$150-200 | [Atlavox](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node) |
-| **Heltec V4 Pre-Built** | No (USB power) | No | No | ~$80-120 | [Etsy](https://www.etsy.com/listing/1877304075/meshcoremeshtastic-outdoor-repeater) |
+| **Heltec V4 Solar Node** | 25W panel | 6x 18650 | No | ~$120-180 | [Etsy](https://www.etsy.com/listing/4310813646/outdoor-solar-2510w-meshtastic-or) |
 
 - **Best value:** SenseCAP Solar P1 Pro — 5W solar panel, 4x 18650 batteries, GPS, ~$90
 - **Easiest deploy:** WisMesh Repeater — IP67 weatherproof, mount and forget
 - **Premium turnkey:** Atlavox Beacon — professional mounting hardware, dual SMA connectors, rugged build
-- **Need WiFi/MQTT?** Heltec V4 Pre-Built — the only pre-built option with WiFi, but needs constant USB power
+- **Need WiFi/MQTT?** Heltec V4 Solar Node — Heltec V4 board (+28 dBm), 25W solar panel, 6x 18650 battery bay, 5.5 dBi IP67 antenna, mast brackets included
+
+---
+
+### :material-store: More Pre-Built Nodes on Etsy
+
+The Meshtastic community on Etsy has grown significantly. These are small-batch builders who assemble, test, and ship ready-to-deploy nodes — great if you don't want to source parts and build your own.
+
+#### PeakMesh (Highly Recommended)
+
+PeakMesh is a standout Etsy seller with consistently excellent reviews (4.8+ stars) and proven durability — customers have reported nodes surviving midwest winters, monsoon-level rain, and highway speeds. All nodes use RAK Wireless modules (nRF52840) with ALFA antennas and come fully assembled with the latest firmware.
+
+| Model | Solar | Battery | Price | Best For | Link |
+|---|---|---|---|---|---|
+| **MicroMag** | 1W panel | 3500 mAh 18650 | ~$85 | Stealth pole/sign mount, magnetic attach | [Etsy](https://www.etsy.com/listing/4346022155/peakmesh-micromag-smallest-outdoor) |
+| **Ultimate** | 2x 1W panels | 2x 5000 mAh 21700 | ~$135 | Max battery life (month+ without sun) | [Etsy](https://www.etsy.com/listing/1776412240/peakmesh-ultimate-solar-meshtastic-radio) |
+| **Altitude** | Solar | 2x 5000 mAh 21700 | ~$130 | Tree hanging deployments | [Etsy](https://www.etsy.com/listing/4331277320/peakmesh-altitude-tree-hanging-solar) |
+| **Birdhouse** | Solar | 2x 5000 mAh 21700 | ~$135 | Disguised as a birdhouse | [Etsy](https://www.etsy.com/listing/1795323188/peakmesh-birdhouse-solar-meshtastic) |
+| **Magnet Climber** | Solar | 2x 5000 mAh 21700 | ~$135 | Magnetic mount, ALFA 5 dBi antenna | [Etsy](https://www.etsy.com/listing/1795573484/peakmesh-magnet-climber-solar-meshtastic) |
+
+:material-cart: [Browse all PeakMesh products](https://www.etsy.com/shop/PeakMesh)
+
+#### Other Notable Etsy Finds
+
+| Product | What You Get | Price | Link |
+|---|---|---|---|
+| **Heltec V4 Solar Outdoor Node** | Heltec V4 (+28 dBm), 25W solar, 6x 18650 bay, 5.5 dBi IP67 antenna, mast brackets | ~$120-180 | [Etsy](https://www.etsy.com/listing/4310813646/outdoor-solar-2510w-meshtastic-or) |
+| **Heltec V4 Complete Node** | Heltec V4 board, battery, case, antenna — portable ready-to-go | ~$60-80 | [Etsy](https://www.etsy.com/listing/4439512620/heltec-v4-complete-meshtastic-node-sma) |
+| **RAK Wisblock Solar Repeater** | RAK module, 6W solar, waterproof box, 3450 mAh battery | ~$90-120 | [Etsy](https://www.etsy.com/listing/1662624760/meshtastic-node-ready-to-use-solar) |
+
+!!! tip "Buying from Etsy sellers"
+    These are small-batch community builders, not big retailers. Inventory and pricing can change. Check seller reviews, ask questions before buying, and expect slightly longer lead times than Amazon or Rokland.
 
 ---
 
@@ -252,6 +296,7 @@ For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the
 | **Rokland 8 dBi Low Profile** | 8 dBi | ~$50 | Flat terrain, max range | [Buy](https://store.rokland.com/products/8-dbi-omni-outdoor-915mhz-fiberglass-antenna-for-lora-halow-application) |
 | **ALFA AOA-915-5ACM** | 5 dBi | ~$25-35 | Compact outdoor (7" tall) | [Buy](https://store.rokland.com/products/alfa-aoa-915-5acm-5-dbi-omni-outdoor-915mhz-802-11ah-mini-antenna-for-lora-halow-application) |
 | **RAK WisMesh Blade** | ~3 dBi | ~$15-20 | Budget outdoor | [Buy](https://store.rakwireless.com/products/wismesh-antenna) |
+| **Muziworks 17cm Whip** | — | ~$12 | Handheld upgrade (SMA), best value | [Buy](https://muzi.works/products/whip-antenna-17cm) |
 | **MESHTAC 4 dBi Gooseneck** | 4 dBi | ~$20-25 | Handheld upgrade (SMA) | [Buy](https://store.rokland.com/products/meshtac-gooseneck-tactical-antenna-4-dbi-gain-sma-male-915-mhz-flexible-for-meshtastic-lora) |
 
 !!! tip "Keep the cable short"
@@ -284,6 +329,7 @@ For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the
 | **B&Q Consulting** | [shop.uniteng.com](https://shop.uniteng.com/) | Station G2, Nano G2 Ultra — pro RF engineering |
 | **Atlavox** | [atlavox.com](https://atlavox.com/) | Pre-built solar nodes and accessories |
 | **Muziworks** | [muzi.works](https://muzi.works/) | Cases, antennas, and the R1 Neo — assembled in USA |
+| **PeakMesh** | [Etsy shop](https://www.etsy.com/shop/PeakMesh) | Pre-built solar nodes (RAK-based), excellent reviews, ships from FL |
 | **Seeed Studio** | [seeedstudio.com](https://www.seeedstudio.com/) | Wio Tracker, SenseCAP, Solar P1 |
 
 !!! danger "Watch out for fakes on Amazon"
