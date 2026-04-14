@@ -32,13 +32,24 @@ site_url: https://azmsh.net
 repo_name: azmsh-site
 repo_url: https://github.com/ArizonaMeshtasticCommunity/azmsh-site
 
+nav:
+  - Home: index.md
+  - Getting Started:
+    - How to Connect: docs/connect.md
+    - Recommended Hardware: docs/recommended-hardware.md
+    - Recommended Settings: docs/recommended_configuration_settings.md
+  - Reach Out: reach_out.md
+
 plugins:
   - offline
   - search
 
-markdown_extensions: 
+markdown_extensions:
   - attr_list
   - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
