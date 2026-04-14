@@ -93,9 +93,11 @@ These are the radios you carry with you to send and receive messages on the mesh
 | **Wio Tracker L1** | 800 mAh | ~2-3 days | 0.96" OLED | ~$30 | :material-star: Budget pick |
 | **Heltec T114 V2** | 800 mAh (external) | ~3-5 days | 1.14" Color | ~$30-40 | Budget w/ color screen |
 | **LILYGO T-Echo** | 850 mAh | ~5-7 days | 1.54" E-Ink | ~$45-50 | Mid-range, best battery |
+| **LILYGO T-Deck** | External | ~1-2 days (depends on battery) | 2.8" Color LCD | ~$60-70 | Full keyboard, off-phone use |
 | **RAK WisMesh Pocket V2** | 3200 mAh | ~5-7 days | 1.3" OLED | ~$95-99 | :material-trophy: Best overall |
 | **Nano G2 Ultra** | 1100 mAh | ~3-5 days | 0.96" OLED | ~$70-90 | Best signal quality (handheld) |
 | **RAK WisMesh Tag** | 1000 mAh | ~2-3 days (GPS on) | None | ~$40-50 | Tiny GPS tracker |
+| **SenseCAP T-1000e** | 700 mAh | ~2-3 days | None | ~$35-40 | Card-sized tracker (see note below) |
 | **Heltec LoRa32 V4** | External | Depends on battery | 0.96" OLED | ~$25-30 | Cheapest entry (no GPS) |
 
 !!! info "Battery life varies"
@@ -186,6 +188,49 @@ A credit-card-sized GPS tracker. No screen, no buttons — just put it in a back
 
 - [RAK Wireless Store](https://store.rakwireless.com/products/wismesh-tag-meshtastic-gps-lora-tracker-ip66)
 - [Rokland](https://store.rokland.com/products/wismesh-tag-from-rakwireless-mokosmart-meshtastic-compatible-card-sized-node-us915-mhz)
+
+---
+
+### :material-keyboard: Off-Phone Pick: LILYGO T-Deck (~$60-70)
+
+Want to leave your phone in your pocket? The T-Deck has a full physical keyboard built right in, so you can type and read messages without touching your phone. It runs on an ESP32-S3 chip with WiFi, Bluetooth, and GPS. Think of it as a tiny standalone messenger.
+
+- **Battery:** Needs an external battery (not included) — plan on a USB power bank
+- **Screen:** 2.8" Color LCD touchscreen
+- **GPS:** Built-in
+- **Connects to phone via:** Bluetooth or WiFi
+- **Chip:** ESP32-S3
+
+!!! note "Heads up"
+    The T-Deck does **not** have a built-in battery — you'll need to connect a USB power bank or battery pack. It also has no external antenna port, so range is limited compared to devices with replaceable antennas. Map setup (offline maps on the screen) can be tricky and isn't preloaded, so if GPS mapping on the device is important to you, be ready for some tinkering.
+
+:material-cart: **Where to buy:**
+
+- [Rokland (~$65)](https://store.rokland.com/products/lilygo-t-deck-portable-microcontroller-programmer-lora-915-mhz-h642)
+- [Amazon](https://www.amazon.com/LILYGO-ESP32-S3-LORA-89-2-8-inch-Development/dp/B0FBGX1VP5)
+
+---
+
+### :material-credit-card: Card Tracker: SenseCAP T-1000e (~$35-40)
+
+A credit-card-sized GPS tracker similar to the WisMesh Tag. Clips to a backpack or fits in a pocket. No screen, no buttons — just automatic location reporting on the mesh.
+
+- **Battery:** 700 mAh (~2-3 days with GPS tracking on)
+- **Screen:** None
+- **GPS:** Built-in
+- **Connects to phone via:** Bluetooth
+- **Waterproof:** Yes
+
+!!! tip "We recommend the WisMesh Tag instead"
+    The **RAK WisMesh Tag** (listed above) has better battery life and better range than the T-1000e. If you're choosing between the two card-style trackers, go with the WisMesh Tag.
+
+:material-cart: **Where to buy:**
+
+- [Seeed Studio (official store)](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html)
+- [Amazon](https://www.amazon.com/SenseCAP-Card-Tracker-T1000-Meshtastic/dp/B0DJ6KGXKB)
+
+!!! warning "Make sure you buy the T-1000**e**"
+    There are multiple SenseCAP T-1000 models. You specifically need the **T-1000e** (the "e" stands for the Meshtastic-compatible version). The other T-1000 models are for different platforms and won't work with Meshtastic.
 
 ---
 
@@ -283,6 +328,85 @@ If you don't want to assemble anything, the [WisMesh Repeater](https://store.rak
 
 ---
 
+### :material-package-variant-closed: Pre-Built Ready-to-Go Nodes
+
+Don't want to buy an enclosure, wire up solar, or assemble anything? These come fully assembled and ready to mount. Just configure your Meshtastic settings and you're done.
+
+!!! info "Node role for Arizona rooftop nodes"
+    If you're putting one of these on your roof to help the Arizona mesh, set the device role to **ROUTER** (or **ROUTER_LATE** if you want it to only repeat when no other routers are available). Do **not** set a node to Router/Repeater on someone else's mesh without permission — but on the Arizona Mesh, we want rooftop nodes repeating traffic.
+
+---
+
+#### SenseCAP Solar Node P1 Pro
+
+A complete solar-powered node with built-in battery, GPS, and an adjustable solar panel. Mount it on a pole or fence and it runs itself. The solar panel angle can be adjusted independently from the antenna — handy for getting the best sun angle.
+
+| Spec | Detail |
+|---|---|
+| **Solar** | Yes — built-in adjustable panel |
+| **Battery** | Built-in (solar keeps it charged) |
+| **GPS** | Built-in |
+| **WiFi** | No |
+| **Est. Battery Life** | Indefinite with sun (solar-powered) |
+| **Est. Price** | ~$60-80 |
+
+:material-cart: [Buy on Seeed Studio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html)
+
+---
+
+#### WisMesh Repeater Mini
+
+Super compact solar repeater with magnetic mounting options. Small and inconspicuous — great for mounting on metal poles, mailboxes, or anywhere you want a node that doesn't draw attention. Built-in solar, battery, and GPS.
+
+| Spec | Detail |
+|---|---|
+| **Solar** | Yes — built-in panel |
+| **Battery** | Built-in (solar keeps it charged) |
+| **GPS** | Built-in |
+| **WiFi** | No |
+| **Mounting** | Magnetic + standard mount options |
+| **Est. Price** | ~$50-70 |
+
+:material-cart: [Buy on RAK Wireless](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater-mini)
+
+---
+
+#### Atlavox Beacon
+
+The premium, no-compromise option. Pre-configured with the best-of-the-best components — high quality antenna, solar panel, battery, GPS, and a rugged weatherproof enclosure. If you don't want to think about component choices and just want the best possible rooftop node, this is it. Mount it on your roof, a pole, or strap it to a tree.
+
+| Spec | Detail |
+|---|---|
+| **Solar** | Yes — built-in panel |
+| **Battery** | Built-in (solar keeps it charged) |
+| **GPS** | Built-in |
+| **WiFi** | No |
+| **Build Quality** | Premium — rugged, weatherproof |
+| **Est. Price** | ~$200-350 |
+
+!!! note "Expensive but turnkey"
+    The Atlavox Beacon costs significantly more than other options, but you're paying for zero assembly, premium components, and a plug-and-play experience. If you want to skip all the research on which antenna/enclosure/battery to buy, this bundles it all together.
+
+:material-cart: [Buy on Atlavox (pre-configured)](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node-outpost-config) | [Build-your-own version](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node)
+
+---
+
+#### Heltec V4 Pre-Built (Etsy)
+
+A pre-assembled outdoor node based on the Heltec LoRa32 V4. The big advantage here is **WiFi** — if you want a rooftop node that connects to your home network for MQTT (internet bridge), this is one of the few pre-built options that supports it. The downside: no solar, no built-in battery — it needs constant USB power.
+
+| Spec | Detail |
+|---|---|
+| **Solar** | No — needs constant USB power |
+| **Battery** | No built-in battery |
+| **GPS** | No (you set your location manually in settings) |
+| **WiFi** | Yes — can bridge to the internet via MQTT |
+| **Est. Price** | ~$80-120 |
+
+:material-cart: [Buy on Etsy](https://www.etsy.com/listing/1877304075/meshcoremeshtastic-outdoor-repeater)
+
+---
+
 ## :material-antenna: Antenna Guide
 
 Your antenna has the single biggest impact on range — more than the radio itself. Here are the basics.
@@ -302,7 +426,9 @@ For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the
 |---|---|---|---|
 | Rokland 5.8 dBi Fiberglass Omni | All-around rooftop antenna | ~$40 | [Buy](https://store.rokland.com/products/meshtastic-compatible-6-dbi-n-female-omni-outdoor-915-mhz-antenna-kit-with-6-10-or-15-cable-choice) |
 | Rokland 8 dBi Low Profile Omni | Longer range rooftop antenna | ~$50 | [Buy](https://store.rokland.com/products/8-dbi-omni-outdoor-915mhz-fiberglass-antenna-for-lora-halow-application) |
+| ALFA AOA-915-5ACM 5 dBi Omni | Compact outdoor antenna, 7" tall, N-type connector | ~$25-35 | [Buy (Rokland)](https://store.rokland.com/products/alfa-aoa-915-5acm-5-dbi-omni-outdoor-915mhz-802-11ah-mini-antenna-for-lora-halow-application) / [Buy (Atlavox)](https://atlavox.com/products/antenna-for-meshtastic-915mhz-n-type-outdoor-7-5dbi-alfa-aoa-915-5acm) |
 | RAK WisMesh Blade | Compact, budget-friendly | ~$15-20 | [Buy](https://store.rakwireless.com/products/wismesh-antenna) |
+| Muziworks 17cm Whip Antenna | Upgrade whip for handhelds (T-Echo, etc.) | ~$10-15 | [Buy](https://muzi.works/products/whip-antenna-17cm) |
 
 !!! tip "Keep the cable short"
     The cable between your radio and antenna loses a little bit of signal for every foot of length. Use **quality cable** (LMR-240 or better) and keep the run as short as possible — 10 feet or less is ideal. The Rokland antenna kits include quality cable in 6, 10, 15, or 25 foot lengths.
@@ -329,8 +455,8 @@ When buying Meshtastic hardware, stick to these trusted retailers. They sell gen
 | **Atlavox** | [atlavox.com](https://atlavox.com/) | Meshtastic radios, solar repeaters, and accessories |
 | **Muziworks** | [muzi.works](https://muzi.works/) | Cases and accessories for Meshtastic hardware, assembled in the USA |
 
-!!! danger "Watch out for fakes on Amazon"
-    Counterfeit and knockoff Meshtastic devices are increasingly common on Amazon and other large marketplaces. These fakes may look identical but often have inferior radio components, poor antennas, or missing features that will give you terrible range and reliability. **Buy from the trusted retailers listed above whenever possible.** If you do buy on Amazon, make sure the seller is the official brand (e.g., "LILYGO Official Store" or "RAKwireless") and not a random third-party seller.
+!!! danger "Watch out for fakes on Amazon — especially antennas"
+    There are **a LOT** of knockoff Meshtastic devices and antennas on Amazon and other large marketplaces. These fakes may look identical but often have inferior radio components, poor tuning, or missing features that will give you terrible range and reliability. Antennas are the worst offenders — a poorly made antenna can actually make your signal *worse* than the stock antenna that came with your device. **Buy from the trusted retailers listed above whenever possible.** If you do buy on Amazon, make sure the seller is the official brand (e.g., "LILYGO Official Store" or "RAKwireless") and not a random third-party seller.
 
 ---
 
