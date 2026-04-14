@@ -104,10 +104,5 @@ Once you have the broker details:
 
 | Resource | Link |
 |:---------|:-----|
-| Main Website | [azmsh.net](https://azmsh.net) |
-| Contribute | [GitHub](https://github.com/ArizonaMeshtasticCommunity/azmsh-site) |
-| Arizona Mesh Map (Liam Maps) | [map.azmsh.net](https://map.azmsh.net) |
-| MeshView | [view.azmsh.net](https://view.azmsh.net) |
-| Grafana Metrics | [metrics.azmsh.net](https://metrics.azmsh.net) (guest login: `guest` / `&&jgVDW925g9^r`) |
+| Contribute to this site | [GitHub](https://github.com/ArizonaMeshtasticCommunity/azmsh-site) |
 | IRC | [irc.libera.chat #azmsh](https://web.libera.chat/#azmsh) |
-| Discord | [discord.gg/HrKtyuFEQk](https://discord.gg/HrKtyuFEQk) |

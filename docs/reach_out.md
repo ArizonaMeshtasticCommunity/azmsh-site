@@ -46,8 +46,5 @@ We have a shared mailbox at [contact@azmsh.net](mailto:contact@azmsh.net). If yo
 
 | Resource | Link |
 |:---------|:-----|
-| Main Website | [azmsh.net](https://azmsh.net) |
-| Arizona Mesh Map | [map.azmsh.net](https://map.azmsh.net) |
-| MeshView | [view.azmsh.net](https://view.azmsh.net) |
-| Grafana Metrics | [metrics.azmsh.net](https://metrics.azmsh.net) |
-| GitHub | [ArizonaMeshtasticCommunity](https://github.com/ArizonaMeshtasticCommunity/azmsh-site) |
+| Contribute to this site | [GitHub](https://github.com/ArizonaMeshtasticCommunity/azmsh-site) |
+| IRC | [irc.libera.chat #azmsh](https://web.libera.chat/#azmsh) |
