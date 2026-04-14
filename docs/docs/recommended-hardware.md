@@ -253,7 +253,10 @@ Pairs the ultra-efficient nRF52840 chip with a **1W (30 dBm) power amplifier**. 
 Don't want to build anything? These come fully assembled. Mount them, configure Meshtastic settings, done.
 
 !!! info "Node role for Arizona rooftop nodes"
-    Set the device role to **ROUTER_LATE** for residential rooftop nodes. **Do NOT use ROUTER** — that role is only for strategic mountaintop or tower placements with line-of-sight coverage. ROUTER is the #1 most misused setting and can cause unnecessary network congestion. Use **ROUTER_LATE** (repeats only when no other routers respond) or **CLIENT** for home rooftop deployments.
+    Set your rooftop node to **CLIENT**. This is the recommended role for home installations. See the [Recommended Settings](/docs/recommended-settings.html) page for details on all roles.
+
+!!! danger "Do NOT use Router or Router Late without Infrastructure Team approval"
+    These roles require explicit permission from the Arizona Meshtastic Infrastructure Team. Unauthorized use causes network-wide problems. Ask on [Discord](https://discord.gg/HrKtyuFEQk) first.
 
 | Device | Solar | Battery | GPS | Price | Buy |
 |---|---|---|---|---|---|

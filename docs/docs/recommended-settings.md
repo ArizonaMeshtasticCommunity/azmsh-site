@@ -32,9 +32,8 @@ Client is the standard role. Your node will participate in the mesh by rebroadca
 
 ### Router and Router Late
 
-These roles are for **advanced, strategic deployments only** -- hilltop relays, mountain-top solar nodes, and other infrastructure positions. Running a router in the wrong location can actually hurt the network.
-
-If you think your node would make a good router, join the [Discord](https://discord.gg/HrKtyuFEQk) and chat with the community about placement and configuration before switching roles.
+!!! danger "DO NOT set your node to Router or Router Late without approval"
+    **These roles require explicit approval from the Arizona Meshtastic Infrastructure Team.** Setting your node to Router or Router Late without permission WILL cause problems for the entire mesh network — increased congestion, routing loops, and degraded performance for everyone. This is the #1 way people accidentally break the network. **Contact the Infrastructure Team on [Discord](https://discord.gg/HrKtyuFEQk) BEFORE changing to either of these roles.** No exceptions.
 
 ---
 
