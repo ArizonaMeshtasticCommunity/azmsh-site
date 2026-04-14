@@ -7,13 +7,13 @@ hide:
 
 <h1>Welcome to Arizona's Meshtastic Community!</h1>
 
-Whether you're a seasoned ham radio operator looking to explore new communication options, a tech enthusiast interested in building your own mesh network, or just curious about off-grid connectivity, this is your hub to connect, share knowledge, and explore the potential of Meshtastic.
+Meshtastic is a free, open-source mesh network that lets you send text messages, share GPS locations, and communicate off-grid using small, affordable radios. No cell service, no internet, no monthly fees, no license required.
 
-<span style="display: flex; align-items: center; justify-content: center;">
-    <span style="display: flex; align-items: center; justify-content: space-between;">
-        <span style="margin-right: 5px;">[Join us on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary target="_blank"}</span>
-        <span style="margin-left: 5px;">[Learn More](/docs/connect.html){ .md-button .md-button--primary}</span>
-    </span>
+Whether you're brand new to radio or a seasoned operator, this is your hub to get started and connect with the Arizona Meshtastic Community.
+
+<span style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+    [:fontawesome-brands-discord: Join us on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary target="_blank"}
+    [:material-information-outline: Learn More](/docs/how-to-connect.html){ .md-button target="_blank"}
 </span>
 
 <div class="grid cards" markdown>
