@@ -172,23 +172,7 @@ These are permanent nodes mounted high on your roof, attic, or mast. They're the
 
 ---
 
-### :material-star: Budget: Heltec LoRa32 V4 (~$25-30)
-
-The cheapest way to get a rooftop node running. Has WiFi for MQTT (internet bridge). Higher TX power than most budget boards at **28 dBm**.
-
-- **Chip:** ESP32-S3 (WiFi + Bluetooth)
-- **TX Power:** 28 dBm
-- **Power:** USB-C (plug into a wall outlet)
-- **GPS:** No (not needed — set location manually)
-- **Solar:** Has solar panel interface
-
-Put it in a waterproof junction box (~$10), add a 915 MHz antenna (~$15-40), and run a USB cable from inside. **Total build: ~$50-80.**
-
-:material-cart: [Heltec Store](https://heltec.org/project/wifi-lora-32-v4/) | [Rokland](https://store.rokland.com/products/heltec-wifi-lora-32v4-esp32s3-sx1262-lora-node-meshtastic-lorawan)
-
----
-
-### :material-star::material-star: Best Overall: Station G2 (~$100-130)
+### :material-trophy: Best Overall: Station G2 (~$100-130)
 
 The community favorite for serious coverage. Transmits at up to **36.5 dBm (4.5W)** with a dedicated low-noise amplifier for ~4 dB better receive sensitivity than standard radios. This is the node you put on your roof to anchor coverage for your whole neighborhood.
 
@@ -207,7 +191,23 @@ Pair with a [Rokland 5.8 dBi Fiberglass Antenna](https://store.rokland.com/produ
 
 ---
 
-### :material-star::material-star::material-star: Max Power: RAK WisMesh 1W Booster Kit (~$39+)
+### :material-star: Budget: Heltec LoRa32 V4 (~$25-30)
+
+The cheapest way to get a rooftop node running. Has WiFi for MQTT (internet bridge). Higher TX power than most budget boards at **28 dBm**.
+
+- **Chip:** ESP32-S3 (WiFi + Bluetooth)
+- **TX Power:** 28 dBm
+- **Power:** USB-C (plug into a wall outlet)
+- **GPS:** No (not needed — set location manually)
+- **Solar:** Has solar panel interface
+
+Put it in a waterproof junction box (~$10), add a 915 MHz antenna (~$15-40), and run a USB cable from inside. **Total build: ~$50-80.**
+
+:material-cart: [Heltec Store](https://heltec.org/project/wifi-lora-32-v4/) | [Rokland](https://store.rokland.com/products/heltec-wifi-lora-32v4-esp32s3-sx1262-lora-node-meshtastic-lorawan)
+
+---
+
+### :material-star-half-full: Best for Solar / DIY: RAK WisMesh 1W Booster Kit (~$39+)
 
 Pairs the ultra-efficient nRF52840 chip with a **1W (30 dBm) power amplifier**. The low power draw means a small solar panel can keep it running 24/7. The kit itself is only ~$39 — add an enclosure, antenna, solar panel, and battery for a complete build (~$100-150 total).
 
@@ -216,7 +216,7 @@ Pairs the ultra-efficient nRF52840 chip with a **1W (30 dBm) power amplifier**. 
 - **Power:** Requires stable 5V supply (3.3V rail can't handle TX surge)
 - **WiFi:** No
 
-**Note:** Assembly required. Needs a 5V power supply, enclosure, and antenna (not included).
+**Best for builders** who want a self-sustaining solar node. The nRF52840 draws so little power that even a small solar panel keeps it alive through the night. Assembly required — needs enclosure, antenna, solar panel, and battery.
 
 :material-cart: [RAK Store (~$39)](https://store.rakwireless.com/products/wismesh-1w-booster-starter-kit) | [Rokland](https://store.rokland.com/products/coming-soon-wismesh-1w-booster-starter-kit-with-nrf52840-sx1262-and-sky66122-pa-for-extended-meshtastic-range)
 
