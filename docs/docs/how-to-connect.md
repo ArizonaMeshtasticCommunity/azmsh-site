@@ -1,4 +1,6 @@
 ---
+hide:
+  - navigation
 title: How to Connect
 ---
 
