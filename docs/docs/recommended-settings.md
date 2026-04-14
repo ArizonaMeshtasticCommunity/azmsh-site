@@ -6,7 +6,7 @@ title: Recommended Settings
 
 # Recommended Settings
 
-These settings are based on real-world experience from the Arizona Meshtastic community. Following them helps keep our shared mesh network healthy and reliable for everyone.
+These settings are based on real-world experience from the Arizona Meshtastic community. Following them helps keep our shared mesh network healthy and reliable for everyone. If you still need a radio, check our [Recommended Hardware](/docs/recommended-hardware.html) page first.
 
 !!! note "Preset and Frequency"
     The Arizona-specific **preset** and **frequency slot** are shared in our Discord server. Join to get these settings before configuring your device.
@@ -106,11 +106,3 @@ Once you have the broker details:
 !!! warning "Always keep Downlink OFF"
     Downlinking from MQTT into the primary channel floods the radio mesh with traffic from the internet. Keep downlink disabled unless you have a specific reason and have discussed it with the community.
 
----
-
-## Community Links
-
-| Resource | Link |
-|:---------|:-----|
-| Contribute to this site | [GitHub](https://github.com/ArizonaMeshtasticCommunity/azmsh-site) |
-| IRC | [irc.libera.chat #azmsh](https://web.libera.chat/#azmsh) |

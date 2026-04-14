@@ -8,6 +8,9 @@ title: How to Connect
 
 Welcome to the Arizona Meshtastic Community! This guide will walk you through getting your first device set up and connected to our local mesh network.
 
+!!! info "Before you start"
+    **You will need a Meshtastic radio.** If you don't have one yet, check our [Recommended Hardware](/docs/recommended-hardware.html) page — you can get started for as little as $30. No monthly fees, no subscriptions, no cell service required. Meshtastic runs on unlicensed 915 MHz radio frequencies, so it is completely free and legal to use in the United States.
+
 ---
 
 ## Step 1: Update Your Firmware
@@ -75,7 +78,11 @@ Once your settings are configured:
 ## Quick Tips
 
 - **Keep your firmware updated** -- new versions improve performance and compatibility.
-- **Back up your private key** before any firmware update so you do not lose your node identity.
+- **Export your node configuration** before any firmware update so you do not lose your identity on the mesh.
 - **Start with the Client Mute role** if you are not sure what to pick -- it is the safest default for mobile devices.
-- **Check the [Recommended Settings](recommended-settings.md) page** for detailed configuration guidance.
+- **Check the [Recommended Settings](/docs/recommended-settings.html) page** for detailed configuration guidance (broadcast intervals, MQTT, and more).
+- **Upgrade your antenna** -- the single biggest improvement you can make. See the [Recommended Hardware](/docs/recommended-hardware.html) page for our antenna picks.
 - **Ask questions in Discord** -- the community is friendly and happy to help new members get started.
+
+!!! tip "How far does Meshtastic reach?"
+    Range depends on terrain and antenna height. In flat desert terrain, handheld-to-handheld range is typically 1-3 miles. With a rooftop node and a good antenna, you can reach 10-30+ miles. The mesh network extends range further by relaying messages through other nodes.

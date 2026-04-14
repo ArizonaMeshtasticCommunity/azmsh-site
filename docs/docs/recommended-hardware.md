@@ -6,13 +6,13 @@ title: Recommended Hardware
 
 # :material-radio-handheld: Recommended Hardware
 
-New to Meshtastic? Here's what to buy. It's simpler than you think.
+New to Meshtastic? Here's what to buy. No monthly fees, no subscriptions -- just a one-time purchase and you're on the mesh.
 
 !!! tip "Two things you need"
     **1. A handheld radio** — carry it with you, pairs with your phone via Bluetooth<br>
     **2. A rooftop/attic node** — put it up high at your home to keep you connected
 
-    That's it. Buy these two things, download the [Meshtastic app](https://meshtastic.org/docs/getting-started/), and you're on the mesh.
+    That's it. Buy these two things, follow our [How to Connect](/docs/how-to-connect.html) guide, and you're on the mesh.
 
 ---
 
@@ -343,16 +343,15 @@ For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the
 
 ---
 
-## :material-chip: WiFi vs Bluetooth — Quick Reference
+!!! info "WiFi vs Bluetooth — Quick Reference"
+    | | **nRF52840** | **ESP32 / ESP32-S3** |
+    |---|---|---|
+    | **Battery life** | :material-battery-high: Great (days to weeks) | :material-battery-medium: OK (1-2 days) |
+    | **WiFi** | :material-close: No | :material-check: Yes |
+    | **Bluetooth** | :material-check: Yes | :material-check: Yes |
+    | **Best for** | Handhelds, solar nodes | Plugged-in rooftop nodes, WiFi/MQTT gateways |
 
-| | **nRF52840** | **ESP32 / ESP32-S3** |
-|---|---|---|
-| **Battery life** | :material-battery-high: Great (days to weeks) | :material-battery-medium: OK (1-2 days) |
-| **WiFi** | :material-close: No | :material-check: Yes |
-| **Bluetooth** | :material-check: Yes | :material-check: Yes |
-| **Best for** | Handhelds, solar nodes | Plugged-in rooftop nodes, WiFi/MQTT gateways |
-
-**Simple rule:** Carrying it? Get nRF52840 (Bluetooth). Plugging it in on your roof? ESP32 is fine and gives you WiFi.
+    **Simple rule:** Carrying it? Get nRF52840 (Bluetooth). Plugging it in on your roof? ESP32 is fine and gives you WiFi.
 
 ---
 
@@ -373,11 +372,12 @@ For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the
 
 ---
 
-#### Additional Resources
+#### Next Steps
 
+- [How to Connect](/docs/how-to-connect.html) -- set up your new radio and join the Arizona mesh
+- [Recommended Settings](/docs/recommended-settings.html) -- configure your node for the Arizona network
 - [Official Meshtastic Hardware List](https://meshtastic.org/docs/hardware/devices/)
 - [Meshtastic Getting Started Guide](https://meshtastic.org/docs/getting-started/)
-- [Meshtastic Antenna Guide](https://meshtastic.org/docs/hardware/antennas/lora-antenna/)
 
 ---
 

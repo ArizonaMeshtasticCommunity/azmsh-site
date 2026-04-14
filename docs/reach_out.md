@@ -40,11 +40,3 @@ We provide an IRC bridge for those who prefer it over Discord.
 
 We have a shared mailbox at [contact@azmsh.net](mailto:contact@azmsh.net). If you have any questions, concerns, or ideas, please do not hesitate to reach out.
 
----
-
-### Community Resources
-
-| Resource | Link |
-|:---------|:-----|
-| Contribute to this site | [GitHub](https://github.com/ArizonaMeshtasticCommunity/azmsh-site) |
-| IRC | [irc.libera.chat #azmsh](https://web.libera.chat/#azmsh) |
