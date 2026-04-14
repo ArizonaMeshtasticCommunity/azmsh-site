@@ -7,7 +7,9 @@ title: Recommended Settings
 These settings are based on real-world experience from the Arizona Meshtastic community. Following them helps keep our shared mesh network healthy and reliable for everyone.
 
 !!! note "Preset and Frequency"
-    The Arizona-specific **preset** and **frequency slot** are shared in our Discord server. [Join the Discord](https://discord.gg/HrKtyuFEQk) to get these settings before configuring your device.
+    The Arizona-specific **preset** and **frequency slot** are shared in our Discord server. Join to get these settings before configuring your device.
+
+    [:fontawesome-brands-discord: Join the Discord to Get Settings](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
 ---
 
@@ -33,7 +35,9 @@ Client is the standard role. Your node will participate in the mesh by rebroadca
 ### Router and Router Late
 
 !!! danger "DO NOT set your node to Router or Router Late without approval"
-    **These roles require explicit approval from the Arizona Meshtastic Infrastructure Team.** Setting your node to Router or Router Late without permission WILL cause problems for the entire mesh network — increased congestion, routing loops, and degraded performance for everyone. This is the #1 way people accidentally break the network. **Contact the Infrastructure Team on [Discord](https://discord.gg/HrKtyuFEQk) BEFORE changing to either of these roles.** No exceptions.
+    **These roles require explicit approval from the Arizona Meshtastic Infrastructure Team.** Setting your node to Router or Router Late without permission WILL cause problems for the entire mesh network — increased congestion, routing loops, and degraded performance for everyone. This is the #1 way people accidentally break the network. **Contact the Infrastructure Team BEFORE changing to either of these roles.** No exceptions.
+
+    [:fontawesome-brands-discord: Contact Infrastructure Team on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
 ---
 
@@ -85,7 +89,9 @@ MQTT lets your node upload diagnostic data to a shared server, which helps us mo
 
 ### How to Enable MQTT
 
-To enable MQTT uplink, you will need the community broker settings (server address, username, and password). **Join the [Discord](https://discord.gg/HrKtyuFEQk) to get them.**
+To enable MQTT uplink, you will need the community broker settings (server address, username, and password).
+
+[:fontawesome-brands-discord: Join the Discord for MQTT Settings](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
 Once you have the broker details:
 

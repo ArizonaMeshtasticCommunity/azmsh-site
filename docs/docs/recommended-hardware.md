@@ -256,7 +256,9 @@ Don't want to build anything? These come fully assembled. Mount them, configure 
     Set your rooftop node to **CLIENT**. This is the recommended role for home installations. See the [Recommended Settings](/docs/recommended-settings.html) page for details on all roles.
 
 !!! danger "Do NOT use Router or Router Late without Infrastructure Team approval"
-    These roles require explicit permission from the Arizona Meshtastic Infrastructure Team. Unauthorized use causes network-wide problems. Ask on [Discord](https://discord.gg/HrKtyuFEQk) first.
+    These roles require explicit permission from the Arizona Meshtastic Infrastructure Team. Unauthorized use causes network-wide problems.
+
+    [:fontawesome-brands-discord: Contact Infrastructure Team on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
 | Device | Solar | Battery | GPS | Price | Buy |
 |---|---|---|---|---|---|
