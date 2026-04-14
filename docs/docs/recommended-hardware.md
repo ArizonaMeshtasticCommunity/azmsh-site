@@ -4,23 +4,42 @@ title: Recommended Hardware
 
 # :material-radio-handheld: Recommended Hardware
 
-Looking to join Arizona's Meshtastic mesh network? This guide covers the best hardware for **personal handheld devices** and **permanent rooftop/base station nodes** for our statewide mesh infrastructure.
+New to Meshtastic? Here's what to buy. It's simpler than you think.
 
-!!! tip "New to Meshtastic? Start here"
-    Meshtastic turns inexpensive LoRa radios into a long-range, off-grid text messaging network — no cell service, no internet, no monthly fees. Your phone connects to a small radio via Bluetooth, and messages hop across the mesh from node to node.
+!!! tip "Two things you need"
+    **1. A handheld radio** — carry it with you, pairs with your phone via Bluetooth<br>
+    **2. A rooftop/attic node** — put it up high at your home to keep you connected
 
-    1. **Buy a radio** from the options below
-    2. **Download the app** — [Android](https://play.google.com/store/apps/details?id=com.geeksville.mesh) or [iOS](https://apps.apple.com/us/app/meshtastic/id1586432531)
-    3. **Pair via Bluetooth** and start chatting
-    4. **Join our [Discord](https://discord.gg/HrKtyuFEQk)** for help and to connect with the Arizona community
+    That's it. Buy these two things, download the [Meshtastic app](https://meshtastic.org/docs/getting-started/), and you're on the mesh.
 
-    Check the [official Meshtastic getting started guide](https://meshtastic.org/docs/getting-started/) for detailed setup instructions.
+---
+
+## :material-star: Our Top Picks
+
+### Handheld: RAK WisMesh Pocket V2 (~$99)
+
+The best all-around handheld for Arizona. GPS, great battery life, compact, durable. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
+
+:material-cart: **[Buy on RAK Store](https://store.rakwireless.com/products/wismesh-pocket)**
+
+### Rooftop Node: Station G2 (~$109)
+
+Put this on your roof or in your attic. It's the most powerful consumer Meshtastic radio available — 35 dBm output with a high-quality receive amplifier. One of these on your roof and you'll hear nodes for miles.
+
+:material-cart: **[Buy on B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)**
+
+!!! warning "Why you need a rooftop node"
+    **This is the #1 mistake new users make.** A handheld alone will struggle indoors and at range. If you can't hear anyone on the mesh, it's almost always because you don't have a node up high. Put a Station G2 in your attic or on your roof and the difference is night and day.
+
+---
+
+**Want more options or details?** Keep reading below for budget picks, build guides, and antenna recommendations.
 
 ---
 
 ## :material-chip: Quick Reference: ESP32 vs nRF52840
 
-Before picking a device, understand the two main chip platforms:
+Two chip platforms power Meshtastic devices:
 
 | | **nRF52840** | **ESP32 / ESP32-S3** |
 |---|---|---|
