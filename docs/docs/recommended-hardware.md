@@ -20,6 +20,9 @@ New to Meshtastic? Here's what to buy. It's simpler than you think.
 
 The best all-around handheld for Arizona. GPS, huge 3200 mAh battery (3+ days with GPS and screen active), compact, IP66 waterproof, solar charging connector. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
 
+!!! warning "Upgrade the stock antenna"
+    The stock antenna is weak (500-600m range). We highly recommend replacing it with the Muziworks 17cm whip antenna (see Antenna Guide below) — it's the single biggest improvement you can make.
+
 :material-cart: **[Buy on RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket)** | **[Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)**
 
 #### Rooftop Node: Station G2 (~$100-130)
@@ -58,7 +61,7 @@ These radios pair with your phone over Bluetooth so you can type messages on you
     **Our recommendation: [Muziworks 17cm Whip Antenna](https://muzi.works/products/whip-antenna-17cm) (~$12)**
 
     - **SMA Male connector** — fits most handhelds directly
-    - **SWR of 1.3** (98% efficient) vs stock antenna SWR of 3.5 (69% efficient)
+    - Community reports significantly better range compared to stock antennas (manufacturer-rated SWR of 1.3)
     - 17cm flexible whip, 915 MHz tuned
     - Available individually (~$12) or in a [4-pack (~$36)](https://muzi.works/products/4-pack-whip-antenna-17cm-915mhz)
     - Also available on [Amazon](https://www.amazon.com/muzi-%E1%B4%A1%E1%B4%8F%CA%80%E1%B4%8B%EA%9C%B1-915Mhz-Antenna-Meshtastic/dp/B0D7D6866W)
@@ -83,6 +86,21 @@ The **L1 Pro** (~$43) is worth the extra $13 — bigger 1.3" OLED screen, joysti
 
 ---
 
+#### :material-battery-high: Battery Champion: Heltec T114 (~$25-45)
+
+The best budget-to-mid-range option if battery life is your priority. The T114 supports a standard 18650 battery, giving it up to a week of runtime without charging — significantly outperforming the T-Echo on battery life at a lower price. Color TFT display, solar input, and ultra-low sleep current round out an impressive feature set.
+
+- **Battery:** 800 mAh built-in or 18650 cell (up to ~3000 mAh, up to a week runtime)
+- **Screen:** 1.14" Color TFT
+- **GPS:** Built-in
+- **Extras:** Solar charging input, ultra-low sleep current
+
+Available in several variants — the base model starts around $25, and versions with 18650 battery holder run ~$35-45.
+
+:material-cart: [Heltec Store](https://heltec.org/project/mesh-node-t114/)
+
+---
+
 #### :material-star-half-full: Mid-Range Pick: LILYGO T-Echo (~$60-68)
 
 A proven community favorite. The e-ink display (like a Kindle) is perfectly readable in direct Arizona sunlight and barely uses any battery. One of the longest-lasting handhelds available.
@@ -95,6 +113,8 @@ A proven community favorite. The e-ink display (like a Kindle) is perfectly read
     The T-Echo's SX1262 radio can be permanently damaged if powered on without an antenna connected.
 
 :material-cart: [LILYGO Store (~$60)](https://lilygo.cc/products/t-echo-meshtastic) | [Rokland (~$68)](https://store.rokland.com/products/lilygo-ttgo-meshtastic-t-echo-white-lora-sx1262-wireless-module-915mhz-nrf52840-gps-for-arduino)
+
+**Alternative: Elecrow ThinkNode M1 (~$40-58)** — A T-Echo alternative with a bigger 1200 mAh battery and E-Ink display at a lower price point. Worth considering if you like the T-Echo form factor but want more battery for less money.
 
 ---
 
@@ -184,6 +204,9 @@ The community favorite for serious coverage. Transmits at up to **36.5 dBm (4.5W
 
 Pair with a [Rokland 5.8 dBi Fiberglass Antenna](https://store.rokland.com/products/5-8-dbi-n-male-omni-outdoor-915-mhz-antenna-large-profile-32-height-for-helium-rak-miner-2-nebra-indoor-bobcat) (~$30-40) and a waterproof enclosure. **Total build: ~$180-220.**
 
+!!! danger "EIRP compliance note"
+    At full 36.5 dBm output with a high-gain antenna (5.8+ dBi), you may exceed US ISM 915 MHz EIRP limits. If using a high-gain antenna, reduce TX power in Meshtastic settings to stay compliant.
+
 !!! warning "Frequently out of stock"
     The Station G2 is extremely popular and often sells out. Check [B&Q Consulting's shop](https://shop.uniteng.com/shop-2/) regularly.
 
@@ -202,6 +225,9 @@ The cheapest way to get a rooftop node running. Has WiFi for MQTT (internet brid
 - **Solar:** Has solar panel interface
 
 Put it in a waterproof junction box (~$10), add a 915 MHz antenna (~$15-40), and run a USB cable from inside. **Total build: ~$50-80.**
+
+!!! note "Firmware and power requirements"
+    Requires Meshtastic firmware 2.7.20 or newer. TX current draw is high (960 mA) — use a quality USB power supply.
 
 :material-cart: [Heltec Store](https://heltec.org/project/wifi-lora-32-v4/) | [Rokland](https://store.rokland.com/products/heltec-wifi-lora-32v4-esp32s3-sx1262-lora-node-meshtastic-lorawan)
 
@@ -227,7 +253,7 @@ Pairs the ultra-efficient nRF52840 chip with a **1W (30 dBm) power amplifier**. 
 Don't want to build anything? These come fully assembled. Mount them, configure Meshtastic settings, done.
 
 !!! info "Node role for Arizona rooftop nodes"
-    Set the device role to **ROUTER** (or **ROUTER_LATE** if you want it to repeat only when no other routers are available).
+    Set the device role to **ROUTER_LATE** for residential rooftop nodes. **Do NOT use ROUTER** — that role is only for strategic mountaintop or tower placements with line-of-sight coverage. ROUTER is the #1 most misused setting and can cause unnecessary network congestion. Use **ROUTER_LATE** (repeats only when no other routers respond) or **CLIENT** for home rooftop deployments.
 
 | Device | Solar | Battery | GPS | Price | Buy |
 |---|---|---|---|---|---|
@@ -241,6 +267,9 @@ Don't want to build anything? These come fully assembled. Mount them, configure 
 - **Easiest deploy:** WisMesh Repeater — IP67 weatherproof, mount and forget
 - **Premium turnkey:** Atlavox Beacon — professional mounting hardware, dual SMA connectors, rugged build
 - **Need WiFi/MQTT?** Heltec V4 Solar Node — Heltec V4 board (+28 dBm), 25W solar panel, 6x 18650 battery bay, 5.5 dBi IP67 antenna, mast brackets included
+
+!!! warning "Arizona heat and small solar panels"
+    In Arizona's extreme heat (115F+), small solar panels (5W and under) may not sustain nodes long-term. For permanent Arizona deployments, consider nodes with 10W+ panels or supplement with a larger panel.
 
 ---
 
