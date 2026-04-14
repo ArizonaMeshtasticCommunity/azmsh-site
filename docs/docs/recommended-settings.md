@@ -87,7 +87,7 @@ Neighbor Info is a module that periodically broadcasts a list of your node's dir
 
 Neighbor Info packets are small and infrequent, so the channel congestion impact is very low.
 
-#### Recommended Update Interval
+**Recommended Update Interval**
 
 | Node type | Interval | Seconds |
 |:----------|:---------|:--------|
@@ -150,7 +150,7 @@ MQTT lets your node upload diagnostic data to a shared server, which helps us mo
     - **Does**: Shares your node's position, battery level, signal metrics, and channel utilization with the community map and monitoring tools.
     - **Does not**: Send your private messages, direct messages, or any encrypted channel content to any server.
 
-### How to Enable MQTT
+**How to Enable MQTT**
 
 To enable MQTT uplink, you will need the community broker settings (server address, username, and password).
 
