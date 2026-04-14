@@ -135,7 +135,10 @@ If you care about raw RF performance in a portable package, the Nano G2 Ultra ha
 
 ## :material-home-roof: Rooftop / Base Station Nodes
 
-These are permanent, weatherproofed nodes mounted high on your roof, fence, or mast. They are the backbone of Arizona's mesh network — every rooftop node dramatically improves coverage for everyone nearby.
+!!! warning "You NEED a rooftop or attic node"
+    **If you're having trouble connecting or can't hear other nodes, this is why.** A handheld alone will struggle indoors and at range. The single best thing you can do for your mesh experience is put a powerful node on your roof or in your attic. Every rooftop node dramatically improves coverage for everyone nearby — including yourself.
+
+These are permanent nodes mounted high on your roof, attic, fence, or mast. They are the backbone of Arizona's mesh network. We recommend **one of three devices** for this role:
 
 !!! tip "Height is everything"
     In Meshtastic, **antenna height matters more than antenna gain**. A modest 3 dBi antenna mounted at 30 feet will almost always outperform a high-gain 9 dBi antenna at 6 feet. Get your node as high as possible — roof peaks, chimney mounts, or antenna masts.
@@ -143,63 +146,79 @@ These are permanent, weatherproofed nodes mounted high on your roof, fence, or m
 !!! info "Arizona climate considerations"
     Our desert climate means extreme heat (115F+), intense UV, and monsoon storms. Choose **IP67-rated enclosures**, UV-resistant materials, and ensure adequate ventilation or shade for electronics. Solar panels perform exceptionally well here year-round.
 
-### Build Tiers
+### The Three Recommended Rooftop Devices
 
 ---
 
-### :material-currency-usd: Budget Build (~$60-80)
+### :material-star: Budget Pick: Heltec LoRa32 V4 (~$25-30)
 
-Best for getting a rooftop node up quickly without breaking the bank.
+The cheapest way to get a rooftop node running. ESP32-S3 based with built-in OLED screen and WiFi for MQTT gateway functionality.
 
-| Component | Recommendation | Est. Price |
-|---|---|---|
-| **Radio** | [RAK WisBlock Starter Kit](https://store.rakwireless.com/products/wisblock-meshtastic-starter-kit) (RAK19007 + RAK4631) | ~$30-35 |
-| **Enclosure** | Weatherproof junction box (IP65+) from Home Depot/Amazon | ~$10-15 |
-| **Antenna** | [IPEX-to-SMA pigtail](https://store.rokland.com/collections/all-helium-antennnas) + basic 3 dBi 915 MHz antenna | ~$15-20 |
-| **Power** | USB power adapter + weatherproof cable entry | ~$10 |
+| Spec | Detail |
+|---|---|
+| **Chip** | ESP32-S3 + SX1262 |
+| **TX Power** | Up to 22 dBm |
+| **GPS** | No (not needed for a fixed rooftop node) |
+| **Power** | USB-C (wall power recommended) |
+| **WiFi** | Yes — can serve as MQTT gateway |
+| **Price** | ~$25-30 |
 
-This build uses wall power (run a USB cable from inside). The RAK WisBlock Starter Kit is nRF52840-based, pre-flashed with Meshtastic, and draws minimal power. Pair it with a decent outdoor antenna mounted as high as possible.
+Put it in a weatherproof junction box (IP65+, ~$10 from Home Depot), add a [3 dBi 915 MHz antenna](https://store.rokland.com/collections/all-helium-antennnas) (~$15), and run a USB cable from inside. Total build: **~$50-55**.
 
----
+**Best for:** Getting a rooftop node up fast and cheap. Great starter infrastructure node.
 
-### :material-currency-usd::material-currency-usd: Mid-Range Solar Build (~$150-200)
-
-A self-contained solar-powered node — mount it and forget it.
-
-| Component | Recommendation | Est. Price |
-|---|---|---|
-| **Radio** | [RAK WisBlock Starter Kit](https://store.rakwireless.com/products/wisblock-meshtastic-starter-kit) (RAK19007 + RAK4631) | ~$30-35 |
-| **Enclosure** | [RAK Unify Enclosure IP67](https://store.rakwireless.com/products/unify-enclosure-ip67-150-100-45mm) (150x100x45mm) | ~$40-50 |
-| **Solar panel** | [RAK Unify Solar Panel](https://store.rokland.com/products/rak-wireless-unify-enclosure-ip65-solar-panel-mounting-plate-and-screw-boss) (5-6W) | ~$20-30 |
-| **Battery** | 3.7V 3200-5200 mAh LiPo (fits Unify enclosure) | ~$10-15 |
-| **Antenna** | [Rokland 5.8 dBi Fiberglass Omni 915 MHz](https://store.rokland.com/products/meshtastic-compatible-6-dbi-n-female-omni-outdoor-915-mhz-antenna-kit-with-6-10-or-15-cable-choice) + cable kit | ~$40-50 |
-
-The RAK Unify Enclosure system is purpose-built for Meshtastic outdoor deployments. It has mounting plates for the WisBlock board, integrated solar panel mount, and IP67 weatherproofing. The 5.8 dBi fiberglass omni antenna from Rokland is a community favorite for rooftop nodes.
+:material-cart: [Buy on Heltec Store](https://heltec.org/project/wifi-lora-32-v4/)
 
 ---
 
-### :material-currency-usd::material-currency-usd::material-currency-usd: High-Performance Build (~$250-400)
+### :material-star::material-star: Mid-Range Pick: Station G2 (~$109)
 
-Maximum range and reliability for a key infrastructure node.
+The community favorite for serious infrastructure. 35 dBm TX power (3.16W) and an ultra-low noise LNA that improves receive sensitivity by ~4 dB over typical devices. This is the node you deploy to anchor a large coverage area.
 
-| Component | Recommendation | Est. Price |
-|---|---|---|
-| **Radio** | [B&Q Station G2](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/) — 35 dBm TX power, ultra-low noise LNA | ~$109 |
-| **Enclosure** | NEMA-rated weatherproof box or [RAK Unify Large Enclosure](https://store.rakwireless.com/products/unify-enclosure-ip67-150x100x45mm-with-pre-mounted-m8-5-pin-and-rp-sma-antenna-ip-rated-connectors) | ~$40-60 |
-| **Antenna** | [Rokland 5.8 dBi Fiberglass Omni](https://store.rokland.com/products/meshtastic-compatible-6-dbi-n-female-omni-outdoor-915-mhz-antenna-kit-with-6-10-or-15-cable-choice) or [8 dBi for long range](https://store.rokland.com/products/8-dbi-omni-outdoor-915mhz-fiberglass-antenna-for-lora-halow-application) | ~$40-70 |
-| **Power** | Wall power recommended (ESP32-S3 draws more power) | ~$10-15 |
-| **Surge protection** | PolyPhaser or gas discharge tube lightning arrestor | ~$30-50 |
+| Spec | Detail |
+|---|---|
+| **Chip** | ESP32-S3 + SX1262 + 35 dBm PA + LNA |
+| **TX Power** | Up to 35 dBm (3.16W at P1dB) |
+| **GPS** | Optional add-on |
+| **Power** | USB-C (wall power — ESP32-S3 draws more power) |
+| **WiFi** | Yes — can serve as MQTT gateway |
+| **Price** | ~$109 |
 
-The Station G2 is in a class of its own for raw RF performance — 35 dBm PA (3.16W at P1dB) and an ultra-low noise LNA improving receive sensitivity by ~4 dB over typical devices. This is the node you deploy on a hilltop or tall building to anchor a large coverage area. It uses ESP32-S3 so it also supports WiFi for MQTT gateway functionality.
+Pair it with a [Rokland 5.8 dBi Fiberglass Omni](https://store.rokland.com/products/meshtastic-compatible-6-dbi-n-female-omni-outdoor-915-mhz-antenna-kit-with-6-10-or-15-cable-choice) (~$40-50) and a weatherproof enclosure. Total build: **~$200-250**.
+
+**Best for:** The backbone of your local mesh. If everyone in a neighborhood has one of these on their roof, coverage problems disappear.
 
 !!! warning "Station G2 is frequently out of stock"
     The Station G2 is extremely popular and often sells out. Check [B&Q Consulting's shop](https://shop.uniteng.com/shop-2/) regularly or join their notification list.
 
+:material-cart: [Buy on B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)
+
 ---
 
-### :material-check-all: Ready-to-Deploy Option: RAK WisMesh Repeater (~$99-299)
+### :material-star::material-star::material-star: Max Power: RAK 1W Booster Setup (~$150-200)
 
-Don't want to build anything? The [WisMesh Repeater](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater) is a complete, pre-assembled solar repeater in an IP67 enclosure. Just mount it, point the solar panel south, and you're done.
+The most powerful option available. The RAK 1W (30 dBm) PA+LNA booster module paired with a WisBlock base gives you serious reach while keeping the efficient nRF52840 platform for excellent battery life with solar.
+
+| Spec | Detail |
+|---|---|
+| **Chip** | nRF52840 (RAK4631) + RAK 1W PA+LNA booster |
+| **TX Power** | Up to 30 dBm (1W) |
+| **GPS** | Optional (RAK1910 module) |
+| **Power** | USB or solar — nRF52840 is ultra low power |
+| **WiFi** | No (nRF52840 platform) |
+| **Price** | ~$150-200 for full kit |
+
+This is the setup for a truly self-sustaining solar rooftop node. The nRF52840 draws so little power that a small solar panel keeps it running 24/7 even through cloudy days. Pair with the [RAK Unify Enclosure IP67](https://store.rakwireless.com/products/unify-enclosure-ip67-150-100-45mm) (~$40-50), a solar panel, and a quality antenna for a mount-and-forget deployment.
+
+**Best for:** Remote or solar-only locations. Maximum power with minimum energy draw. Serious infrastructure operators.
+
+:material-cart: [Buy RAK WisBlock Starter Kit](https://store.rakwireless.com/products/wisblock-meshtastic-starter-kit) + [1W Booster Module](https://store.rakwireless.com/products/wisblock-1w-booster-module)
+
+---
+
+### :material-check-all: Don't Want to Build? RAK WisMesh Repeater (~$99-299)
+
+The [WisMesh Repeater](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater) is a complete, pre-assembled solar repeater in an IP67 enclosure. Just mount it, point the solar panel south, and you're done.
 
 - Variants with 3200 mAh or 5200 mAh battery
 - Pre-flashed Meshtastic firmware
