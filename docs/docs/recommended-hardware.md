@@ -16,447 +16,286 @@ New to Meshtastic? Here's what to buy. It's simpler than you think.
 
 ## :material-star: Our Top Picks
 
-### Handheld: RAK WisMesh Pocket V2 (~$99)
+### Handheld: RAK WisMesh Pocket V2 (~$89-99)
 
-The best all-around handheld for Arizona. GPS, great battery life (up to 5+ days), compact, durable. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
+The best all-around handheld for Arizona. GPS, huge 3200 mAh battery (3+ days with GPS and screen active), compact, IP66 waterproof, solar charging connector. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
 
-:material-cart: **[Buy on RAK Store](https://store.rakwireless.com/products/wismesh-pocket)**
+**Tip:** The stock antenna is weak (~500-600m range). Upgrade to a [MESHTAC 4 dBi gooseneck](https://store.rokland.com/products/meshtac-gooseneck-tactical-antenna-4-dbi-gain-sma-male-915-mhz-flexible-for-meshtastic-lora) (~$20) for a big improvement.
 
-### Rooftop Node: Station G2 (~$109)
+:material-cart: **[Buy on RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket)** | **[Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)**
 
-Put this on your roof or in your attic. It's the most powerful consumer Meshtastic radio available — it can transmit at much higher power than a handheld (35 dBm / 3.16W) and has a special amplifier that helps it hear weaker signals from far away. One of these on your roof and you'll hear nodes for miles.
+### Rooftop Node: Station G2 (~$100-130)
+
+The most powerful consumer Meshtastic radio available. Transmits at up to **36.5 dBm (4.5W)** with a dedicated low-noise amplifier for hearing faint signals. Put this on your roof or in your attic and you'll hear nodes for miles.
 
 :material-cart: **[Buy on B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)**
 
 !!! warning "Why you need a rooftop node"
-    **This is the #1 mistake new users make.** A handheld alone will struggle indoors and at range. If you can't hear anyone on the mesh, it's almost always because you don't have a node up high. Put a Station G2 in your attic or on your roof and the difference is night and day.
+    **This is the #1 mistake new users make.** A handheld alone will struggle indoors and at range. Put a node up high and the difference is night and day.
 
 ---
 
-**Want more options or details?** Keep reading below for budget picks, build guides, and antenna recommendations.
+## :material-cellphone: Handheld Devices
+
+These radios pair with your phone over Bluetooth so you can type messages on your phone screen. All use the nRF52840 chip (great battery life, Bluetooth only) unless noted.
+
+### Comparison Table
+
+| Device | Battery | Est. Battery Life | Screen | Price | Best For |
+|---|---|---|---|---|---|
+| **Wio Tracker L1** | 800 mAh | ~2-3 days | 0.96" OLED | ~$30 | :material-star: Budget pick |
+| **Wio Tracker L1 Pro** | 2000 mAh | ~2.5 days | 1.3" OLED | ~$43 | Budget w/ joystick + solar |
+| **Heltec T114** | 800-3000 mAh | Up to a week (18650) | 1.14" Color | ~$25-45 | Battery champion |
+| **LILYGO T-Echo** | 850 mAh | ~5-7 days | 1.54" E-Ink | ~$60-68 | Mid-range, sunlight-readable |
+| **RAK WisMesh Pocket V2** | 3200 mAh | ~3+ days (GPS on) | 1.3" OLED | ~$89-99 | :material-trophy: Best overall |
+| **Nano G2 Ultra** | Internal | ~5 days | None | ~$85-90 | Best antenna engineering |
+| **LILYGO T-Deck Plus** | 2000 mAh | ~1-2 days | 2.8" Color LCD | ~$77-87 | Full keyboard, standalone (ESP32) |
+
+!!! info "Battery life varies"
+    These estimates assume typical use — mostly listening with occasional messages. Heavy messaging, constant screen-on, or active GPS tracking will reduce battery life. Power-saving mode can extend it significantly.
 
 ---
 
-## :material-wifi: WiFi vs Bluetooth — What's the Difference?
+### :material-star-outline: Budget Pick: Seeed Wio Tracker L1 (~$30)
 
-Meshtastic devices can connect to your phone (or other devices) using either **WiFi** or **Bluetooth**. Here's when to use each:
+The best value in Meshtastic right now. For around $30 you get a radio, GPS, screen, and battery — ready to go.
 
-### Bluetooth (for handhelds you carry around)
+- **Battery:** 800 mAh (~2-3 days typical)
+- **Screen:** 0.96" OLED
+- **GPS:** Built-in
 
-Most handheld Meshtastic radios connect to your phone using **Bluetooth**. It works just like connecting wireless earbuds — open the Meshtastic app on your phone, pair with your radio, and you're set. Bluetooth uses very little battery, which is why portable radios use it.
+The **L1 Pro** (~$43) is worth the extra $13 — bigger 1.3" OLED screen, joystick navigation, solar charging, 2000 mAh battery, and an RP-SMA antenna connector for upgrades.
 
-Some of the best battery-life chips (called nRF52840) only support Bluetooth — no WiFi at all. That's actually a good thing for a handheld because it means the battery lasts much longer.
-
-### WiFi (for rooftop/stationary nodes)
-
-If you have a node that stays in one place (like on your roof or in your attic), **WiFi** is the better choice. WiFi lets your node:
-
-- **Share data faster** with the internet using something called MQTT (think of it as a bridge between your mesh network and the wider world)
-- **Let multiple devices connect** to it at once — not just one phone
-- **Stay always-connected** to your home network for remote monitoring
-
-Rooftop nodes that support WiFi use a different chip (ESP32) which uses more power, but since they're plugged into wall power anyway, that doesn't matter.
-
-!!! tip "Simple rule of thumb"
-    **Carrying it with you?** Get a Bluetooth device (nRF52840 chip).<br>
-    **Mounting it on your roof?** Get a WiFi device (ESP32 chip) and plug it in.
+:material-cart: [Seeed Studio L1 ($29.90)](https://www.seeedstudio.com/Wio-Tracker-L1-p-6453.html) | [L1 Pro ($42.90)](https://www.seeedstudio.com/Wio-Tracker-L1-Pro-p-6454.html) | [Amazon (L1 Pro)](https://www.amazon.com/seeed-studio-L1-Pro-Tracker/dp/B0FNCS5ST1)
 
 ---
 
-## :material-chip: Quick Reference: The Two Chip Types
+### :material-star-half-full: Mid-Range Pick: LILYGO T-Echo (~$60-68)
 
-Meshtastic devices are built on one of two chips. You don't need to memorize this — just know that it affects battery life and whether the device has WiFi.
+A proven community favorite. The e-ink display (like a Kindle) is perfectly readable in direct Arizona sunlight and barely uses any battery. One of the longest-lasting handhelds available.
+
+- **Battery:** 850 mAh (~5-7 days typical, 2+ weeks in power-saving mode)
+- **Screen:** 1.54" E-Ink (always visible, even in bright sun)
+- **GPS:** Built-in
+
+!!! warning "Always connect the antenna before powering on"
+    The T-Echo's SX1262 radio can be permanently damaged if powered on without an antenna connected.
+
+:material-cart: [LILYGO Store (~$60)](https://lilygo.cc/products/t-echo-meshtastic) | [Rokland (~$68)](https://store.rokland.com/products/lilygo-ttgo-meshtastic-t-echo-white-lora-sx1262-wireless-module-915mhz-nrf52840-gps-for-arduino)
+
+---
+
+### :material-trophy: Best Overall: RAK WisMesh Pocket V2 (~$89-99)
+
+The gold standard grab-and-go handheld. Comes ready to use out of the box — no flashing, no tinkering. Big battery, IP66 waterproof, solar connector, and modular expansion slots.
+
+- **Battery:** 3200 mAh (~3+ days with GPS and screen active)
+- **Screen:** 1.3" OLED with button navigation
+- **GPS:** Built-in
+- **Extras:** Solar connector, 2x WisBlock sensor slots, external SMA antenna connector
+
+:material-cart: [RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket) | [Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket) | [Atlavox](https://atlavox.com/products/rak-wismesh-pocket)
+
+---
+
+### :material-signal-variant: Best Antenna: B&Q Nano G2 Ultra (~$85-90)
+
+If you care about the best possible signal from a handheld, this is it. The Nano G2 Ultra has a custom wideband antenna (815-940 MHz) engineered specifically for body-proximity use — most antennas lose performance near your body, this one doesn't. No screen — use it with your phone app.
+
+- **Battery Life:** ~5 days typical
+- **GPS:** Built-in
+- **Antenna:** Custom wideband internal, designed for on-body carry
+
+:material-cart: [B&Q Consulting (~$85)](https://shop.uniteng.com/product/meshtastic-mesh-device-nano-g2-ultra/) | [Rokland](https://store.rokland.com/products/meshtastic-mesh-device-nano-g2-ultra-low-power-wideband-lora-for-outdoor-adventures)
+
+---
+
+### :material-keyboard: Standalone: LILYGO T-Deck Plus (~$77-87)
+
+Want to leave your phone in your pocket? The T-Deck Plus has a full physical keyboard, trackball, 2.8" touchscreen, GPS, WiFi, and Bluetooth. Think of it as a tiny standalone messenger. Uses the ESP32-S3 chip (has WiFi but shorter battery life).
+
+- **Battery:** 2000 mAh (~1-2 days)
+- **Screen:** 2.8" Color LCD touchscreen
+- **GPS:** Built-in
+- **Chip:** ESP32-S3 (WiFi + Bluetooth)
+
+:material-cart: [LILYGO Store (~$77)](https://lilygo.cc/products/t-deck-plus-meshtastic) | [Amazon](https://www.amazon.com/LILYGO-ESP32-S3-LORA-89-2-8-inch-Development/dp/B0FBGX1VP5)
+
+---
+
+### :material-map-marker: Card-Style Trackers
+
+Credit-card-sized GPS trackers with no screen or buttons — toss one in a backpack, clip it to a pet collar, or leave it in a vehicle. They report location to the mesh automatically.
+
+**Our pick: RAK WisMesh Tag (~$39)**
+
+- **Battery:** 1000 mAh (**5-6 days** typical; 2-3 days with GPS always on)
+- **TX Power:** 22 dBm (standard)
+- **Waterproof:** IP66
+- **Sensors:** 3-axis accelerometer
+
+:material-cart: [RAK Store (~$39)](https://store.rakwireless.com/products/wismesh-tag-meshtastic-gps-lora-tracker-ip66) | [Rokland (~$50)](https://store.rokland.com/products/wismesh-tag-from-rakwireless-mokosmart-meshtastic-compatible-card-sized-node-us915-mhz)
+
+**Alternative: SenseCAP T-1000e (~$39)**
+
+Similar card form factor but **smaller battery (700 mAh)** and **much lower TX power (13.9 dBm vs 22 dBm)**. The WisMesh Tag is the better choice — nearly double the battery life and significantly more transmit power for the same price.
+
+!!! warning "Make sure you buy the T-1000**e**"
+    The "e" is the Meshtastic-compatible version. Other T-1000 models won't work with Meshtastic.
+
+:material-cart: [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html) | [Amazon](https://www.amazon.com/SenseCAP-Card-Tracker-T1000-Meshtastic/dp/B0DJ6KGXKB)
+
+---
+
+## :material-home-roof: Rooftop / Base Station Nodes
+
+These are permanent nodes mounted high on your roof, attic, or mast. They're the backbone of Arizona's mesh network.
+
+!!! tip "Height is everything"
+    **How high your antenna is matters more than how fancy it is.** A basic antenna at 30 feet will almost always outperform an expensive antenna at 6 feet.
+
+!!! info "Arizona climate note"
+    Extreme heat (115F+), intense UV, and monsoon storms. Use **waterproof enclosures** (IP67+) and ensure ventilation. The good news: solar panels perform exceptionally well here year-round.
+
+---
+
+### :material-star: Budget: Heltec LoRa32 V4 (~$25-30)
+
+The cheapest way to get a rooftop node running. Has WiFi for MQTT (internet bridge). Higher TX power than most budget boards at **28 dBm**.
+
+- **Chip:** ESP32-S3 (WiFi + Bluetooth)
+- **TX Power:** 28 dBm
+- **Power:** USB-C (plug into a wall outlet)
+- **GPS:** No (not needed — set location manually)
+- **Solar:** Has solar panel interface
+
+Put it in a waterproof junction box (~$10), add a 915 MHz antenna (~$15-40), and run a USB cable from inside. **Total build: ~$50-80.**
+
+:material-cart: [Heltec Store](https://heltec.org/project/wifi-lora-32-v4/) | [Rokland](https://store.rokland.com/products/heltec-wifi-lora-32v4-esp32s3-sx1262-lora-node-meshtastic-lorawan)
+
+---
+
+### :material-star::material-star: Best Overall: Station G2 (~$100-130)
+
+The community favorite for serious coverage. Transmits at up to **36.5 dBm (4.5W)** with a dedicated low-noise amplifier for ~4 dB better receive sensitivity than standard radios. This is the node you put on your roof to anchor coverage for your whole neighborhood.
+
+- **Chip:** ESP32-S3 (WiFi + Bluetooth)
+- **TX Power:** Up to 36.5 dBm (4.5W)
+- **Power:** USB-C (PD) or 9-19VDC external
+- **WiFi:** Yes — MQTT gateway capable
+- **Screen:** 1.3" OLED
+
+Pair with a [Rokland 5.8 dBi Fiberglass Antenna](https://store.rokland.com/products/5-8-dbi-n-male-omni-outdoor-915-mhz-antenna-large-profile-32-height-for-helium-rak-miner-2-nebra-indoor-bobcat) (~$30-40) and a waterproof enclosure. **Total build: ~$180-220.**
+
+!!! warning "Frequently out of stock"
+    The Station G2 is extremely popular and often sells out. Check [B&Q Consulting's shop](https://shop.uniteng.com/shop-2/) regularly.
+
+:material-cart: [B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)
+
+---
+
+### :material-star::material-star::material-star: Max Power: RAK WisMesh 1W Booster Kit (~$39+)
+
+Pairs the ultra-efficient nRF52840 chip with a **1W (30 dBm) power amplifier**. The low power draw means a small solar panel can keep it running 24/7. The kit itself is only ~$39 — add an enclosure, antenna, solar panel, and battery for a complete build (~$100-150 total).
+
+- **Chip:** nRF52840 + SKY66122 PA
+- **TX Power:** 30 dBm (1W)
+- **Power:** Requires stable 5V supply (3.3V rail can't handle TX surge)
+- **WiFi:** No
+
+**Note:** Assembly required. Needs a 5V power supply, enclosure, and antenna (not included).
+
+:material-cart: [RAK Store (~$39)](https://store.rakwireless.com/products/wismesh-1w-booster-starter-kit) | [Rokland](https://store.rokland.com/products/coming-soon-wismesh-1w-booster-starter-kit-with-nrf52840-sx1262-and-sky66122-pa-for-extended-meshtastic-range)
+
+---
+
+### :material-package-variant-closed: Pre-Built Solar Nodes (No Assembly Required)
+
+Don't want to build anything? These come fully assembled. Mount them, configure Meshtastic settings, done.
+
+!!! info "Node role for Arizona rooftop nodes"
+    Set the device role to **ROUTER** (or **ROUTER_LATE** if you want it to repeat only when no other routers are available).
+
+| Device | Solar | Battery | GPS | Price | Buy |
+|---|---|---|---|---|---|
+| **WisMesh Repeater** | Built-in | Built-in | No | ~$70-90 | [RAK Store](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater) |
+| **WisMesh Repeater Mini** | Built-in | Built-in | Yes | ~$50-70 | [RAK Store](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater-mini) |
+| **SenseCAP Solar P1 Pro** | 5W panel | 4x 18650 included | Yes | ~$90 | [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html) |
+| **Atlavox Beacon** | Built-in | Built-in | Yes | ~$150-200 | [Atlavox](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node) |
+| **Heltec V4 Pre-Built** | No (USB power) | No | No | ~$80-120 | [Etsy](https://www.etsy.com/listing/1877304075/meshcoremeshtastic-outdoor-repeater) |
+
+- **Best value:** SenseCAP Solar P1 Pro — 5W solar panel, 4x 18650 batteries, GPS, ~$90
+- **Easiest deploy:** WisMesh Repeater — IP67 weatherproof, mount and forget
+- **Premium turnkey:** Atlavox Beacon — professional mounting hardware, dual SMA connectors, rugged build
+- **Need WiFi/MQTT?** Heltec V4 Pre-Built — the only pre-built option with WiFi, but needs constant USB power
+
+---
+
+## :material-antenna: Antenna Guide
+
+Your antenna has the single biggest impact on range — more than the radio itself.
+
+### Which Type?
+
+| Type | What It Does | When to Use It |
+|---|---|---|
+| **Omnidirectional** | Sends/receives in all directions (360°) | Most rooftop nodes |
+| **Directional (yagi)** | Focuses signal in one direction | Bridging two distant nodes |
+
+For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the right choice. **A 5-6 dBi omni is the sweet spot** for residential/suburban deployments.
+
+### Recommended Antennas
+
+| Antenna | Gain | Price | Best For | Link |
+|---|---|---|---|---|
+| **Rokland 5.8 dBi Fiberglass** | 5.8 dBi | ~$30-40 | All-around rooftop (32" tall) | [Buy](https://store.rokland.com/products/5-8-dbi-n-male-omni-outdoor-915-mhz-antenna-large-profile-32-height-for-helium-rak-miner-2-nebra-indoor-bobcat) |
+| **Rokland 8 dBi Low Profile** | 8 dBi | ~$50 | Flat terrain, max range | [Buy](https://store.rokland.com/products/8-dbi-omni-outdoor-915mhz-fiberglass-antenna-for-lora-halow-application) |
+| **ALFA AOA-915-5ACM** | 5 dBi | ~$25-35 | Compact outdoor (7" tall) | [Buy](https://store.rokland.com/products/alfa-aoa-915-5acm-5-dbi-omni-outdoor-915mhz-802-11ah-mini-antenna-for-lora-halow-application) |
+| **RAK WisMesh Blade** | ~3 dBi | ~$15-20 | Budget outdoor | [Buy](https://store.rakwireless.com/products/wismesh-antenna) |
+| **MESHTAC 4 dBi Gooseneck** | 4 dBi | ~$20-25 | Handheld upgrade (SMA) | [Buy](https://store.rokland.com/products/meshtac-gooseneck-tactical-antenna-4-dbi-gain-sma-male-915-mhz-flexible-for-meshtastic-lora) |
+
+!!! tip "Keep the cable short"
+    Every foot of cable loses a little signal. Use **LMR-240 or better** cable and keep runs to **10 feet or less**. The Rokland antenna kits include quality cable in 6, 10, 15, or 25 foot lengths.
+
+!!! warning "Higher gain = narrower beam"
+    An 8-10 dBi antenna focuses signal into a narrow horizontal band — great for flat terrain but bad for hilly areas. If you're in the mountains or have significant elevation changes, stick with 3-5 dBi.
+
+---
+
+## :material-chip: WiFi vs Bluetooth — Quick Reference
 
 | | **nRF52840** | **ESP32 / ESP32-S3** |
 |---|---|---|
 | **Battery life** | :material-battery-high: Great (days to weeks) | :material-battery-medium: OK (1-2 days) |
 | **WiFi** | :material-close: No | :material-check: Yes |
 | **Bluetooth** | :material-check: Yes | :material-check: Yes |
-| **Best for** | Handhelds, solar-powered nodes | Plugged-in rooftop nodes, WiFi gateways |
+| **Best for** | Handhelds, solar nodes | Plugged-in rooftop nodes, WiFi/MQTT gateways |
 
-!!! info "The trend in 2025-2026"
-    The Meshtastic community is shifting toward **nRF52840-based devices** for most use cases. They use dramatically less power, making them ideal for both pocket carry and solar-powered rooftop nodes. Choose ESP32 only if you specifically need WiFi connectivity (like an MQTT gateway on your roof).
-
----
-
-## :material-cellphone: Handheld Devices (Personal Carry)
-
-These are the radios you carry with you to send and receive messages on the mesh. They pair with your phone over Bluetooth so you can type messages on your phone screen instead of using tiny buttons.
-
-!!! warning "Indoor range is limited"
-    Handheld radios have small antennas and won't reach as far indoors — walls block the signal, especially the stucco-and-wire construction common in Arizona. If you're mostly indoors, pair your handheld with a rooftop node at your home. That rooftop node will relay your messages much farther than the handheld can on its own.
-
-### Comparison Table
-
-| Device | Battery | Est. Battery Life | Screen | Est. Price | Best For |
-|---|---|---|---|---|---|
-| **Wio Tracker L1** | 800 mAh | ~2-3 days | 0.96" OLED | ~$30 | :material-star: Budget pick |
-| **Heltec T114 V2** | 800 mAh (external) | ~3-5 days | 1.14" Color | ~$30-40 | Budget w/ color screen |
-| **LILYGO T-Echo** | 850 mAh | ~5-7 days | 1.54" E-Ink | ~$45-50 | Mid-range, best battery |
-| **LILYGO T-Deck** | External | ~1-2 days (depends on battery) | 2.8" Color LCD | ~$60-70 | Full keyboard, off-phone use |
-| **RAK WisMesh Pocket V2** | 3200 mAh | ~5-7 days | 1.3" OLED | ~$95-99 | :material-trophy: Best overall |
-| **Nano G2 Ultra** | 1100 mAh | ~3-5 days | 0.96" OLED | ~$70-90 | Best signal quality (handheld) |
-| **RAK WisMesh Tag** | 1000 mAh | ~2-3 days (GPS on) | None | ~$40-50 | Tiny GPS tracker |
-| **SenseCAP T-1000e** | 700 mAh | ~2-3 days | None | ~$35-40 | Card-sized tracker (see note below) |
-| **Heltec LoRa32 V4** | External | Depends on battery | 0.96" OLED | ~$25-30 | Cheapest entry (no GPS) |
-
-!!! info "Battery life varies"
-    These battery estimates assume typical use — the radio is mostly listening with occasional messages. Heavy messaging, keeping the screen on constantly, or active GPS tracking will reduce battery life. Power-saving mode can extend it significantly.
+**Simple rule:** Carrying it? Get nRF52840 (Bluetooth). Plugging it in on your roof? ESP32 is fine and gives you WiFi.
 
 ---
 
-### :material-star-outline: Budget Pick: Seeed Wio Tracker L1 (~$30)
-
-The best value in Meshtastic right now. For around $30 you get everything you need — a radio, GPS, screen, and battery — ready to go out of the box. Great way to try Meshtastic without spending a lot.
-
-- **Battery:** 800 mAh (~2-3 days typical)
-- **Screen:** 0.96" OLED
-- **GPS:** Built-in
-- **Connects to phone via:** Bluetooth
-
-The **Wio Tracker L1 Pro** (~$43) is worth the extra $13 — it has a bigger screen (1.3" OLED), a joystick for easier navigation, solar charging, and a much bigger 2000 mAh battery (~3-5 days).
-
-:material-cart: **Where to buy:**
-
-- [Seeed Studio (L1 — $29.90)](https://www.seeedstudio.com/Wio-Tracker-L1-p-6453.html)
-- [Seeed Studio (L1 Pro — $42.90)](https://www.seeedstudio.com/Wio-Tracker-L1-Pro-p-6454.html)
-- [Amazon (L1 Pro)](https://www.amazon.com/seeed-studio-L1-Pro-Tracker/dp/B0FNCS5ST1)
-
----
-
-### :material-star-half-full: Mid-Range Pick: LILYGO T-Echo (~$45-50)
-
-A proven favorite in the Meshtastic community. The e-ink display (like a Kindle screen) is perfectly readable in direct Arizona sunlight and barely uses any battery — this thing sips power. One of the longest-lasting handhelds you can buy.
-
-- **Battery:** 850 mAh (~5-7 days typical, up to 2+ weeks in power-saving mode)
-- **Screen:** 1.54" E-Ink (always visible, even in bright sun)
-- **GPS:** Built-in
-- **Connects to phone via:** Bluetooth
-
-:material-cart: **Where to buy:**
-
-- [LILYGO Official Store (~$45-49)](https://lilygo.cc/products/t-echo-meshtastic)
-- [Rokland (~$50)](https://store.rokland.com/products/lilygo-ttgo-meshtastic-t-echo-white-lora-sx1262-wireless-module-915mhz-nrf52840-gps-for-arduino)
-
----
-
-### :material-trophy: Best Overall Pick: RAK WisMesh Pocket V2 (~$99)
-
-The gold standard for a grab-and-go Meshtastic handheld. Comes ready to use right out of the box — no setup, no flashing, no tinkering. Big battery, quality build, and just works.
-
-- **Battery:** 3200 mAh (~5-7 days typical)
-- **Screen:** 1.3" OLED with button navigation
-- **GPS:** Built-in
-- **Connects to phone via:** Bluetooth
-- **Extras:** Pre-loaded with Meshtastic software, quality case, available in multiple colors
-
-:material-cart: **Where to buy:**
-
-- [RAK Wireless Store (~$99)](https://store.rakwireless.com/products/wismesh-pocket)
-- [Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)
-- [Atlavox](https://atlavox.com/products/rak-wismesh-pocket)
-
----
-
-### :material-signal-variant: Honorable Mention: B&Q Nano G2 Ultra (~$70-90)
-
-If you care about getting the best possible signal from a handheld, this is it. The Nano G2 Ultra has a specially designed antenna that works well even when you're holding it or it's in your pocket (most antennas lose performance near your body). Great for hikers and outdoor use.
-
-- **Battery:** 1100 mAh (~3-5 days typical)
-- **Screen:** 0.96" OLED
-- **GPS:** Built-in
-- **Connects to phone via:** Bluetooth
-
-:material-cart: **Where to buy:**
-
-- [B&Q Consulting Shop (~$85)](https://shop.uniteng.com/product/meshtastic-mesh-device-nano-g2-ultra/)
-- [Rokland](https://store.rokland.com/products/meshtastic-mesh-device-nano-g2-ultra-low-power-wideband-lora-for-outdoor-adventures)
-
----
-
-### :material-map-marker: Tiny Tracker: RAK WisMesh Tag (~$40-50)
-
-A credit-card-sized GPS tracker. No screen, no buttons — just put it in a backpack, attach it to a pet collar, or toss it in a vehicle. It reports its location to the mesh automatically.
-
-- **Battery:** 1000 mAh (~2-3 days with GPS tracking on)
-- **Screen:** None
-- **GPS:** Built-in
-- **Connects to phone via:** Bluetooth
-- **Waterproof:** IP66 rated
-
-:material-cart: **Where to buy:**
-
-- [RAK Wireless Store](https://store.rakwireless.com/products/wismesh-tag-meshtastic-gps-lora-tracker-ip66)
-- [Rokland](https://store.rokland.com/products/wismesh-tag-from-rakwireless-mokosmart-meshtastic-compatible-card-sized-node-us915-mhz)
-
----
-
-### :material-keyboard: Off-Phone Pick: LILYGO T-Deck (~$60-70)
-
-Want to leave your phone in your pocket? The T-Deck has a full physical keyboard built right in, so you can type and read messages without touching your phone. It runs on an ESP32-S3 chip with WiFi, Bluetooth, and GPS. Think of it as a tiny standalone messenger.
-
-- **Battery:** Needs an external battery (not included) — plan on a USB power bank
-- **Screen:** 2.8" Color LCD touchscreen
-- **GPS:** Built-in
-- **Connects to phone via:** Bluetooth or WiFi
-- **Chip:** ESP32-S3
-
-!!! note "Heads up"
-    The T-Deck does **not** have a built-in battery — you'll need to connect a USB power bank or battery pack. It also has no external antenna port, so range is limited compared to devices with replaceable antennas. Map setup (offline maps on the screen) can be tricky and isn't preloaded, so if GPS mapping on the device is important to you, be ready for some tinkering.
-
-:material-cart: **Where to buy:**
-
-- [Rokland (~$65)](https://store.rokland.com/products/lilygo-t-deck-portable-microcontroller-programmer-lora-915-mhz-h642)
-- [Amazon](https://www.amazon.com/LILYGO-ESP32-S3-LORA-89-2-8-inch-Development/dp/B0FBGX1VP5)
-
----
-
-### :material-credit-card: Card Tracker: SenseCAP T-1000e (~$35-40)
-
-A credit-card-sized GPS tracker similar to the WisMesh Tag. Clips to a backpack or fits in a pocket. No screen, no buttons — just automatic location reporting on the mesh.
-
-- **Battery:** 700 mAh (~2-3 days with GPS tracking on)
-- **Screen:** None
-- **GPS:** Built-in
-- **Connects to phone via:** Bluetooth
-- **Waterproof:** Yes
-
-!!! tip "We recommend the WisMesh Tag instead"
-    The **RAK WisMesh Tag** (listed above) has better battery life and better range than the T-1000e. If you're choosing between the two card-style trackers, go with the WisMesh Tag.
-
-:material-cart: **Where to buy:**
-
-- [Seeed Studio (official store)](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html)
-- [Amazon](https://www.amazon.com/SenseCAP-Card-Tracker-T1000-Meshtastic/dp/B0DJ6KGXKB)
-
-!!! warning "Make sure you buy the T-1000**e**"
-    There are multiple SenseCAP T-1000 models. You specifically need the **T-1000e** (the "e" stands for the Meshtastic-compatible version). The other T-1000 models are for different platforms and won't work with Meshtastic.
-
----
-
-## :material-home-roof: Rooftop / Base Station Nodes
-
-!!! warning "You NEED a rooftop or attic node"
-    **If you're having trouble connecting or can't hear other nodes, this is why.** A handheld alone will struggle indoors and at range. The single best thing you can do for your mesh experience is put a powerful node on your roof or in your attic. Every rooftop node dramatically improves coverage for everyone nearby — including yourself.
-
-These are permanent nodes mounted high on your roof, attic, fence, or mast. They're the backbone of Arizona's mesh network — like cell towers, but tiny and powered by you. We recommend **one of three devices** for this role:
-
-!!! tip "Height is everything"
-    In Meshtastic, **how high your antenna is matters more than how fancy it is**. A basic antenna mounted at 30 feet will almost always outperform an expensive antenna at 6 feet. Get your node as high as possible — roof peaks, chimney mounts, or antenna masts.
-
-!!! info "Arizona climate note"
-    Our desert climate means extreme heat (115F+), intense UV, and monsoon storms. Choose **waterproof enclosures** (IP67-rated), UV-resistant materials, and ensure some shade or ventilation for the electronics. The good news: solar panels perform exceptionally well here year-round.
-
-### The Three Recommended Rooftop Devices
-
----
-
-### :material-star: Budget Pick: Heltec LoRa32 V4 (~$25-30)
-
-The cheapest way to get a rooftop node running. This one has WiFi, so it can connect to your home network and share data with the wider Meshtastic world through the internet (called MQTT — think of it as a bridge between your local mesh and the global network).
-
-| Spec | Detail |
-|---|---|
-| **Chip** | ESP32-S3 (has WiFi) |
-| **Transmit Power** | Up to 22 dBm |
-| **GPS** | No (not needed — this node doesn't move) |
-| **Power** | USB-C (plug it into a wall outlet) |
-| **WiFi** | Yes — can share data with the internet |
-| **Price** | ~$25-30 |
-
-Put it in a waterproof junction box (~$10 from Home Depot), add a [915 MHz antenna](https://store.rokland.com/collections/all-helium-antennnas) (~$15), and run a USB cable from inside. Total build: **~$50-55**.
-
-**Best for:** Getting a rooftop node up fast and cheap. Great starter node.
-
-:material-cart: [Buy on Heltec Store](https://heltec.org/project/wifi-lora-32-v4/)
-
----
-
-### :material-star::material-star: Mid-Range Pick: Station G2 (~$109)
-
-The community favorite for serious coverage. This radio transmits at 35 dBm (about 3 watts — much more powerful than a handheld's fraction of a watt) and has a special low-noise amplifier that helps it hear faint signals from far away. This is the node you put on your roof to anchor coverage for your whole neighborhood.
-
-| Spec | Detail |
-|---|---|
-| **Chip** | ESP32-S3 (has WiFi) |
-| **Transmit Power** | Up to 35 dBm (3.16W — very powerful) |
-| **GPS** | Optional add-on |
-| **Power** | USB-C (plug it into a wall outlet) |
-| **WiFi** | Yes — can share data with the internet |
-| **Price** | ~$109 |
-
-Pair it with a [Rokland 5.8 dBi Fiberglass Antenna](https://store.rokland.com/products/meshtastic-compatible-6-dbi-n-female-omni-outdoor-915-mhz-antenna-kit-with-6-10-or-15-cable-choice) (~$40-50) and a waterproof enclosure. Total build: **~$200-250**.
-
-**Best for:** The backbone of your local mesh. If everyone in a neighborhood has one of these on their roof, coverage problems disappear.
-
-!!! warning "Station G2 is frequently out of stock"
-    The Station G2 is extremely popular and often sells out. Check [B&Q Consulting's shop](https://shop.uniteng.com/shop-2/) regularly or join their notification list.
-
-:material-cart: [Buy on B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)
-
----
-
-### :material-star::material-star::material-star: Max Power: RAK 1W Booster Setup (~$150-200)
-
-The most powerful option available. This setup pairs the ultra-efficient nRF52840 chip with a 1-watt power booster. The low power draw means a small solar panel can keep it running 24/7, even through cloudy days — no outlet needed.
-
-| Spec | Detail |
-|---|---|
-| **Chip** | nRF52840 + 1W power booster |
-| **Transmit Power** | Up to 30 dBm (1 watt) |
-| **GPS** | Optional add-on |
-| **Power** | USB or solar — very low power draw |
-| **WiFi** | No (nRF52840 chip) |
-| **Price** | ~$150-200 for full kit |
-
-Pair with the [RAK Unify Enclosure (waterproof)](https://store.rakwireless.com/products/unify-enclosure-ip67-150-100-45mm) (~$40-50), a solar panel, and a quality antenna for a mount-and-forget deployment.
-
-**Best for:** Remote or solar-only locations. Maximum power with minimum energy draw. Set it up and forget about it.
-
-:material-cart: [Buy RAK WisBlock Starter Kit](https://store.rakwireless.com/products/wisblock-meshtastic-starter-kit) + [1W Booster Module](https://store.rakwireless.com/products/wisblock-1w-booster-module)
-
----
-
-### :material-check-all: Don't Want to Build? RAK WisMesh Repeater (~$99-299)
-
-If you don't want to assemble anything, the [WisMesh Repeater](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater) is a complete, pre-assembled solar repeater in a waterproof enclosure. Just mount it, point the solar panel south, and you're done. No wiring, no enclosure shopping, no setup.
-
-- Comes with 3200 mAh or 5200 mAh battery options
-- Pre-loaded with Meshtastic software
-- Waterproof (IP67 rated) with built-in solar panel
-- Available with or without external antenna connector
-
----
-
-### :material-package-variant-closed: Pre-Built Ready-to-Go Nodes
-
-Don't want to buy an enclosure, wire up solar, or assemble anything? These come fully assembled and ready to mount. Just configure your Meshtastic settings and you're done.
-
-!!! info "Node role for Arizona rooftop nodes"
-    If you're putting one of these on your roof to help the Arizona mesh, set the device role to **ROUTER** (or **ROUTER_LATE** if you want it to only repeat when no other routers are available). Do **not** set a node to Router/Repeater on someone else's mesh without permission — but on the Arizona Mesh, we want rooftop nodes repeating traffic.
-
----
-
-#### SenseCAP Solar Node P1 Pro
-
-A complete solar-powered node with built-in battery, GPS, and an adjustable solar panel. Mount it on a pole or fence and it runs itself. The solar panel angle can be adjusted independently from the antenna — handy for getting the best sun angle.
-
-| Spec | Detail |
-|---|---|
-| **Solar** | Yes — built-in adjustable panel |
-| **Battery** | Built-in (solar keeps it charged) |
-| **GPS** | Built-in |
-| **WiFi** | No |
-| **Est. Battery Life** | Indefinite with sun (solar-powered) |
-| **Est. Price** | ~$60-80 |
-
-:material-cart: [Buy on Seeed Studio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html)
-
----
-
-#### WisMesh Repeater Mini
-
-Super compact solar repeater with magnetic mounting options. Small and inconspicuous — great for mounting on metal poles, mailboxes, or anywhere you want a node that doesn't draw attention. Built-in solar, battery, and GPS.
-
-| Spec | Detail |
-|---|---|
-| **Solar** | Yes — built-in panel |
-| **Battery** | Built-in (solar keeps it charged) |
-| **GPS** | Built-in |
-| **WiFi** | No |
-| **Mounting** | Magnetic + standard mount options |
-| **Est. Price** | ~$50-70 |
-
-:material-cart: [Buy on RAK Wireless](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater-mini)
-
----
-
-#### Atlavox Beacon
-
-The premium, no-compromise option. Pre-configured with the best-of-the-best components — high quality antenna, solar panel, battery, GPS, and a rugged weatherproof enclosure. If you don't want to think about component choices and just want the best possible rooftop node, this is it. Mount it on your roof, a pole, or strap it to a tree.
-
-| Spec | Detail |
-|---|---|
-| **Solar** | Yes — built-in panel |
-| **Battery** | Built-in (solar keeps it charged) |
-| **GPS** | Built-in |
-| **WiFi** | No |
-| **Build Quality** | Premium — rugged, weatherproof |
-| **Est. Price** | ~$200-350 |
-
-!!! note "Expensive but turnkey"
-    The Atlavox Beacon costs significantly more than other options, but you're paying for zero assembly, premium components, and a plug-and-play experience. If you want to skip all the research on which antenna/enclosure/battery to buy, this bundles it all together.
-
-:material-cart: [Buy on Atlavox (pre-configured)](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node-outpost-config) | [Build-your-own version](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node)
-
----
-
-#### Heltec V4 Pre-Built (Etsy)
-
-A pre-assembled outdoor node based on the Heltec LoRa32 V4. The big advantage here is **WiFi** — if you want a rooftop node that connects to your home network for MQTT (internet bridge), this is one of the few pre-built options that supports it. The downside: no solar, no built-in battery — it needs constant USB power.
-
-| Spec | Detail |
-|---|---|
-| **Solar** | No — needs constant USB power |
-| **Battery** | No built-in battery |
-| **GPS** | No (you set your location manually in settings) |
-| **WiFi** | Yes — can bridge to the internet via MQTT |
-| **Est. Price** | ~$80-120 |
-
-:material-cart: [Buy on Etsy](https://www.etsy.com/listing/1877304075/meshcoremeshtastic-outdoor-repeater)
-
----
-
-## :material-antenna: Antenna Guide
-
-Your antenna has the single biggest impact on range — more than the radio itself. Here are the basics.
-
-### Two Types of Antennas
-
-| Type | What It Does | When to Use It |
-|---|---|---|
-| **Omnidirectional (omni)** | Sends/receives signal in all directions (360 degrees) | Most rooftop nodes — you want to reach everyone around you |
-| **Directional (yagi)** | Focuses signal in one direction like a flashlight | Only for connecting two specific distant nodes (like bridging across a valley) |
-
-For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the right choice.
-
-### Recommended Antennas
-
-| Antenna | Type | Est. Price | Link |
-|---|---|---|---|
-| Rokland 5.8 dBi Fiberglass Omni | All-around rooftop antenna | ~$40 | [Buy](https://store.rokland.com/products/meshtastic-compatible-6-dbi-n-female-omni-outdoor-915-mhz-antenna-kit-with-6-10-or-15-cable-choice) |
-| Rokland 8 dBi Low Profile Omni | Longer range rooftop antenna | ~$50 | [Buy](https://store.rokland.com/products/8-dbi-omni-outdoor-915mhz-fiberglass-antenna-for-lora-halow-application) |
-| ALFA AOA-915-5ACM 5 dBi Omni | Compact outdoor antenna, 7" tall, N-type connector | ~$25-35 | [Buy (Rokland)](https://store.rokland.com/products/alfa-aoa-915-5acm-5-dbi-omni-outdoor-915mhz-802-11ah-mini-antenna-for-lora-halow-application) / [Buy (Atlavox)](https://atlavox.com/products/antenna-for-meshtastic-915mhz-n-type-outdoor-7-5dbi-alfa-aoa-915-5acm) |
-| RAK WisMesh Blade | Compact, budget-friendly | ~$15-20 | [Buy](https://store.rakwireless.com/products/wismesh-antenna) |
-| Muziworks 17cm Whip Antenna | Upgrade whip for handhelds (T-Echo, etc.) | ~$10-15 | [Buy](https://muzi.works/products/whip-antenna-17cm) |
-
-!!! tip "Keep the cable short"
-    The cable between your radio and antenna loses a little bit of signal for every foot of length. Use **quality cable** (LMR-240 or better) and keep the run as short as possible — 10 feet or less is ideal. The Rokland antenna kits include quality cable in 6, 10, 15, or 25 foot lengths.
-
----
-
-## :material-link-variant: Additional Resources
-
-### Meshtastic Guides
-
-- [Official Meshtastic Supported Hardware List](https://meshtastic.org/docs/hardware/devices/)
-- [Meshtastic Getting Started Guide](https://meshtastic.org/docs/getting-started/)
-- [Meshtastic Antenna Guide](https://meshtastic.org/docs/hardware/antennas/lora-antenna/)
-
-### Trusted Retailers
-
-When buying Meshtastic hardware, stick to these trusted retailers. They sell genuine products, ship reliably, and stand behind what they sell.
+## :material-link-variant: Trusted Retailers
 
 | Retailer | Website | Notes |
 |---|---|---|
-| **Rokland** | [store.rokland.com](https://store.rokland.com/) | US-based, ships fast, great selection of antennas and radios |
-| **RAK Wireless (WisMesh)** | [store.rakwireless.com](https://store.rakwireless.com/collections/meshtastic) | Official RAK hardware — WisMesh Pocket, Repeater, Tag, etc. |
-| **B&Q Consulting Group** | [shop.uniteng.com](https://shop.uniteng.com/) | Makes the Station G2 and Nano G2 Ultra — high-quality RF engineering |
-| **Atlavox** | [atlavox.com](https://atlavox.com/) | Meshtastic radios, solar repeaters, and accessories |
-| **Muziworks** | [muzi.works](https://muzi.works/) | Cases and accessories for Meshtastic hardware, assembled in the USA |
+| **Rokland** | [store.rokland.com](https://store.rokland.com/) | US-based, fast shipping, great antenna selection |
+| **RAK Wireless** | [store.rakwireless.com](https://store.rakwireless.com/collections/meshtastic) | WisMesh Pocket, Repeater, Tag, 1W Booster |
+| **B&Q Consulting** | [shop.uniteng.com](https://shop.uniteng.com/) | Station G2, Nano G2 Ultra — pro RF engineering |
+| **Atlavox** | [atlavox.com](https://atlavox.com/) | Pre-built solar nodes and accessories |
+| **Muziworks** | [muzi.works](https://muzi.works/) | Cases, antennas, and the R1 Neo — assembled in USA |
+| **Seeed Studio** | [seeedstudio.com](https://www.seeedstudio.com/) | Wio Tracker, SenseCAP, Solar P1 |
 
-!!! danger "Watch out for fakes on Amazon — especially antennas"
-    There are **a LOT** of knockoff Meshtastic devices and antennas on Amazon and other large marketplaces. These fakes may look identical but often have inferior radio components, poor tuning, or missing features that will give you terrible range and reliability. Antennas are the worst offenders — a poorly made antenna can actually make your signal *worse* than the stock antenna that came with your device. **Buy from the trusted retailers listed above whenever possible.** If you do buy on Amazon, make sure the seller is the official brand (e.g., "LILYGO Official Store" or "RAKwireless") and not a random third-party seller.
+!!! danger "Watch out for fakes on Amazon"
+    There are **a lot** of knockoff Meshtastic devices and antennas on Amazon. A poorly made antenna can actually make your signal *worse*. **Buy from the retailers above whenever possible.** If you buy on Amazon, verify the seller is the official brand store.
+
+---
+
+### Additional Resources
+
+- [Official Meshtastic Hardware List](https://meshtastic.org/docs/hardware/devices/)
+- [Meshtastic Getting Started Guide](https://meshtastic.org/docs/getting-started/)
+- [Meshtastic Antenna Guide](https://meshtastic.org/docs/hardware/antennas/lora-antenna/)
 
 ---
 
