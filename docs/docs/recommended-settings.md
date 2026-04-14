@@ -81,6 +81,70 @@ For devices that stay in one place (rooftop, home base, solar nodes):
 
 ---
 
+## Neighbor Info
+
+Neighbor Info is a module that periodically broadcasts a list of your node's direct neighbors along with the signal quality (SNR) of each link. When enabled across multiple nodes, the community can build a real picture of how the mesh is connected — which helps identify coverage gaps, optimize node placement, and understand how traffic actually flows through the network.
+
+Neighbor Info packets are small and infrequent, so the channel congestion impact is very low.
+
+### Recommended Update Interval
+
+| Node type | Interval | Seconds |
+|:----------|:---------|:--------|
+| **Mobile** | 4 hours | `14400` |
+| **Stationary** | 11 hours | `39600` |
+
+4 hours is the minimum the firmware allows. Use the longer interval for stationary nodes since their neighbors rarely change.
+
+### How to Enable on Android
+
+Requires Meshtastic app version 2.2.0 or higher.
+
+1. Open the Meshtastic app and connect to your node.
+2. Tap the **three-dot menu** (vertical ellipsis) in the top-right corner.
+3. Select **Radio Configuration**.
+4. Scroll down and tap **Neighbor Info**.
+5. Toggle **Enabled** to ON.
+6. Set the **Update Interval** to `14400` (mobile) or `39600` (stationary).
+7. Toggle **Transmit Over LoRa** to ON — this sends the neighbor info over the radio mesh and to MQTT.
+8. Tap **Send** to save the settings to your node.
+
+### How to Enable on Web Client
+
+1. Open the Meshtastic Web UI and connect to your node (usually at `meshtastic.local` or via USB serial).
+2. Click **Config** in the left sidebar.
+3. Click **Module Config**.
+4. Click **Neighbor Info**.
+5. Toggle **Enabled** to ON.
+6. Set the **Update Interval** to `14400` (mobile) or `39600` (stationary).
+7. Toggle **Transmit Over LoRa** to ON.
+8. Click **Save** to apply the settings.
+
+### How to Enable via CLI
+
+Requires the Meshtastic Python CLI version 2.2.0 or higher (`pip install meshtastic`).
+
+```bash
+# Enable the module
+meshtastic --set neighbor_info.enabled true
+
+# Set update interval (seconds) — 14400 = 4 hours, 39600 = 11 hours
+meshtastic --set neighbor_info.update_interval 14400
+
+# Enable transmit over LoRa (sends over radio AND MQTT)
+meshtastic --set neighbor_info.transmit_over_lora true
+
+# Verify your settings
+meshtastic --get neighbor_info
+```
+
+Run these commands while connected to your node over USB, Bluetooth, or TCP.
+
+!!! warning "iOS: Neighbor Info not currently supported"
+    The iOS Meshtastic app does not currently support enabling the Neighbor Info module. iOS users will need to use the Web client or CLI over a TCP/USB connection to configure this setting on their node.
+
+---
+
 ## MQTT
 
 MQTT lets your node upload diagnostic data to a shared server, which helps us monitor network health and see all nodes on the map. It does **not** send your personal messages or private data -- only metadata like position, telemetry, and node info.
