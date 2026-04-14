@@ -9,10 +9,11 @@ hide:
 
 Meshtastic is a free, open-source mesh network that lets you send text messages, share GPS locations, and communicate off-grid using small, affordable radios. No cell service, no internet, no monthly fees, no license required.
 
-Whether you're brand new to radio or a seasoned operator, this is your hub to get started and connect with the Arizona mesh community.
+Whether you're brand new to radio or a seasoned operator, this is your hub to get started and connect with the Arizona Meshtastic Community.
 
-<span style="display: flex; align-items: center; justify-content: center;">
+<span style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
     [:fontawesome-brands-discord: Join us on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary target="_blank"}
+    [:material-information-outline: Learn More](/docs/how-to-connect.html){ .md-button target="_blank"}
 </span>
 
 <div class="grid cards" markdown>

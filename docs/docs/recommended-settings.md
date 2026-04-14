@@ -36,10 +36,14 @@ Client is the standard role. Your node will participate in the mesh by rebroadca
 
 ### Router and Router Late
 
-!!! danger "DO NOT set your node to Router or Router Late without approval"
-    **These roles require explicit approval from the Arizona Meshtastic Infrastructure Team.** Setting your node to Router or Router Late without permission WILL cause problems for the entire mesh network — increased congestion, routing loops, and degraded performance for everyone. This is the #1 way people accidentally break the network. **Contact the Infrastructure Team BEFORE changing to either of these roles.** No exceptions.
+!!! warning "Understand Router roles before switching"
+    **Router** and **Router Late** are designed for nodes at **high elevation, permanent fixed locations with good line-of-sight** — think hilltops, towers, or mountain repeater sites. They aggressively rebroadcast traffic and are optimized to extend the mesh across long distances.
 
-    [:fontawesome-brands-discord: Contact Infrastructure Team on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
+    Used in the wrong context — a home, an apartment, or a mobile node — these roles can cause increased congestion, routing loops, and degraded performance for everyone on the mesh. Meshtastic's own guidance is to use these roles only where they genuinely improve coverage for the wider network, not just your own reach.
+
+    **Before switching to Router or Router Late, make sure you understand the implications.** If you're unsure whether your location and setup are a good fit, ask the community on Discord — we're happy to help.
+
+    [:fontawesome-brands-discord: Ask the Community on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
 ---
 
