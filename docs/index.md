@@ -13,7 +13,7 @@ Whether you're brand new to radio or a seasoned operator, this is your hub to ge
 
 <span style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
     [:fontawesome-brands-discord: Join us on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary target="_blank"}
-    [:material-information-outline: Learn More](/docs/how-to-connect.html){ .md-button target="_blank"}
+    [:material-information-outline: Learn More](/docs/how-to-connect.html){ .md-button }
 </span>
 
 <div class="grid cards" markdown>
