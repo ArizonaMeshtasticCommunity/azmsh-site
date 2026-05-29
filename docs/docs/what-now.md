@@ -95,6 +95,15 @@ Here's what success looks like — both on the MeshView map and in the Meshtasti
   </figure>
 </div>
 
+### What a successful traceroute looks like in the Meshtastic app
+
+You can run a traceroute directly from the **Meshtastic Android app** too. Tap a node in your node list, scroll down, hit **Trace Route**, and you'll get a result like this — every hop on the way out, every hop on the way back, with the signal strength (dB) at each step. Green = strong signal, yellow/red = weak.
+
+<figure style="margin: 0 auto; max-width: 360px;">
+  <img src="../assets/images/what-now-traceroute-android-app.png" alt="Meshtastic Android app traceroute result for 'Tucson Mountain Higher' — outbound path P-Tag → P-Home → Fred V4 → Hackatron 0x3 Base → Tucson Mountain Higher with dB values per hop, return path back to P-Tag, duration 11.5s." style="width: 100%; height: auto;">
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Successful traceroute in the Meshtastic Android app — outbound + return path with signal strength at each hop</figcaption>
+</figure>
+
 ---
 
 ## You're Talking on the Mesh!
