@@ -77,31 +77,42 @@ Now that you're heard on the mesh, plug into the community side.
 
 Once you've opted in, search for your node on [view.azmsh.net/nodelist](https://view.azmsh.net/nodelist) to see what's actually happening on the air.
 
-![Screenshot of view.azmsh.net/nodelist with the Traceroute button highlighted in red and a text message ID highlighted in blue.](../assets/images/what-now-nodelist-trace-routes.jpeg){ .center }
+<figure style="margin: 0 auto; max-width: 320px;">
+  <a href="../assets/images/what-now-nodelist-trace-routes.jpeg" class="glightbox" data-description="Screenshot of view.azmsh.net/nodelist with the Traceroute button highlighted in red and a text message ID highlighted in blue.">
+    <img src="../assets/images/what-now-nodelist-trace-routes.jpeg" alt="Screenshot of view.azmsh.net/nodelist with the Traceroute button highlighted in red and a text message ID highlighted in blue." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">view.azmsh.net/nodelist — click to enlarge</figcaption>
+</figure>
 
 - **Red (Traceroutes):** Click the arrow next to the trace routes and it'll show you the path your trace routes took — and when others trace route you. You can run trace routes by clicking on a node in the node list, scrolling down, and tapping **Trace Route**. You'll get a cool graph of where your trace route went trying to hit that node and get back home. You can also see these in **#traceroutes** on Discord.
 - **Blue (Message stats):** Click the number ID for any text message you sent to see the stats for that specific message, including which nodes it hit on the way. You can also see your messages in **#messages**.
 
-Here's what success looks like — both on the MeshView map and in the Meshtastic app itself. The map shows each hop along the trace-route path; the app screenshot shows the tapback responses to a `test` message, with the **number emoji** telling you how many hops away that node was from you when they heard you.
+Here's what success looks like — on the MeshView map and in the Meshtastic app itself. The map shows each hop along the trace-route path; the app screenshot shows the tapback responses to a `test` message, with the **number emoji** telling you how many hops away that node was from you when they heard you. Tap any image to enlarge.
 
 <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: center;">
-  <figure style="flex: 1 1 320px; max-width: 480px; margin: 0;">
-    <img src="../assets/images/what-now-traceroute-example-meshview.jpeg" alt="Example MeshView map showing a successful trace route across the Arizona mesh — colored markers in Phoenix metro plus a Tucson cluster, numbers indicating hop counts." style="width: 100%; height: auto;">
+  <figure style="flex: 1 1 200px; max-width: 280px; margin: 0;">
+    <a href="../assets/images/what-now-traceroute-example-meshview.jpeg" class="glightbox" data-description="Example MeshView map showing a successful trace route across the Arizona mesh.">
+      <img src="../assets/images/what-now-traceroute-example-meshview.jpeg" alt="Example MeshView map showing a successful trace route across the Arizona mesh — colored markers in Phoenix metro plus a Tucson cluster, numbers indicating hop counts." style="width: 100%; height: auto;">
+    </a>
     <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Trace route on the MeshView map</figcaption>
   </figure>
-  <figure style="flex: 1 1 320px; max-width: 480px; margin: 0;">
-    <img src="../assets/images/what-now-meshtastic-app-tapbacks.jpeg" alt="Meshtastic app screenshot showing a 'Test' message marked Acknowledged with four tapback responses — node IDs 0b3b, 2ef0, JICH, 82d0 each with a number emoji (2, 2, 3, 2) showing hop count." style="width: 100%; height: auto;">
+  <figure style="flex: 1 1 200px; max-width: 280px; margin: 0;">
+    <a href="../assets/images/what-now-meshtastic-app-tapbacks.jpeg" class="glightbox" data-description="Meshtastic app — tapback responses to a Test message.">
+      <img src="../assets/images/what-now-meshtastic-app-tapbacks.jpeg" alt="Meshtastic app screenshot showing a 'Test' message marked Acknowledged with four tapback responses — node IDs 0b3b, 2ef0, JICH, 82d0 each with a number emoji (2, 2, 3, 2) showing hop count." style="width: 100%; height: auto;">
+    </a>
     <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Tapbacks in the Meshtastic app (number = hops away)</figcaption>
   </figure>
 </div>
 
 ### What a successful traceroute looks like in the Meshtastic app
 
-You can run a traceroute directly from the **Meshtastic Android app** too. Tap a node in your node list, scroll down, hit **Trace Route**, and you'll get a result like this — every hop on the way out, every hop on the way back, with the signal strength (dB) at each step. Green = strong signal, yellow/red = weak.
+You can run a traceroute directly from the **Meshtastic app** itself (Android, iOS, or web). Tap a node in your node list, scroll down, hit **Trace Route**, and you'll get a result like this — every hop on the way out, every hop on the way back, with the signal strength (dB) at each step. Green = strong signal, yellow/red = weak.
 
-<figure style="margin: 0 auto; max-width: 360px;">
-  <img src="../assets/images/what-now-traceroute-android-app.png" alt="Meshtastic Android app traceroute result for 'Tucson Mountain Higher' — outbound path P-Tag → P-Home → Fred V4 → Hackatron 0x3 Base → Tucson Mountain Higher with dB values per hop, return path back to P-Tag, duration 11.5s." style="width: 100%; height: auto;">
-  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Successful traceroute in the Meshtastic Android app — outbound + return path with signal strength at each hop</figcaption>
+<figure style="margin: 0 auto; max-width: 220px;">
+  <a href="../assets/images/what-now-traceroute-android-app.png" class="glightbox" data-description="Meshtastic Android app — successful traceroute with outbound + return path and per-hop dB.">
+    <img src="../assets/images/what-now-traceroute-android-app.png" alt="Meshtastic Android app traceroute result for 'Tucson Mountain Higher' — outbound path P-Tag → P-Home → Fred V4 → Hackatron 0x3 Base → Tucson Mountain Higher with dB values per hop, return path back to P-Tag, duration 11.5s." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Successful traceroute — Android app shown; iOS + web work the same way</figcaption>
 </figure>
 
 ---
