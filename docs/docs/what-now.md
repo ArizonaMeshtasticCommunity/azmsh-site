@@ -121,7 +121,7 @@ You can also see your traceroutes on [view.azmsh.net](https://view.azmsh.net) as
     <a href="../assets/images/what-now-traceroute-meshview-graph.png" class="glightbox" data-description="MeshView network graph — solid colored node = successful traceroute target; dashed nodes = hops/neighbors along the path.">
       <img src="../assets/images/what-now-traceroute-meshview-graph.png" alt="MeshView graph view of a traceroute from mian t1000e through Tower Climber down to Roadrunner Ridge (the solid green node = successful hit), with neighbor branches to Empire Mountains + Bubba base visible." style="width: 100%; height: auto;">
     </a>
-    <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Same traceroute on view.azmsh.net — solid colored node = successful target</figcaption>
+    <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">A different traceroute viewed as a graph on view.azmsh.net — solid colored node = successful target</figcaption>
   </figure>
 </div>
 
