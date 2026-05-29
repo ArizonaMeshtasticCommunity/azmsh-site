@@ -106,14 +106,24 @@ Here's what success looks like — on the MeshView map and in the Meshtastic app
 
 ### What a successful traceroute looks like in the Meshtastic app
 
-You can run a traceroute directly from the **Meshtastic app** itself (Android, iOS, or web). Tap a node in your node list, scroll down, hit **Trace Route**, and you'll get a result like this — every hop on the way out, every hop on the way back, with the signal strength (dB) at each step. Green = strong signal, yellow/red = weak.
+You can run a traceroute directly from the **Meshtastic app** itself (Android, iOS, or web). Tap a node in your node list, scroll down, hit **Trace Route**, and you'll get a result — every hop on the way out, every hop on the way back, with the signal strength (dB) at each step. Green = strong signal, yellow/red = weak.
 
-<figure style="margin: 0 auto; max-width: 220px;">
-  <a href="../assets/images/what-now-traceroute-android-app.png" class="glightbox" data-description="Meshtastic Android app — successful traceroute with outbound + return path and per-hop dB.">
-    <img src="../assets/images/what-now-traceroute-android-app.png" alt="Meshtastic Android app traceroute result for 'Tucson Mountain Higher' — outbound path P-Tag → P-Home → Fred V4 → Hackatron 0x3 Base → Tucson Mountain Higher with dB values per hop, return path back to P-Tag, duration 11.5s." style="width: 100%; height: auto;">
-  </a>
-  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Successful traceroute — Android app shown; iOS + web work the same way</figcaption>
-</figure>
+You can also see your traceroutes on [view.azmsh.net](https://view.azmsh.net) as a network graph. The **filled, colored node** is the one you successfully traced to; the surrounding dashed boxes are the hops + neighbors the trace passed through or saw along the way.
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: center;">
+  <figure style="flex: 1 1 200px; max-width: 240px; margin: 0;">
+    <a href="../assets/images/what-now-traceroute-android-app.png" class="glightbox" data-description="Meshtastic app — successful traceroute with outbound + return path and per-hop dB.">
+      <img src="../assets/images/what-now-traceroute-android-app.png" alt="Meshtastic app traceroute result — outbound path with dB values per hop, return path, duration 11.5s." style="width: 100%; height: auto;">
+    </a>
+    <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">In-app traceroute result (Android shown; iOS + web work the same)</figcaption>
+  </figure>
+  <figure style="flex: 1 1 200px; max-width: 320px; margin: 0;">
+    <a href="../assets/images/what-now-traceroute-meshview-graph.png" class="glightbox" data-description="MeshView network graph — solid colored node = successful traceroute target; dashed nodes = hops/neighbors along the path.">
+      <img src="../assets/images/what-now-traceroute-meshview-graph.png" alt="MeshView graph view of a traceroute from mian t1000e through Tower Climber down to Roadrunner Ridge (the solid green node = successful hit), with neighbor branches to Empire Mountains + Bubba base visible." style="width: 100%; height: auto;">
+    </a>
+    <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Same traceroute on view.azmsh.net — solid colored node = successful target</figcaption>
+  </figure>
+</div>
 
 ---
 
