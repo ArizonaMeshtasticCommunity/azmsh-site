@@ -82,6 +82,10 @@ Once you've opted in, search for your node on [view.azmsh.net/nodelist](https://
 - **Red (Traceroutes):** Click the arrow next to the trace routes and it'll show you the path your trace routes took — and when others trace route you. You can run trace routes by clicking on a node in the node list, scrolling down, and tapping **Trace Route**. You'll get a cool graph of where your trace route went trying to hit that node and get back home. You can also see these in **#traceroutes** on Discord.
 - **Blue (Message stats):** Click the number ID for any text message you sent to see the stats for that specific message, including which nodes it hit on the way. You can also see your messages in **#messages**.
 
+Here's what a successful trace route looks like on the MeshView map — colored markers show each hop along the path, with the number telling you how far away each node is:
+
+![Example MeshView map showing a successful trace route across the Arizona mesh — colored markers in Phoenix metro plus a Tucson cluster, numbers indicating hop counts.](../assets/images/what-now-traceroute-example-meshview.jpeg){ .center }
+
 ---
 
 ## You're Talking on the Mesh!
