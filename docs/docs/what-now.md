@@ -82,9 +82,18 @@ Once you've opted in, search for your node on [view.azmsh.net/nodelist](https://
 - **Red (Traceroutes):** Click the arrow next to the trace routes and it'll show you the path your trace routes took — and when others trace route you. You can run trace routes by clicking on a node in the node list, scrolling down, and tapping **Trace Route**. You'll get a cool graph of where your trace route went trying to hit that node and get back home. You can also see these in **#traceroutes** on Discord.
 - **Blue (Message stats):** Click the number ID for any text message you sent to see the stats for that specific message, including which nodes it hit on the way. You can also see your messages in **#messages**.
 
-Here's what a successful trace route looks like on the MeshView map — colored markers show each hop along the path, with the number telling you how far away each node is:
+Here's what success looks like — both on the MeshView map and in the Meshtastic app itself. The map shows each hop along the trace-route path; the app screenshot shows the tapback responses to a `test` message, with the **number emoji** telling you how many hops away that node was from you when they heard you.
 
-![Example MeshView map showing a successful trace route across the Arizona mesh — colored markers in Phoenix metro plus a Tucson cluster, numbers indicating hop counts.](../assets/images/what-now-traceroute-example-meshview.jpeg){ .center }
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: center;">
+  <figure style="flex: 1 1 320px; max-width: 480px; margin: 0;">
+    <img src="../assets/images/what-now-traceroute-example-meshview.jpeg" alt="Example MeshView map showing a successful trace route across the Arizona mesh — colored markers in Phoenix metro plus a Tucson cluster, numbers indicating hop counts." style="width: 100%; height: auto;">
+    <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Trace route on the MeshView map</figcaption>
+  </figure>
+  <figure style="flex: 1 1 320px; max-width: 480px; margin: 0;">
+    <img src="../assets/images/what-now-meshtastic-app-tapbacks.jpeg" alt="Meshtastic app screenshot showing a 'Test' message marked Acknowledged with four tapback responses — node IDs 0b3b, 2ef0, JICH, 82d0 each with a number emoji (2, 2, 3, 2) showing hop count." style="width: 100%; height: auto;">
+    <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Tapbacks in the Meshtastic app (number = hops away)</figcaption>
+  </figure>
+</div>
 
 ---
 
