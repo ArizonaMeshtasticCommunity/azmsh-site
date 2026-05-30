@@ -35,6 +35,7 @@ repo_url: https://github.com/ArizonaMeshtasticCommunity/azmsh-site
 nav:
   - Home: index.md
   - How to Connect: docs/how-to-connect.md
+  - What Now?: docs/what-now.md
   - Recommended Hardware: docs/recommended-hardware.md
   - Recommended Settings: docs/recommended-settings.md
   - Reach Out: reach_out.md
@@ -42,6 +43,15 @@ nav:
 plugins:
   - offline
   - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
 
 markdown_extensions:
   - attr_list
