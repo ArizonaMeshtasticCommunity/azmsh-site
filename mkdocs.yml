@@ -38,6 +38,7 @@ nav:
   - What Now?: docs/what-now.md
   - Recommended Hardware: docs/recommended-hardware.md
   - Recommended Settings: docs/recommended-settings.md
+  - Host a Node: docs/host-a-node.md
   - Reach Out: reach_out.md
 
 plugins:
