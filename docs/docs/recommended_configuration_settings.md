@@ -1,5 +1,12 @@
 # Recommended Settings
 
+!!! note "See the current Recommended Settings page"
+    This page is kept for reference. The maintained guidance lives on the
+    [Recommended Settings](/docs/recommended-settings.html) page, which matches
+    the [config checker](https://config.azmsh.net). Values here have been
+    reconciled to the canonical intervals (NodeInfo `43200`, stationary
+    Neighbor Info `39600`).
+
 To help maintain a healthy and reliable mesh network across Arizona, we suggest the following configuration settings for your Meshtastic devices.
 
 These recommendations are based on real-world use and shared experiences within the Arizona Meshtastic community. They’re designed to promote mesh stability and will likely evolve as our network grows.
@@ -13,7 +20,7 @@ These recommendations are based on real-world use and shared experiences within 
 | Setting | Recommended Value | Details |
 |--------:|:------------------|:--------|
 | **Role** | `CLIENT` or `CLIENT_MUTE` | For most nodes. See [Deployment Scenarios](https://www.youtube.com/watch?v=htjwtnjQkkE) on YouTube. |
-| **NodeInfo broadcast interval** | `10800` seconds (3 hours) | Keeps the mesh updated with node info without excess traffic. |
+| **NodeInfo broadcast interval** | `43200` seconds (12 hours) | Keeps the mesh updated with node info without excess traffic. Node info rarely changes, so 12 hours is plenty. |
 
 ### 📍 Position Settings
 
@@ -51,7 +58,7 @@ These recommendations are based on real-world use and shared experiences within 
 | Setting | Recommended Value | Notes |
 |--------:|:------------------|:------|
 | **Neighbor Info enabled** | `True` | Enables your node to keep track of nearby devices. |
-| **Update interval** | `14400` seconds (4 hours) | Plenty for casual monitoring. |
+| **Update interval** | `39600` seconds (11 hours) | Recommended for stationary nodes (neighbors rarely change). `14400` (4 hours) is the firmware minimum for mobile nodes. |
 | **Transmit over LoRa** | `True` | Share info with nearby nodes via radio. |
 
 ---
@@ -65,7 +72,7 @@ meshtastic \
 
   --set device.role CLIENT \
 
-  --set device.node_info_broadcast_secs 10800
+  --set device.node_info_broadcast_secs 43200
 ```
 # Position Settings
 ```
@@ -109,7 +116,7 @@ meshtastic \
 
   --set neighbor_info.enabled true \
 
-  --set neighbor_info.update_interval 14400 \
+  --set neighbor_info.update_interval 39600 \
 
   --set neighbor_info.transmit_over_lora true
 ```
