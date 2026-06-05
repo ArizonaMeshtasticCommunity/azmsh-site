@@ -208,19 +208,23 @@ The nRF52840 chip flashes by drag-and-drop — no special software, just a web b
 
 ## :material-cog: Configuration
 
-Configure these in the Meshtastic app (or web client) once the node is flashed and powered. For full details on roles and intervals, see our [Recommended Settings](/docs/recommended-settings.html) page.
+Flashing is not configuring — **do not skip this part.** Set the node up the same way as every other node on the Arizona mesh:
+
+1. **Follow the [How to Connect](/docs/how-to-connect.html) guide** to pair the node and get it on the mesh.
+2. **Apply everything on the [Recommended Settings](/docs/recommended-settings.html) page** — region, role, channels, and broadcast intervals all live there. Those settings keep the whole Arizona mesh healthy; this guide doesn't repeat them.
+
+### Settings specific to this build
+
+Only a few settings differ from a standard node because of the 1W radio and solar power:
 
 | Setting | Value | Why |
 |---|---|---|
-| **Region** | `US` | Sets the 915 MHz US band and legal limits. |
-| **Role** | **CLIENT** | The standard role for a stationary home/rooftop node — it rebroadcasts to help your neighbors. See [Recommended Settings](/docs/recommended-settings.html). |
 | **TX Power** | `30` dBm | Full 1 watt. (See the EIRP and weather notes below.) |
 | **Power Saving** | **ON** | Energy efficiency is a priority on a solar node. |
 | **Bluetooth** | Off if not needed | Saves power. If you turn BT off, plan to manage the node with an **admin node** remotely. |
-| **Broadcast intervals** | Modest / stationary values | Keep node-info and telemetry intervals reasonable to limit congestion and power use. Use the **Stationary Nodes** column on [Recommended Settings](/docs/recommended-settings.html). |
 
 !!! warning "Don't pick Router/Router Late just because it's powerful"
-    A 1W node is tempting to set as a Router — **don't, unless your site genuinely calls for it.** Router roles are for high-elevation, permanent, line-of-sight repeater sites. For a home rooftop, **CLIENT** is correct. If you think your location qualifies, ask the community on Discord first. See [Recommended Settings](/docs/recommended-settings.html).
+    A 1W node is tempting to set as a Router — **don't, unless your site genuinely calls for it.** Router roles are for high-elevation, permanent, line-of-sight repeater sites. For a home rooftop, stick with the role guidance on [Recommended Settings](/docs/recommended-settings.html). If you think your location qualifies, ask the community on Discord first.
 
 !!! danger "EIRP compliance — stay legal"
     Your **effective radiated power** is TX power **plus** antenna gain:
