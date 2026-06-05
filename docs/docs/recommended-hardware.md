@@ -18,20 +18,32 @@ New to Meshtastic? Here's what to buy. No monthly fees, no subscriptions -- just
 
 ## :material-star: Our Top Picks
 
-#### Handheld: RAK WisMesh Pocket V2 (~$89-99)
+<div class="grid cards" markdown>
 
-The best all-around handheld for Arizona. GPS, huge 3200 mAh battery (3+ days with GPS and screen active), compact, IP66 waterproof, solar charging connector. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
+-   :material-cellphone:{ .lg .middle } __1. Handheld: RAK WisMesh Pocket V2__
 
-!!! warning "Upgrade the stock antenna"
-    The stock antenna is weak (500-600m range). We highly recommend replacing it with the Muziworks 17cm whip antenna (see Antenna Guide below) — it's the single biggest improvement you can make.
+    ---
 
-:material-cart: **[Buy on RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket)** | **[Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)**
+    The best all-around handheld for Arizona. GPS, huge 3200 mAh battery (3+ days), IP66 waterproof, solar charging connector. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
 
-#### Rooftop Node: Station G2 (~$100-130)
+    **~$89-99** — upgrade the weak stock antenna to the Muziworks 17cm whip (see Antenna Guide below); it's the single biggest improvement you can make.
 
-The most powerful consumer Meshtastic radio available. Transmits at up to **36.5 dBm (4.5W)** with a dedicated low-noise amplifier for hearing faint signals. Put this on your roof or in your attic and you'll hear nodes for miles.
+    [:material-cart: RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket) · [Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)
 
-:material-cart: **[Buy on B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)**
+-   :material-home-roof:{ .lg .middle } __2. Rooftop: WisMesh Repeater Mini 1W__
+
+    ---
+
+    A community build that drops the RAK 1W Booster Kit into the WisMesh Repeater Mini's solar enclosure: **1W (30 dBm) of TX power** — about 6x a typical node — solar self-sustaining, **no soldering**. Designed and field-tested by **prayingmedic**.
+
+    **~$125-150 in parts** — every step is documented for first-time builders.
+
+    [:material-tools: Full Build Guide](/docs/wismesh-repeater-mini-1w.html){ .md-button .md-button--primary }
+
+</div>
+
+!!! warning "Rooftop runner-up: Station G2 (~$100-130) — currently sold out"
+    The most powerful consumer Meshtastic radio (up to **36.5 dBm / 4.5W**) and our long-time rooftop pick — but it's **sold out and extremely hard to get right now**. Check [B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/) for restocks; until then, the Repeater Mini 1W build above is the one to get.
 
 !!! warning "Why you need a rooftop node"
     **This is the #1 mistake new users make.** A handheld alone will struggle indoors and at range. Put a node up high and the difference is night and day.
@@ -194,7 +206,40 @@ These are permanent nodes mounted high on your roof, attic, or mast. They're the
 
 ---
 
-#### :material-trophy: Best Overall: Station G2 (~$100-130)
+#### :material-trophy: Best Overall: WisMesh Repeater Mini 1W (~$125-150)
+
+Our #1 rooftop node — a community build that puts the RAK 1W Booster Kit (RAK3401) inside the WisMesh Repeater Mini's solar enclosure. The 1W board fits the enclosure's standard mounting-plate holes with no modification and **no soldering**, giving you **30 dBm (1W) of TX power** — roughly 6x a typical 22 dBm node, with better receive too thanks to the RAK13302's RF/SAW filter. The low-power nRF52840 plus the Mini's solar panel keep it topped up; prayingmedic's field test held battery voltage in a narrow 3.80-3.84 V band across 5 days mounted vertically on a 10 ft mast.
+
+- **Chip:** nRF52840 + RAK13302 1W LoRa module (with PA + RF/SAW filter)
+- **TX Power:** 30 dBm (1W)
+- **Power:** Solar (panel built into the donor enclosure) + Li-ion battery — no AC needed
+- **WiFi:** No (Bluetooth only)
+- **Soldering:** None
+
+**Parts list:**
+
+| Part | Approx. Price | Link |
+|---|---|---|
+| RAK Meshtastic 1W LoRa Booster Kit (RAK3401) | ~$39 | [RAK Store](https://store.rakwireless.com/products/meshtastic-1w-lora-booster-kit-rak3401) |
+| WisMesh Repeater Mini (solar enclosure donor) | ~$50-70 | [Rokland](https://store.rokland.com/products/wismesh-repeater-mini-reliable-coverage-expansion-for-smart-networks) |
+| Meshnology 5Ah battery | — | [Amazon](https://www.amazon.com/Meshnology-Rechargeable-955565-Protection-Development/dp/B0FFM9MDPR/?th=1) |
+| Alfa 5.8 dBi RP-SMA whip antenna | ~$12 | [Rokland](https://store.rokland.com/collections/802-11ah-wi-fi-halow/products/alfa-network-ars-9096rp-5-dbi-indoor-antenna-for-helium-hotspots) |
+| Mast-mount bracket (STL) | print | [Download](https://u.pcloud.link/publink/show?code=XZPqoI5ZKPgwakGbUJStyvrzPUQXVjBXdPM7) |
+| Battery spacer (STL) | print | [Download](https://u.pcloud.link/publink/show?code=XZoqoI5ZKKELnYkIrap8TvU7T73gMkXI3ENV) |
+
+Plus small hardware: lever nuts (e.g. Wago) for parallel battery wiring, 3M double-sided foam tape, M3 machine screws, and hose clamps for mast mounting. A 3D printer is optional — only the mast bracket and battery spacer are printed.
+
+!!! success "Community build by prayingmedic"
+    This build was designed and field-tested by **prayingmedic**, a member of the Arizona Meshtastic Community. Huge thanks to him for documenting it and sharing the photos and STL files. The [full build guide](/docs/wismesh-repeater-mini-1w.html) walks through every step.
+
+!!! info "EIRP stays compliant"
+    30 dBm TX + the 5.8 dBi Alfa whip ≈ **35.8 dBm EIRP** — just under the **36 dBm** US 915 MHz ISM limit. Don't pair this build with a higher-gain antenna at full power, or you'll go over.
+
+:material-cart: **[Full Build Guide → WisMesh Repeater Mini 1W](/docs/wismesh-repeater-mini-1w.html){ .md-button .md-button--primary }**
+
+---
+
+#### :material-trophy: Most Powerful (When You Can Get One): Station G2 (~$100-130)
 
 The community favorite for serious coverage. Transmits at up to **36.5 dBm (4.5W)** with a dedicated low-noise amplifier for ~4 dB better receive sensitivity than standard radios. This is the node you put on your roof to anchor coverage for your whole neighborhood.
 
@@ -209,8 +254,8 @@ Pair with a [Rokland 5.8 dBi Fiberglass Antenna](https://store.rokland.com/produ
 !!! danger "EIRP compliance note"
     At full 36.5 dBm output with a high-gain antenna (5.8+ dBi), you may exceed US ISM 915 MHz EIRP limits. If using a high-gain antenna, reduce TX power in Meshtastic settings to stay compliant.
 
-!!! warning "Frequently out of stock"
-    The Station G2 is extremely popular and often sells out. Check [B&Q Consulting's shop](https://shop.uniteng.com/shop-2/) regularly.
+!!! warning "Sold out and extremely hard to get right now"
+    The Station G2 is **sold out and extremely hard to get right now.** It's our #2 rooftop pick for this reason — if you can't track one down, build the WisMesh Repeater Mini 1W above. Check [B&Q Consulting's shop](https://shop.uniteng.com/shop-2/) regularly for restocks.
 
 :material-cart: [B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)
 
@@ -235,21 +280,6 @@ Put it in a waterproof junction box (~$10), add a 915 MHz antenna (~$15-40), and
 
 ---
 
-#### :material-star-half-full: Best for Solar / DIY: RAK WisMesh 1W Booster Kit (~$39+)
-
-Pairs the ultra-efficient nRF52840 chip with a **1W (30 dBm) power amplifier**. The low power draw means a small solar panel can keep it running 24/7. The kit itself is only ~$39 — add an enclosure, antenna, solar panel, and battery for a complete build (~$100-150 total).
-
-- **Chip:** nRF52840 + SKY66122 PA
-- **TX Power:** 30 dBm (1W)
-- **Power:** Requires stable 5V supply (3.3V rail can't handle TX surge)
-- **WiFi:** No
-
-**Best for builders** who want a self-sustaining solar node. The nRF52840 draws so little power that even a small solar panel keeps it alive through the night. Assembly required — needs enclosure, antenna, solar panel, and battery.
-
-:material-cart: [RAK Store (~$39)](https://store.rakwireless.com/products/wismesh-1w-booster-starter-kit) | [Rokland](https://store.rokland.com/products/coming-soon-wismesh-1w-booster-starter-kit-with-nrf52840-sx1262-and-sky66122-pa-for-extended-meshtastic-range)
-
----
-
 #### :material-package-variant-closed: Pre-Built Solar Nodes (No Assembly Required)
 
 Don't want to build anything? These come fully assembled. Mount them, configure Meshtastic settings, done.
@@ -265,13 +295,13 @@ Don't want to build anything? These come fully assembled. Mount them, configure 
 | Device | Solar | Battery | GPS | Price | Buy |
 |---|---|---|---|---|---|
 | **WisMesh Repeater** | Built-in | Built-in | No | ~$70-90 | [RAK Store](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater) |
-| **WisMesh Repeater Mini** | Built-in | Built-in | Yes | ~$50-70 | [RAK Store](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater-mini) |
 | **SenseCAP Solar P1 Pro** | 5W panel | 4x 18650 included | Yes | ~$90 | [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html) |
 | **Atlavox Beacon** | Built-in | Built-in | Yes | ~$150-200 | [Atlavox](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node) |
 | **Heltec V4 Solar Node** | 25W panel | 6x 18650 | No | ~$120-180 | [Etsy](https://www.etsy.com/listing/4310813646/outdoor-solar-2510w-meshtastic-or) |
 
 - **Best value:** SenseCAP Solar P1 Pro — 5W solar panel, 4x 18650 batteries, GPS, ~$90
 - **Easiest deploy:** WisMesh Repeater — IP67 weatherproof, mount and forget
+- **Want the Repeater Mini?** Skip the stock version and build the **1W upgrade** instead — it's [our #1 rooftop pick](/docs/wismesh-repeater-mini-1w.html): same enclosure, 6x the TX power, no soldering.
 - **Premium turnkey:** Atlavox Beacon — professional mounting hardware, dual SMA connectors, rugged build
 - **Need WiFi/MQTT?** Heltec V4 Solar Node — Heltec V4 board (+28 dBm), 25W solar panel, 6x 18650 battery bay, 5.5 dBi IP67 antenna, mast brackets included
 
