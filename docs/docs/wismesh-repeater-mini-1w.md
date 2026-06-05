@@ -19,7 +19,7 @@ A complete, step-by-step guide to building a **1 watt (30 dBm) solar-powered roo
 !!! success "Community build by prayingmedic :heart:"
     This entire build — the design, every photo on this page, and the real-world field testing — is the work of community member **prayingmedic**. He figured out that the RAK 1 Watt Booster board drops right into the WisMesh Repeater Mini's solar enclosure, dialed in the battery and mounting details, and ran it on a mast for days to prove it sustains itself on solar.
 
-    **Huge thanks, prayingmedic.** This is his build; we're just writing it down. Come say hi and ask him questions on our [Discord](https://discord.gg/HrKtyuFEQk).
+    **Huge thanks, prayingmedic.** This is his build; we're just writing it down. Got questions about the build? Ask in the [build thread on our Discord](https://discord.com/channels/1270431345734062133/1512210845558378556) — prayingmedic is in there answering questions. (New to the server? [Join here](https://discord.gg/HrKtyuFEQk) first.)
 
 ---
 
@@ -280,6 +280,9 @@ Want to go deeper on the RAK 1W kit and its power behavior? **Atlavox** has two 
 
 !!! info "Position, antenna, cable, power — in that order"
     Range comes from **height and line-of-sight first**, then antenna, then cable quality, then transmit power. The 1W boost is a real help, but it does **not** replace getting the node up high. Mount it as high as you safely can.
+
+!!! question "Stuck on something?"
+    Ask in the [build thread on our Discord](https://discord.com/channels/1270431345734062133/1512210845558378556) — prayingmedic himself is in the thread and happy to help. ([Join the server](https://discord.gg/HrKtyuFEQk) first if you're not in it yet.)
 
 ---
 
