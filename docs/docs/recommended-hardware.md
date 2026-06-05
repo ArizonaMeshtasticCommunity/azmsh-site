@@ -18,29 +18,32 @@ New to Meshtastic? Here's what to buy. No monthly fees, no subscriptions -- just
 
 ## :material-star: Our Top Picks
 
-#### Handheld: RAK WisMesh Pocket V2 (~$89-99)
+<div class="grid cards" markdown>
 
-The best all-around handheld for Arizona. GPS, huge 3200 mAh battery (3+ days with GPS and screen active), compact, IP66 waterproof, solar charging connector. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
+-   :material-cellphone:{ .lg .middle } __1. Handheld: RAK WisMesh Pocket V2__
 
-!!! warning "Upgrade the stock antenna"
-    The stock antenna is weak (500-600m range). We highly recommend replacing it with the Muziworks 17cm whip antenna (see Antenna Guide below) — it's the single biggest improvement you can make.
+    ---
 
-:material-cart: **[Buy on RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket)** | **[Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)**
+    The best all-around handheld for Arizona. GPS, huge 3200 mAh battery (3+ days), IP66 waterproof, solar charging connector. Pairs with your phone over Bluetooth — open the Meshtastic app and start messaging.
 
-#### Rooftop Node: WisMesh Repeater Mini 1W Build (~$125-150)
+    **~$89-99** — upgrade the weak stock antenna to the Muziworks 17cm whip (see Antenna Guide below); it's the single biggest improvement you can make.
 
-Our top rooftop pick: a community build that drops the RAK 1W Booster Kit (RAK3401) into the WisMesh Repeater Mini's solar enclosure. You get **1W (30 dBm) of TX power** — about 6x a typical node — on a self-sustaining solar nRF52840 that holds its charge through the night, with **no soldering required**. Designed and field-tested right here in the community by **prayingmedic**.
+    [:material-cart: RAK Store (~$89)](https://store.rakwireless.com/products/wismesh-pocket) · [Rokland (~$99)](https://store.rokland.com/products/wismesh-pocket)
 
-:material-cart: **[Full Build Guide → WisMesh Repeater Mini 1W](/docs/wismesh-repeater-mini-1w.html){ .md-button .md-button--primary }**
+-   :material-home-roof:{ .lg .middle } __2. Rooftop: WisMesh Repeater Mini 1W__
 
-#### Rooftop Node #2: Station G2 (~$100-130)
+    ---
 
-The most powerful consumer Meshtastic radio available. Transmits at up to **36.5 dBm (4.5W)** with a dedicated low-noise amplifier for hearing faint signals. Put this on your roof or in your attic and you'll hear nodes for miles.
+    A community build that drops the RAK 1W Booster Kit into the WisMesh Repeater Mini's solar enclosure: **1W (30 dBm) of TX power** — about 6x a typical node — solar self-sustaining, **no soldering**. Designed and field-tested by **prayingmedic**.
 
-:material-cart: **[Buy on B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/)**
+    **~$125-150 in parts** — every step is documented for first-time builders.
 
-!!! warning "Currently sold out and very hard to get"
-    The Station G2 is **sold out and extremely hard to get right now.** If you can't find one, the WisMesh Repeater Mini 1W build above is our recommended rooftop node — and it's in stock.
+    [:material-tools: Full Build Guide](/docs/wismesh-repeater-mini-1w.html){ .md-button .md-button--primary }
+
+</div>
+
+!!! warning "Rooftop runner-up: Station G2 (~$100-130) — currently sold out"
+    The most powerful consumer Meshtastic radio (up to **36.5 dBm / 4.5W**) and our long-time rooftop pick — but it's **sold out and extremely hard to get right now**. Check [B&Q Consulting](https://shop.uniteng.com/product/meshtastic-mesh-device-station-edition/) for restocks; until then, the Repeater Mini 1W build above is the one to get.
 
 !!! warning "Why you need a rooftop node"
     **This is the #1 mistake new users make.** A handheld alone will struggle indoors and at range. Put a node up high and the difference is night and day.
