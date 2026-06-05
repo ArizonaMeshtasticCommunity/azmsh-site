@@ -201,6 +201,9 @@ The nRF52840 chip flashes by drag-and-drop — no special software, just a web b
   <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">3D-printed brackets with hose clamps for mast mounting. Photo: prayingmedic.</figcaption>
 </figure>
 
+!!! tip "Alternative: magnetic mount"
+    Want to attach it to a **magnetic pole** instead? There's a community-made magnetic mount for the back of the enclosure — grab the 3D-print files and a guide in [this Discord thread](https://discord.com/channels/1270431345734062133/1473733785173622986/1473733785173622986).
+
 !!! tip "Configure before final mounting"
     Bluetooth range on this 1W kit can be **very short (~3-6 feet)**. Keep your phone right next to the node when configuring — or just do all your configuration on the bench **before** you put it up on the mast.
 
