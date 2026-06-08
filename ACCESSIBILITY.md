@@ -28,6 +28,20 @@ and the documented rule exceptions below. A clean run reports
 > libpango-1.0-0 libcairo2 libnss3 libnspr4 libdrm2 libxshmfence1 libx11-xcb1
 > libasound2t64`
 
+## GitHub Actions soft check
+
+The GitHub Actions workflow also runs `pa11y-ci` against the built `site/`
+output on every push and pull request.
+
+- The site is built with `mkdocs build --strict`
+- The generated `site/` directory is served locally inside the runner
+- `pa11y-ci` runs against the URLs in [`.pa11yci`](.pa11yci)
+- The audit step is intentionally **non-blocking** (`continue-on-error: true`)
+
+That means accessibility regressions are still surfaced in CI, but they do not
+stop deploys or merges while you are treating the audit as advisory. If you want
+to make it blocking later, remove `continue-on-error: true` from the workflow.
+
 ## Documented rule exceptions (`ignore` in `.pa11yci`)
 
 These three findings are produced by **Material for MkDocs' own UI controls**,

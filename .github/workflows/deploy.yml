@@ -27,6 +27,58 @@ jobs:
       - name: Build site
         run: mkdocs build --strict
 
+  accessibility:
+    name: Accessibility Audit (Soft Check)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install site dependencies
+        run: |
+          pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin mkdocs-glightbox
+
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci
+
+      - name: Build site
+        run: mkdocs build --strict
+
+      - name: Start local site server
+        run: python -m http.server 8000 --directory site >/tmp/pa11y-server.log 2>&1 &
+
+      - name: Wait for local site server
+        run: |
+          for i in 1 2 3 4 5; do
+            curl -fsS http://127.0.0.1:8000/ >/dev/null && exit 0
+            sleep 2
+          done
+          exit 1
+
+      - name: Run pa11y-ci
+        continue-on-error: true
+        run: pa11y-ci | tee pa11y-results.txt
+
+      - name: Upload pa11y logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pa11y-results
+          path: |
+            pa11y-results.txt
+            /tmp/pa11y-server.log
+
   deploy:
     name: Deploy to GitHub Pages
     needs: build
