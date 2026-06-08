@@ -1,0 +1,1415 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A complete, beginner-friendly build guide for the WisMesh Repeater Mini 1W. A self-sustaining 1 watt solar Meshtastic rooftop node. A community build by prayingmedic.">
+      
+      
+      
+        <link rel="canonical" href="https://azmsh.net/docs/wismesh-repeater-mini-1w.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>WisMesh Repeater Mini 1W Build Guide - Arizona Meshtastic Community</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wismesh-repeater-mini-1w-solar-build-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Arizona Meshtastic Community" class="md-header__button md-logo" aria-label="Arizona Meshtastic Community" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arizona Meshtastic Community
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              WisMesh Repeater Mini 1W Build Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="amber" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ArizonaMeshtasticCommunity/azmsh-site" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    azmsh-site
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="how-to-connect.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  How to Connect
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="what-now.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  What Now?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="recommended-hardware.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Recommended Hardware
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="recommended-settings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Recommended Settings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="suggested_channels.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Suggested Channels
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="host-a-node.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Host a Node
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../reach_out.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Reach Out
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Arizona Meshtastic Community" class="md-nav__button md-logo" aria-label="Arizona Meshtastic Community" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Arizona Meshtastic Community
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ArizonaMeshtasticCommunity/azmsh-site" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    azmsh-site
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-to-connect.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="what-now.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Now?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recommended-hardware.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recommended Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recommended-settings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recommended Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="suggested_channels.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Suggested Channels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="host-a-node.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host a Node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reach_out.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reach Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-youre-building-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Building (and Why)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parts-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parts List
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parts List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3d-printed-parts-optional-but-recommended-for-mast-mounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D-Printed Parts (optional, but recommended for mast mounting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#small-hardware-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Small Hardware &amp; Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-power-modes-leave-the-jumper-on-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Power Modes. Leave the Jumper on INTERNAL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-it-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build It. Step by Step
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build It. Step by Step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-enclosure-and-remove-the-stock-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1. Open the enclosure and remove the stock board
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-mount-the-1w-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2. Mount the 1W board
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-prep-the-battery-check-polarity-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3. Prep the battery (check polarity FIRST)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-connect-the-battery-then-the-solar-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4. Connect the battery, then the solar panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-attach-the-antenna-before-you-ever-power-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5. Attach the antenna (BEFORE you ever power on)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-flash-the-meshtastic-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6. Flash the Meshtastic firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-close-it-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7. Close it up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-mast-mount-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8. Mast-mount it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-specific-to-this-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings specific to this build
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prayingmedics-real-world-test-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prayingmedic's Real-World Test Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-watching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Watching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting &amp; Gotchas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting &amp; Gotchas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="wismesh-repeater-mini-1w-solar-build-guide"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.71 20.29-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.8 3.8 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54.53-.53 1.42-1.42.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.8 3.8 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46-2.83-2.83M20 2l-4 2v2l-2.17 2.17 2 2L18 8h2l2-4Z"></path></svg></span> WisMesh Repeater Mini 1W. Solar Build Guide</h1>
+<p>A complete, step-by-step guide to building a <strong>1 watt (30 dBm) solar-powered rooftop node</strong> that runs itself off the sun, 24/7. This is our <strong>#1 recommended rooftop node</strong>. And you don't need to solder a single thing to build it.</p>
+<figure style="margin: 0 auto; max-width: 420px;">
+  <a href="../assets/images/wismesh-mini-1w-mast-mounted.jpg" class="glightbox" data-description="Finished WisMesh Repeater Mini 1W mounted vertically on a 10 ft mast with the Alfa 5.8 dBi whip antenna pointing up, secured with hose clamps. Build and photo by prayingmedic.">
+    <img src="../assets/images/wismesh-mini-1w-mast-mounted.jpg" alt="Finished WisMesh Repeater Mini 1W node mounted vertically on a mast with a whip antenna pointing up, held by 3D-printed brackets and hose clamps." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">The finished node on a 10 ft mast. Build &amp; photo by prayingmedic. Click to enlarge.</figcaption>
+</figure>
+
+<div class="admonition success">
+<p class="admonition-title">Community build by prayingmedic <img alt="❤" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2764.svg" title=":heart:"></p>
+<p>This entire build (the design, every photo on this page, and the real-world field testing) is the work of community member <strong>prayingmedic</strong>. He figured out that the RAK 1 Watt Booster board drops right into the WisMesh Repeater Mini's solar enclosure, dialed in the battery and mounting details, and ran it on a mast for days to prove it sustains itself on solar.</p>
+<p><strong>Huge thanks, prayingmedic.</strong> This is his build; we're just writing it down. Got questions about the build? Ask in the <a href="https://discord.com/channels/1270431345734062133/1512210845558378556">build thread on our Discord</a>. Prayingmedic is in there answering questions. (New to the server? <a href="https://discord.gg/HrKtyuFEQk">Join here</a> first.)</p>
+</div>
+<hr>
+<h2 id="what-youre-building-and-why"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"></path></svg></span> What You're Building (and Why)</h2>
+<p>You're putting a <strong>RAK 1 Watt LoRa Booster board</strong> inside the <strong>solar enclosure from a WisMesh Repeater Mini</strong>. The result is a weatherproof, solar-powered node that:</p>
+<ul>
+<li><strong>Transmits at 1 watt (30 dBm)</strong>, about <strong>6x the transmit power</strong> of a typical 22 dBm node. It also <em>hears</em> better, thanks to a built-in RF filter on the radio module.</li>
+<li><strong>Runs itself off the sun.</strong> The nRF52840 chip sips power, so the enclosure's small solar panel keeps the battery topped up and the node alive around the clock.</li>
+<li><strong>Is legal at full power</strong> when paired with the recommended 5.8 dBi antenna (more on the math below).</li>
+</ul>
+<p><strong>Why this build?</strong> Our previous #1 rooftop pick, the Station G2, is <strong>sold out and very hard to get</strong>. This build delivers serious range and a self-sustaining solar node for around <strong>$100-150 in parts</strong>. And it's genuinely easy to put together.</p>
+<div class="admonition info">
+<p class="admonition-title">Arizona note</p>
+<p>Solar nodes shine here. Pun intended. Just remember Arizona's extremes: 115F+ heat, intense UV, and monsoon storms. This enclosure is weatherproof, and prayingmedic's testing (below) shows it holds charge well even mounted in the worst-case orientation.</p>
+</div>
+<hr>
+<h2 id="parts-list"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5h6v6H3zm2 2v2h2V7zm6 0h10v2H11zm0 8h10v2H11zm-6 5-3.5-3.5 1.41-1.41L5 17.17l4.59-4.58L11 14z"></path></svg></span> Parts List</h2>
+<p>Everything you need. The kit is the only "expensive" part. The rest is cheap.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it is</th>
+<th>Price</th>
+<th>Buy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RAK 1W LoRa Booster Kit (RAK3401)</strong></td>
+<td>The brains + 1W radio. Includes the base board, nRF52840 core, the 1W LoRa module, and a USB-C cable.</td>
+<td>~$39</td>
+<td><a href="https://store.rakwireless.com/products/meshtastic-1w-lora-booster-kit-rak3401">RAK Store</a></td>
+</tr>
+<tr>
+<td><strong>WisMesh Repeater Mini</strong></td>
+<td>The donor. You're using its <strong>solar enclosure, solar panel, antenna cable, and screws</strong>.</td>
+<td>~$50-70</td>
+<td><a href="https://store.rokland.com/products/wismesh-repeater-mini-reliable-coverage-expansion-for-smart-networks">Rokland</a></td>
+</tr>
+<tr>
+<td><strong>Alfa 5.8 dBi whip antenna (RP-SMA)</strong></td>
+<td>The antenna. Screws right onto the enclosure's antenna cable. No adapter needed.</td>
+<td>~$12</td>
+<td><a href="https://store.rokland.com/collections/802-11ah-wi-fi-halow/products/alfa-network-ars-9096rp-5-dbi-indoor-antenna-for-helium-hotspots">Rokland</a></td>
+</tr>
+<tr>
+<td><strong>Meshnology 5Ah battery</strong></td>
+<td>3.7V Li-ion pack with a JST connector. The 1W TX surge needs a real battery. See the warning below.</td>
+<td>~$20</td>
+<td><a href="https://www.amazon.com/Meshnology-Rechargeable-955565-Protection-Development/dp/B0FFM9MDPR/?th=1">Amazon</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3d-printed-parts-optional-but-recommended-for-mast-mounting"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6a1 1 0 0 0 1-1 1 1 0 0 0-1-1 1 1 0 0 0-1 1 1 1 0 0 0 1 1m0-4a3 3 0 0 1 3 3v6h-4V7H6v4H2V5a3 3 0 0 1 3-3zm-1 16.25c0 .38-.21.71-.53.88l-4.9 2.69q-.255.18-.57.18c-.21 0-.41-.06-.57-.18l-4.9-2.69a.99.99 0 0 1-.53-.88V13c0-.38.21-.71.53-.88l4.9-2.44c.16-.12.36-.18.57-.18q.315 0 .57.18l4.9 2.44c.32.17.53.5.53.88zm-6-6.6L9.04 13 12 14.6l2.96-1.6zm-4 6.01 3 1.63v-2.96l-3-1.62zm8 0v-2.95l-3 1.62v2.96z"></path></svg></span> 3D-Printed Parts (optional, but recommended for mast mounting)</h3>
+<p>prayingmedic designed two printable parts. You don't strictly need a 3D printer to build the node. Only to mast-mount it the way he did.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it's for</th>
+<th>STL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mast-mount brackets</strong></td>
+<td>Clip onto the back of the enclosure; accept hose clamps for vertical mast mounting.</td>
+<td><a href="https://u.pcloud.link/publink/show?code=XZPqoI5ZKPgwakGbUJStyvrzPUQXVjBXdPM7">Download STL</a></td>
+</tr>
+<tr>
+<td><strong>Battery spacer (1/8" thick, 2" square)</strong></td>
+<td>Goes under the battery so it lies flat. A boss on the mounting plate makes the battery tilt without it.</td>
+<td><a href="https://u.pcloud.link/publink/show?code=XZoqoI5ZKKELnYkIrap8TvU7T73gMkXI3ENV">Download STL</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="small-hardware-tools"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"></path></svg></span> Small Hardware &amp; Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Why</th>
+<th>Needed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M3 machine screws</strong></td>
+<td>All the mounting hardware.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><strong>Hose clamps</strong> (2)</td>
+<td>Strap the printed brackets to your mast.</td>
+<td>For mast mount</td>
+</tr>
+<tr>
+<td><strong>Lever nuts</strong> (e.g. Wago)</td>
+<td>Solderless way to wire two batteries in parallel.</td>
+<td>Only for the dual-battery upgrade</td>
+</tr>
+<tr>
+<td><strong>3M double-sided foam tape</strong></td>
+<td>Secures the battery (or stacked batteries) inside.</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><strong>Small Phillips screwdriver</strong></td>
+<td>Opens/closes the enclosure clamshell.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><strong>Computer (Windows/Mac/Linux) + Chrome or Edge</strong></td>
+<td>To flash the firmware.</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Difficulty &amp; time</p>
+<p><strong>Difficulty:</strong> Beginner. <strong>No soldering required</strong> (unless you do the optional dual-battery upgrade, and even that uses solderless lever nuts).<br>
+<strong>Time:</strong> About <strong>30-60 minutes</strong> for the build, plus a few minutes to flash and configure.<br>
+<strong>Tools:</strong> Just a small Phillips screwdriver and a computer to flash firmware.</p>
+</div>
+<hr>
+<h2 id="two-power-modes-leave-the-jumper-on-internal"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 7V3h-2v4h-4V3H8v4C7 7 6 8 6 9v5.5L9.5 18v3h5v-3l3.5-3.5V9c0-1-1-2-2-2"></path></svg></span> Two Power Modes. Leave the Jumper on INTERNAL</h2>
+<p>Before you build, understand one critical thing about this board. The 1W radio module has a small <strong>3-pin jumper</strong> that selects how the board is powered:</p>
+<ul>
+<li><strong>INTERNAL</strong> (this build). A <strong>3.7V Li-ion battery is mandatory.</strong> It supplies the big current surge the 1W transmitter needs. USB-C and the solar panel only <strong>charge</strong> the battery. Neither one can power the board on its own in this mode. The Repeater Mini's solar panel plugs into the solar header and keeps the battery full.</li>
+<li><strong>EXTERNAL</strong>. A 5V/1.5A supply into the jack on the back of the radio module powers everything (for AC-powered installs). <strong>We are not using this mode.</strong></li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Leave the jumper on INTERNAL. And the battery is NOT optional</p>
+<p>For this solar build, <strong>leave the jumper on INTERNAL</strong> (its default). In this mode the board <strong>cannot run without a battery installed</strong>. USB-C or the solar panel alone will not power it. The battery is what delivers the 1W transmit surge.</p>
+</div>
+<hr>
+<h2 id="build-it-step-by-step"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.7 19-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4"></path></svg></span> Build It. Step by Step</h2>
+<h3 id="step-1-open-the-enclosure-and-remove-the-stock-board">Step 1. Open the enclosure and remove the stock board</h3>
+<ol>
+<li>Using your Phillips screwdriver, remove the screws holding the clamshell enclosure together and open it up. <strong>Keep the screws</strong>. You'll reuse them to close it.</li>
+<li>Inside you'll find the stock <strong>RAK4631</strong> board on a mounting plate. Gently unplug its battery/solar connectors and lift the stock board off the mounting plate. Set it aside (you won't use it for this build).</li>
+</ol>
+<h3 id="step-2-mount-the-1w-board">Step 2. Mount the 1W board</h3>
+<p>The 1W board is designed to drop right in.</p>
+<ol>
+<li>Place the RAK 1W board onto the <strong>same standard mounting-plate holes</strong> the stock board used. <strong>No modification is needed</strong>. The holes line up.</li>
+<li>Secure it with <strong>M3 machine screws</strong>.</li>
+</ol>
+<figure style="margin: 0 auto; max-width: 420px;">
+  <a href="../assets/images/wismesh-mini-1w-board-and-battery.jpg" class="glightbox" data-description="Open clamshell showing the RAK 1W board (RAK13302 1W LoRa module visible) mounted on the plate, next to the 5000 mAh Meshnology battery and wiring. Build and photo by prayingmedic.">
+    <img src="../assets/images/wismesh-mini-1w-board-and-battery.jpg" alt="Open enclosure with the RAK 1W board mounted on the plate beside a 5000 mAh Meshnology battery and connecting wiring." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">1W board mounted on the stock plate, next to the 5Ah battery. Photo: prayingmedic.</figcaption>
+</figure>
+
+<h3 id="step-3-prep-the-battery-check-polarity-first">Step 3. Prep the battery (check polarity FIRST)</h3>
+<p>The standard RAK4631 build typically uses a 3Ah flatpak. For the 1W upgrade, prayingmedic recommends a <strong>5Ah battery</strong> to comfortably feed the bigger transmitter.</p>
+<div class="admonition danger">
+<p class="admonition-title">CAUTION: Double-check battery lead polarity before you plug it in</p>
+<p>The battery JST connector polarity is <strong>not standardized</strong> across vendors. RAK boards put the <strong>positive lead on the INBOARD side</strong> of both the battery and solar sockets.</p>
+<p><strong>Before connecting anything</strong>, look at your battery's leads:</p>
+<ul>
+<li>If the <strong>red (positive)</strong> lead is on the <strong>inboard</strong> side, great, you're good.</li>
+<li>If the <strong>red (positive)</strong> lead is on the <strong>outboard</strong> side, <strong>stop.</strong> Cut the battery leads and <strong>swap red and black</strong> before powering on. Plugging in reversed polarity can damage the board.</li>
+</ul>
+<p>In prayingmedic's close-up photo below, the <strong>BLACK lead is on the inboard side</strong>. That's because he swapped the leads on that pack, so on his battery <strong>black is the positive lead.</strong> Always verify <em>your</em> battery, not the photo.</p>
+</div>
+<figure style="margin: 0 auto; max-width: 420px;">
+  <a href="../assets/images/wismesh-mini-1w-jst-polarity-closeup.jpg" class="glightbox" data-description="Close-up of the BATTERY and SOLAR JST sockets, RESET button, USB-C port and the + silkscreen marking on the RAK 1W board. In this photo black is positive because the leads were swapped. Build and photo by prayingmedic.">
+    <img src="../assets/images/wismesh-mini-1w-jst-polarity-closeup.jpg" alt="Close-up of the BATTERY and SOLAR JST sockets, RESET button, USB-C port and the plus silkscreen on the RAK 1W board." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">The BATTERY and SOLAR sockets, RESET, USB-C, and the "+" silkscreen. Note: in this photo black is positive. Prayingmedic swapped the leads on this pack. Photo: prayingmedic.</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Optional: dual-battery upgrade for extra runtime</p>
+<p>Want even more buffer for cloudy stretches? prayingmedic's prototype runs <strong>two 5Ah batteries wired in parallel</strong> (red-to-red, black-to-black) using <strong>solderless lever nuts</strong> (e.g. Wago). The two packs are <strong>stacked and secured with 3M double-sided foam tape.</strong></p>
+<p>Because a boss on the mounting plate makes the batteries sit tilted, he printed a <strong>thin (1/8" thick) 2" square spacer</strong> to slip underneath so they lie flat. (See the <a href="https://u.pcloud.link/publink/show?code=XZoqoI5ZKKELnYkIrap8TvU7T73gMkXI3ENV">battery spacer STL</a> above.)</p>
+<p></p><figure style="margin: 0 auto; max-width: 420px;">
+  <a href="../assets/images/wismesh-mini-1w-dual-battery-stack.jpg" class="glightbox" data-description="Two 5Ah battery packs stacked inside the enclosure, with the RP-SMA bulkhead and RAK13302 1W module visible. Build and photo by prayingmedic.">
+    <img src="../assets/images/wismesh-mini-1w-dual-battery-stack.jpg" alt="Two 5Ah battery packs stacked inside the enclosure next to the RP-SMA bulkhead and the 1W LoRa module." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Two 5Ah packs stacked in parallel. Photo: prayingmedic.</figcaption>
+</figure><p></p>
+</div>
+<h3 id="step-4-connect-the-battery-then-the-solar-panel">Step 4. Connect the battery, then the solar panel</h3>
+<p>Once polarity is verified and the battery (or stacked batteries) is secured with foam tape:</p>
+<ol>
+<li>Plug the <strong>battery JST</strong> into the <strong>BATTERY</strong> socket (the battery JST is a PH 2.0 connector).</li>
+<li>Plug the enclosure's <strong>solar panel JST</strong> into the <strong>SOLAR</strong> socket.</li>
+</ol>
+<p>The solar header only charges the battery. That's exactly what you want. It keeps the pack topped up so the node never runs out of juice.</p>
+<figure style="margin: 0 auto; max-width: 420px;">
+  <a href="../assets/images/wismesh-mini-1w-internals-top.jpg" class="glightbox" data-description="Top-down view of the assembled internals: 1W board, battery, USB-C port, and JST wiring routed inside the enclosure. Build and photo by prayingmedic.">
+    <img src="../assets/images/wismesh-mini-1w-internals-top.jpg" alt="Top-down view of the assembled node internals showing the board, battery, USB-C port and JST wiring." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">Assembled internals. Board, battery, and wiring. Photo: prayingmedic.</figcaption>
+</figure>
+
+<h3 id="step-5-attach-the-antenna-before-you-ever-power-on">Step 5. Attach the antenna (BEFORE you ever power on)</h3>
+<p>The enclosure's supplied antenna cable is a <strong>reverse-polarity SMA (RP-SMA)</strong> connector. Rather than mess with adapters, pair it with the <strong>Alfa 5.8 dBi whip antenna</strong>. It screws right on and works great.</p>
+<ol>
+<li>Route the antenna cable to the enclosure's bulkhead.</li>
+<li>Screw the <strong>Alfa 5.8 dBi whip</strong> onto the RP-SMA connector. Snug but don't overtighten.</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">NEVER power the board without an antenna attached</p>
+<p>Powering on a 1W transmitter with no antenna can <strong>burn out the power amplifier</strong> instantly. <strong>Antenna first, always</strong>. Before you connect the battery's full power path, before you flash, before anything. Make this a habit.</p>
+</div>
+<h3 id="step-6-flash-the-meshtastic-firmware">Step 6. Flash the Meshtastic firmware</h3>
+<p>The nRF52840 chip flashes by drag-and-drop. No special software, just a web browser and the included USB-C cable. <strong>Confirm your antenna is attached (Step 5) before this.</strong></p>
+<ol>
+<li>Open <strong><a href="https://flasher.meshtastic.org/">flasher.meshtastic.org</a></strong> in <strong>Chrome</strong> or <strong>Edge</strong> on your computer.</li>
+<li>Plug the node into your computer with the <strong>included USB-C cable</strong>.</li>
+<li><strong>Double-tap the RESET button</strong> on the board. The node enters <strong>DFU mode</strong> and mounts on your computer as a USB drive (like a flash drive).</li>
+<li>In the flasher, select the device named <strong><code>RAK3401 1W</code></strong> and pick the latest stable firmware. Download the firmware file. It will be named like <strong><code>firmware-rak3401-1watt-X.X.X.xxxxxxx.uf2</code></strong>.</li>
+<li><strong>Drag and drop that <code>.uf2</code> file onto the USB drive</strong> the node mounted as. It will copy, the node will reboot automatically, and you're flashed.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Why drag-and-drop instead of one-click flashing?</p>
+<p>This board uses the nRF52840's built-in <strong>UF2 bootloader</strong>. The official device target is <strong><code>rak3401-1watt</code></strong> (shown as <strong>"RAK3401 1W"</strong> in the flasher), and it installs by <strong>double-tap-reset DFU + dropping the UF2</strong> rather than a serial flash. If your browser can't drive the flasher, you can also grab the same <code>firmware-rak3401-1watt-*.uf2</code> from the <a href="https://github.com/meshtastic/firmware/releases">official Meshtastic firmware releases</a> and drag it on manually.</p>
+</div>
+<h3 id="step-7-close-it-up">Step 7. Close it up</h3>
+<ol>
+<li>Tidy the wiring so nothing is pinched.</li>
+<li>Bring the clamshell halves together and drive the <strong>supplied screws through the back half</strong> of the clamshell to seal it.</li>
+</ol>
+<h3 id="step-8-mast-mount-it">Step 8. Mast-mount it</h3>
+<ol>
+<li>Attach the <strong>3D-printed brackets</strong> to the back of the enclosure with <strong>M3 machine screws</strong>.</li>
+<li>Run <strong>hose clamps</strong> through the brackets and around your mast, then tighten.</li>
+<li>Mount it as <strong>high</strong> as you can with clear line-of-sight. Height matters more than anything else (see the gotchas below).</li>
+</ol>
+<figure style="margin: 0 auto; max-width: 420px;">
+  <a href="../assets/images/wismesh-mini-1w-mount-brackets.jpg" class="glightbox" data-description="Back of the enclosure showing the 3D-printed mast-mount brackets and a hose clamp threaded across the plate. Build and photo by prayingmedic.">
+    <img src="../assets/images/wismesh-mini-1w-mount-brackets.jpg" alt="Back of the enclosure with 3D-printed mast-mount brackets and a hose clamp threaded across the mounting plate." style="width: 100%; height: auto;">
+  </a>
+  <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.75;">3D-printed brackets with hose clamps for mast mounting. Photo: prayingmedic.</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Alternative: magnetic mount</p>
+<p>Want to attach it to a <strong>magnetic pole</strong> instead? There's a community-made magnetic mount for the back of the enclosure. Grab the 3D-print files and a guide in <a href="https://discord.com/channels/1270431345734062133/1473733785173622986/1473733785173622986">this Discord thread</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Configure before final mounting</p>
+<p>Bluetooth range on this 1W kit can be <strong>very short (~3-6 feet)</strong>. Keep your phone right next to the node when configuring, or just do all your configuration on the bench <strong>before</strong> you put it up on the mast.</p>
+</div>
+<hr>
+<h2 id="configuration"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"></path></svg></span> Configuration</h2>
+<p>Flashing is not configuring. <strong>Do not skip this part.</strong> Set the node up the same way as every other node on the Arizona mesh:</p>
+<ol>
+<li><strong>Follow the <a href="/docs/how-to-connect.html">How to Connect</a> guide</strong> to pair the node and get it on the mesh.</li>
+<li><strong>Apply everything on the <a href="/docs/recommended-settings.html">Recommended Settings</a> page</strong>. Region, role, channels, and broadcast intervals all live there. Those settings keep the whole Arizona mesh healthy; this guide doesn't repeat them.</li>
+</ol>
+<h3 id="settings-specific-to-this-build">Settings specific to this build</h3>
+<p>Only a few settings differ from a standard node because of the 1W radio and solar power:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TX Power</strong></td>
+<td><code>30</code> dBm</td>
+<td>Full 1 watt. (See the EIRP and weather notes below.)</td>
+</tr>
+<tr>
+<td><strong>Power Saving</strong></td>
+<td><strong>ON</strong></td>
+<td>Energy efficiency is a priority on a solar node.</td>
+</tr>
+<tr>
+<td><strong>Bluetooth</strong></td>
+<td>Off if not needed</td>
+<td>Saves power. If you turn BT off, plan to manage the node with an <strong>admin node</strong> remotely.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Don't pick Router/Router Late just because it's powerful</p>
+<p>A 1W node is tempting to set as a Router. <strong>Don't, unless your site genuinely calls for it.</strong> Router roles are for high-elevation, permanent, line-of-sight repeater sites. For a home rooftop, stick with the role guidance on <a href="/docs/recommended-settings.html">Recommended Settings</a>. If you think your location qualifies, ask the community on Discord first.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">EIRP compliance. Stay legal</p>
+<p>Your <strong>effective radiated power</strong> is TX power <strong>plus</strong> antenna gain:</p>
+<blockquote>
+<p>30 dBm (1W) <strong>+</strong> 5.8 dBi antenna <strong>≈ 35.8 dBm EIRP</strong></p>
+</blockquote>
+<p>That's <strong>just under the 36 dBm US 915 MHz ISM limit</strong>. So this build is compliant <strong>as specced</strong>, at full 30 dBm with the 5.8 dBi Alfa whip. <strong>Do not pair full 30 dBm power with a higher-gain antenna</strong>. You'll exceed the legal limit. If you use a bigger antenna, turn TX power down to compensate.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Cloudy weather? Back off the TX power</p>
+<p>prayingmedic tested in full sun. He hasn't yet run it through an extended cloudy stretch, so for <strong>inclement weather</strong> a safe bet is to drop TX power to about <strong>26-28 dBm</strong> to be gentler on the battery. With good sun, full 30 dBm holds charge fine (see his results below).</p>
+</div>
+<hr>
+<h2 id="prayingmedics-real-world-test-results"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2zm4 14c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m2-4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m1-5h-4V4h4z"></path></svg></span> prayingmedic's Real-World Test Results</h2>
+<p>prayingmedic mounted the node <strong>vertically on a 10 ft mast</strong> in <strong>CLIENT</strong> mode and ran it for <strong>5 sunny days</strong>. He deliberately tested the <em>worst-case</em> orientation (vertical, panel not facing straight up).</p>
+<ul>
+<li><strong>TX power schedule:</strong> 30 dBm for 48h → 28 dBm for 48h → 30 dBm for 24h. <strong>The TX setting made no noticeable difference in power consumption.</strong></li>
+<li><strong>Channel utilization:</strong> <strong>6-13% per day.</strong></li>
+<li><strong>Battery voltage:</strong> started at <strong>3.82V</strong> and stayed within a tight <strong>3.80-3.84V</strong> band the <em>entire</em> 5 days.</li>
+</ul>
+<p><strong>Takeaway:</strong> With adequate sun, the state of charge holds in a very narrow band near the deployment voltage. At least through the first few weeks.</p>
+<div class="admonition note">
+<p class="admonition-title">Things prayingmedic points out</p>
+<ul>
+<li><strong>Horizontal mounting</strong> (solar panel facing up) would likely harvest <em>more</em> solar than the vertical orientation he tested. So his numbers are conservative.</li>
+<li>It hasn't yet been tested through <strong>extended cloudy weather</strong>. That's why ~26 dBm is the safe inclement-weather setting.</li>
+<li><strong>Energy saving is the priority:</strong> turn <strong>power saving ON</strong>, and turn <strong>Bluetooth OFF if you don't need it</strong> (manage settings via an <strong>admin node</strong> if BT is off). Keep broadcast intervals reasonable.</li>
+</ul>
+</div>
+<hr>
+<h2 id="further-watching"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 15 5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73"></path></svg></span> Further Watching</h2>
+<p>Want to go deeper on the RAK 1W kit and its power behavior? <strong>Atlavox</strong> has two excellent videos:</p>
+<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5v-9l6 4.5M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg></span> <a href="https://www.youtube.com/watch?v=SQ8TnKPmTn4">RAK 1W Booster Deep Dive. A Use-Case Nobody's Talking About</a></li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5v-9l6 4.5M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg></span> <a href="https://www.youtube.com/watch?v=S28xwvTSWZ8">RAK 1watt Booster Power Requirements</a></li>
+</ul>
+<hr>
+<h2 id="troubleshooting-gotchas"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"></path></svg></span> Troubleshooting &amp; Gotchas</h2>
+<div class="admonition warning">
+<p class="admonition-title">Node won't power on</p>
+<p>In <strong>INTERNAL</strong> mode, the board <strong>needs a battery</strong>. USB-C or solar alone won't run it. Confirm the battery is plugged in, charged, and correct polarity. Confirm the jumper is on <strong>INTERNAL</strong>.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Never test without an antenna</p>
+<p>Worth repeating: powering the 1W transmitter with no antenna can fry the amplifier. Antenna on first, every time.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Battery polarity</p>
+<p>If the node behaves oddly after a battery swap, re-verify polarity. RAK uses <strong>positive inboard</strong>. If your pack has red on the outboard side, you must swap the leads (prayingmedic did exactly that, which is why black is positive in his close-up).</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Can't connect over Bluetooth</p>
+<p>BLE range on this kit is <strong>short (~3-6 ft)</strong>. Stand right next to the node, or configure it on the bench before mounting.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Position, antenna, cable, power. In that order</p>
+<p>Range comes from <strong>height and line-of-sight first</strong>, then antenna, then cable quality, then transmit power. The 1W boost is a real help, but it does <strong>not</strong> replace getting the node up high. Mount it as high as you safely can.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Stuck on something?</p>
+<p>Ask in the <a href="https://discord.com/channels/1270431345734062133/1512210845558378556">build thread on our Discord</a>. Prayingmedic himself is in the thread and happy to help. (<a href="https://discord.gg/HrKtyuFEQk">Join the server</a> first if you're not in it yet.)</p>
+</div>
+<hr>
+<h4 id="next-steps">Next Steps</h4>
+<ul>
+<li><a href="/docs/recommended-hardware.html">Recommended Hardware</a>. See how this stacks up against other rooftop nodes</li>
+<li><a href="/docs/recommended-settings.html">Recommended Settings</a>. Full role and interval guidance for the Arizona mesh</li>
+<li><a href="/docs/how-to-connect.html">How to Connect</a>. Get your node on the Arizona mesh</li>
+<li><a href="/docs/what-now.html">What Now?</a>. Confirm the mesh can actually hear you</li>
+</ul>
+<hr>
+<p><em>Build, photos, and field testing by </em><em>prayingmedic</em><em>. Prices are estimates as of early 2026 and may vary. Check retailer links for current pricing.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Arizona Meshtastic Community &nbsp;·&nbsp; <a href="/accessibility.html">Accessibility</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/HrKtyuFEQk" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ArizonaMeshtasticCommunity" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/js/nodeData.js"></script>
+      
+        <script src="../assets/js/a11y.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
