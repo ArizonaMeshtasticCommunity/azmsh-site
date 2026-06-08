@@ -17,7 +17,7 @@ Our Discord server is the most active place to connect with the Arizona Meshtast
 
 [:fontawesome-brands-discord: Join the Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
-<iframe src="https://discord.com/widget?id=1270431345734062133&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+<iframe src="https://discord.com/widget?id=1270431345734062133&theme=dark" width="350" height="500" title="Arizona Meshtastic Community Discord server widget" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
 ---
 

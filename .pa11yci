@@ -1,0 +1,28 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["htmlcs"],
+    "timeout": 30000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    },
+    "ignore": [
+      "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2",
+      "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputCheckbox.Name",
+      "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68"
+    ]
+  },
+  "urls": [
+    "http://127.0.0.1:8000/",
+    "http://127.0.0.1:8000/accessibility.html",
+    "http://127.0.0.1:8000/privacy.html",
+    "http://127.0.0.1:8000/reach_out.html",
+    "http://127.0.0.1:8000/docs/how-to-connect.html",
+    "http://127.0.0.1:8000/docs/what-now.html",
+    "http://127.0.0.1:8000/docs/recommended-hardware.html",
+    "http://127.0.0.1:8000/docs/recommended-settings.html",
+    "http://127.0.0.1:8000/docs/suggested_channels.html",
+    "http://127.0.0.1:8000/docs/host-a-node.html",
+    "http://127.0.0.1:8000/docs/wismesh-repeater-mini-1w.html"
+  ]
+}
