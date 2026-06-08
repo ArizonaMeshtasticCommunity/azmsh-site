@@ -21,7 +21,7 @@ Choosing the right role for your device keeps the network clean and efficient.
 
 ### Client Mute
 
-**Use for: anything mobile** -- backpacks, vehicles, pocket nodes.
+**Use for: anything mobile**. Backpacks, vehicles, pocket nodes.
 
 Client Mute nodes can send and receive messages but do **not** rebroadcast other people's traffic. This is the best choice for devices that move around, since mobile rebroadcasters create unpredictable routing and extra congestion.
 
@@ -37,11 +37,11 @@ Client is the standard role. Your node will participate in the mesh by rebroadca
 ### Router and Router Late
 
 !!! warning "Understand Router roles before switching"
-    **Router** and **Router Late** are designed for nodes at **high elevation, permanent fixed locations with good line-of-sight** — think hilltops, towers, or mountain repeater sites. They aggressively rebroadcast traffic and are optimized to extend the mesh across long distances.
+    **Router** and **Router Late** are designed for nodes at **high elevation, permanent fixed locations with good line-of-sight**. Think hilltops, towers, or mountain repeater sites. They aggressively rebroadcast traffic and are optimized to extend the mesh across long distances.
 
-    Used in the wrong context — a home, an apartment, or a mobile node — these roles can cause increased congestion, routing loops, and degraded performance for everyone on the mesh. Meshtastic's own guidance is to use these roles only where they genuinely improve coverage for the wider network, not just your own reach.
+    Used in the wrong context (a home, an apartment, or a mobile node), these roles can cause increased congestion, routing loops, and degraded performance for everyone on the mesh. Meshtastic's own guidance is to use these roles only where they genuinely improve coverage for the wider network, not just your own reach.
 
-    **Before switching to Router or Router Late, make sure you understand the implications.** If you're unsure whether your location and setup are a good fit, ask the community on Discord — we're happy to help.
+    **Before switching to Router or Router Late, make sure you understand the implications.** If you're unsure whether your location and setup are a good fit, ask the community on Discord. We're happy to help.
 
     [:fontawesome-brands-discord: Ask the Community on Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
@@ -57,7 +57,7 @@ For devices that move around (in your car, backpack, pocket, etc.):
 
 | Setting | Value | Notes |
 |:--------|:------|:------|
-| **Node Info Broadcast** | `43200` sec (12 hours) | Your node info rarely changes -- no need to broadcast it often. |
+| **Node Info Broadcast** | `43200` sec (12 hours) | Your node info rarely changes. No need to broadcast it often. |
 | **Smart Broadcast** | **ON** | Automatically sends position updates when you move. |
 | Smart Broadcast Min Distance | `100` meters | Only broadcasts after moving at least 100m. |
 | Smart Broadcast Min Interval | `60` seconds | No more than one smart broadcast per minute. |
@@ -74,7 +74,7 @@ For devices that stay in one place (rooftop, home base, solar nodes):
 
 | Setting | Value | Notes |
 |:--------|:------|:------|
-| **Node Info Broadcast** | `43200` sec (12 hours) | Same as mobile -- node info does not change often. |
+| **Node Info Broadcast** | `43200` sec (12 hours) | Same as mobile. Node info does not change often. |
 | **Smart Broadcast** | **OFF** | Your node is not moving, so smart positioning is not needed. |
 | **Position Broadcast** | `43200` sec (12 hours) | Only if GPS is enabled. Your position is fixed. |
 | **GPS Update Interval** | `21600` sec (6 hours) | Minimal GPS checks since the node does not move. |
@@ -87,7 +87,7 @@ For devices that stay in one place (rooftop, home base, solar nodes):
 
 ## Neighbor Info
 
-Neighbor Info is a module that periodically broadcasts a list of your node's direct neighbors along with the signal quality (SNR) of each link. When enabled across multiple nodes, the community can build a real picture of how the mesh is connected — which helps identify coverage gaps, optimize node placement, and understand how traffic actually flows through the network.
+Neighbor Info is a module that periodically broadcasts a list of your node's direct neighbors along with the signal quality (SNR) of each link. When enabled across multiple nodes, the community can build a real picture of how the mesh is connected, which helps identify coverage gaps, optimize node placement, and understand how traffic actually flows through the network.
 
 Neighbor Info packets are small and infrequent, so the channel congestion impact is very low.
 
@@ -109,7 +109,7 @@ Neighbor Info packets are small and infrequent, so the channel congestion impact
     4. Scroll down and tap **Neighbor Info**.
     5. Toggle **Enabled** to ON.
     6. Set the **Update Interval** to `14400` (mobile) or `39600` (stationary).
-    7. Toggle **Transmit Over LoRa** to ON — this sends the neighbor info over the radio mesh and to MQTT.
+    7. Toggle **Transmit Over LoRa** to ON. This sends the neighbor info over the radio mesh and to MQTT.
     8. Tap **Send** to save the settings to your node.
 
 ??? note "How to Enable on Web Client"
@@ -129,7 +129,7 @@ Neighbor Info packets are small and infrequent, so the channel congestion impact
     # Enable the module
     meshtastic --set neighbor_info.enabled true
 
-    # Set update interval (seconds) — 14400 = 4 hours, 39600 = 11 hours
+    # Set update interval (seconds): 14400 = 4 hours, 39600 = 11 hours
     meshtastic --set neighbor_info.update_interval 14400
 
     # Enable transmit over LoRa (sends over radio AND MQTT)
@@ -148,7 +148,7 @@ Neighbor Info packets are small and infrequent, so the channel congestion impact
 
 ## MQTT
 
-MQTT lets your node upload diagnostic data to a shared server, which helps us monitor network health and see all nodes on the map. It does **not** send your personal messages or private data -- only metadata like position, telemetry, and node info.
+MQTT lets your node upload diagnostic data to a shared server, which helps us monitor network health and see all nodes on the map. It does **not** send your personal messages or private data. Only metadata like position, telemetry, and node info.
 
 !!! info "What MQTT does and does not do"
     - **Does**: Shares your node's position, battery level, signal metrics, and channel utilization with the community map and monitoring tools.
@@ -162,11 +162,11 @@ To enable MQTT uplink, you will need the community broker settings (server addre
 
 Once you have the broker details:
 
-1. **LoRa Settings**: Enable **"OK to MQTT"** -- this allows your node's data to be uplinked.
+1. **LoRa Settings**: Enable **"OK to MQTT"**. This allows your node's data to be uplinked.
 2. **MQTT Module**: Enter the broker settings provided in Discord.
 3. **Channel Settings** (for each channel you want to uplink):
-    - **Uplink**: **ON** -- sends your node's data to the MQTT server.
-    - **Downlink**: **OFF** -- prevents MQTT messages from being injected back into the radio mesh.
+    - **Uplink**: **ON**. Sends your node's data to the MQTT server.
+    - **Downlink**: **OFF**. Prevents MQTT messages from being injected back into the radio mesh.
 
 !!! warning "Always keep Downlink OFF"
     Downlinking from MQTT into the primary channel floods the radio mesh with traffic from the internet. Keep downlink disabled unless you have a specific reason and have discussed it with the community.

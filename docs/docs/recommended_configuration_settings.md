@@ -49,7 +49,7 @@ These recommendations are based on real-world use and shared experiences within 
 |--------:|:------------------|:------|
 | **Device metrics update interval** | `3600` seconds (1 hour) | Consider `1800` (30 min) when testing or monitoring new devices. |
 | **Environment metrics update interval** | `3600` seconds (1 hour) | Disable if you’re not using environmental sensors. |
-| **Power metrics module** | `False` | For advanced setups with I²C sensors—usually not needed. |
+| **Power metrics module** | `False` | For advanced setups with I²C sensors, usually not needed. |
 
 > ℹ️ *If you don’t use temperature, air quality, or similar sensors, it’s best to turn off the corresponding modules to reduce bandwidth usage.*
 
