@@ -167,10 +167,10 @@ Once you have the broker details:
 
     <div class="azmsh-locked">
       <div class="azmsh-settings">
-        <div class="azmsh-row"><span class="azmsh-label">Server:</span> <span class="azmsh-value">mqtt.azmsh.net:1883</span></div>
+        <div class="azmsh-row"><span class="azmsh-label">Server:</span> <span class="azmsh-value">broker.example.net:1883</span></div>
         <div class="azmsh-row"><span class="azmsh-label">Username:</span> <span class="azmsh-value">azmesh_uplink</span></div>
         <div class="azmsh-row"><span class="azmsh-label">Password:</span> <span class="azmsh-value">k7Qx29fNvB4w</span></div>
-        <div class="azmsh-row"><span class="azmsh-label">Topic:</span> <span class="azmsh-value">msh/US/AZ</span></div>
+        <div class="azmsh-row"><span class="azmsh-label">Topic:</span> <span class="azmsh-value">msh/XX/REGION</span></div>
       </div>
       <div class="azmsh-overlay">
         <span class="azmsh-overlay-text">🔒 Broker settings are shared in Discord</span>
