@@ -56,7 +56,26 @@ That is it -- you should now see your node in the app!
 
 To connect to our local Arizona mesh network, you will need the community-specific **preset** and **frequency settings**. We share these in our Discord server to keep the network coordinated.
 
-[:fontawesome-brands-discord: Join the Arizona Meshtastic Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
+In your Meshtastic app, go to **⚙️ Settings ➡️ LoRa** and set these:
+
+<div class="azmsh-locked">
+  <div class="azmsh-settings">
+    <p class="azmsh-group-title">If you're in the Phoenix / Tucson metro:</p>
+    <div class="azmsh-row"><span class="azmsh-label">1. Preset:</span> <span class="azmsh-value">LongFast_AZ</span></div>
+    <div class="azmsh-row"><span class="azmsh-label">2. Frequency Slot:</span> <span class="azmsh-value">52</span></div>
+    <div class="azmsh-row"><span class="azmsh-label">3. Okay to MQTT:</span> <span class="azmsh-value azmsh-value--clear">On</span></div>
+    <p class="azmsh-group-title">If you're outside the metros:</p>
+    <div class="azmsh-row"><span class="azmsh-label">1. Preset:</span> <span class="azmsh-value">MediumSlow_AZ</span></div>
+    <div class="azmsh-row"><span class="azmsh-label">2. Frequency Slot:</span> <span class="azmsh-value">31</span></div>
+    <div class="azmsh-row"><span class="azmsh-label">3. Okay to MQTT:</span> <span class="azmsh-value azmsh-value--clear">On</span></div>
+  </div>
+  <div class="azmsh-overlay">
+    <span class="azmsh-overlay-text">🔒 Settings are shared in Discord</span>
+    <a class="md-button md-button--primary" href="https://discord.gg/HrKtyuFEQk">Join The Discord</a>
+  </div>
+</div>
+
+For all other settings, see our [Recommended Settings](/docs/recommended-settings.html) page.
 
 Once you are in the server, head to the setup channel and you will find everything you need to get on the Arizona mesh.
 

@@ -164,6 +164,20 @@ Once you have the broker details:
 
 1. **LoRa Settings**: Enable **"OK to MQTT"** -- this allows your node's data to be uplinked.
 2. **MQTT Module**: Enter the broker settings provided in Discord.
+
+    <div class="azmsh-locked">
+      <div class="azmsh-settings">
+        <div class="azmsh-row"><span class="azmsh-label">Server:</span> <span class="azmsh-value">mqtt.azmsh.net:1883</span></div>
+        <div class="azmsh-row"><span class="azmsh-label">Username:</span> <span class="azmsh-value">azmesh_uplink</span></div>
+        <div class="azmsh-row"><span class="azmsh-label">Password:</span> <span class="azmsh-value">k7Qx29fNvB4w</span></div>
+        <div class="azmsh-row"><span class="azmsh-label">Topic:</span> <span class="azmsh-value">msh/US/AZ</span></div>
+      </div>
+      <div class="azmsh-overlay">
+        <span class="azmsh-overlay-text">🔒 Broker settings are shared in Discord</span>
+        <a class="md-button md-button--primary" href="https://discord.gg/HrKtyuFEQk">Join The Discord</a>
+      </div>
+    </div>
+
 3. **Channel Settings** (for each channel you want to uplink):
     - **Uplink**: **ON** -- sends your node's data to the MQTT server.
     - **Downlink**: **OFF** -- prevents MQTT messages from being injected back into the radio mesh.

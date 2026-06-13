@@ -1,0 +1,119 @@
+/* ===========================================================================
+   Discord-gated settings boxes
+   Blurred dummy values + "Join The Discord" overlay. Labels stay sharp.
+   Built on Material for MkDocs theme variables so it inherits light/dark mode,
+   fonts, and the deep-orange / amber palette automatically.
+   =========================================================================== */
+
+.azmsh-locked {
+  position: relative;
+  margin: 1.2rem 0;
+  padding: 1rem 1.1rem;
+  border: .075rem solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  background: var(--md-code-bg-color);
+  overflow: hidden;
+}
+
+/* The settings list itself */
+.azmsh-locked .azmsh-settings {
+  margin: 0;
+  font-size: .82rem;
+  line-height: 1.9;
+}
+
+.azmsh-locked .azmsh-group-title {
+  font-weight: 700;
+  font-size: .8rem;
+  margin: .2rem 0 .55rem;
+  color: var(--md-default-fg-color);
+}
+
+.azmsh-locked .azmsh-group-title:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.azmsh-locked .azmsh-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .4rem .55rem;
+  padding: .12rem 0;
+}
+
+/* Sharp, readable label */
+.azmsh-locked .azmsh-label {
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  white-space: nowrap;
+}
+
+/* Blurred dummy value (monospace, looks like a real setting underneath) */
+.azmsh-locked .azmsh-value {
+  font-family: var(--md-code-font-family, monospace);
+  color: var(--md-default-fg-color);
+  background: var(--md-default-fg-color--lightest);
+  border-radius: .15rem;
+  padding: 0 .35rem;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+/* A value that is intentionally NOT a secret (e.g. "OK to MQTT: On") */
+.azmsh-locked .azmsh-value--clear {
+  filter: none;
+  -webkit-filter: none;
+  background: transparent;
+  padding: 0;
+  font-weight: 600;
+}
+
+/* Dim layer that sits over the blurred settings to reinforce "locked" */
+.azmsh-locked .azmsh-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  text-align: center;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--md-default-bg-color) 62%, transparent);
+  -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1.5px);
+}
+
+.azmsh-locked .azmsh-overlay-text {
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .02em;
+  color: var(--md-default-fg-color);
+  text-shadow: 0 1px 2px var(--md-default-bg-color);
+}
+
+/* Reuse the theme's primary button so the CTA looks native */
+.azmsh-locked .azmsh-overlay .md-button {
+  margin: 0;
+  box-shadow: 0 .15rem .6rem rgba(0, 0, 0, .25);
+}
+
+/* Mobile: keep label + value stacked-readable, shrink padding a touch */
+@media screen and (max-width: 44.9375em) {
+  .azmsh-locked {
+    padding: .85rem .8rem;
+  }
+  .azmsh-locked .azmsh-settings {
+    font-size: .78rem;
+  }
+  .azmsh-locked .azmsh-overlay-text {
+    font-size: .72rem;
+  }
+  .azmsh-locked .azmsh-overlay .md-button {
+    font-size: .7rem;
+    padding: .35em .9em;
+  }
+}
