@@ -14,6 +14,11 @@ New to Meshtastic? Here's what to buy. No monthly fees, no subscriptions. Just a
 
     That's it. Buy these two things, follow our [How to Connect](/docs/how-to-connect.html) guide, and you're on the mesh.
 
+!!! info "Affiliate links"
+    Our links to **Seeed Studio** are affiliate links. If you buy through them, AZMSH earns a small commission at no extra cost to you.
+
+    That money goes straight back into the mesh: official node deployment hardware, tower climbers, and community events. We recommend this hardware because it works in Arizona, not because it pays. Every other retailer we link is a plain link with nothing in it for us.
+
 ---
 
 ## :material-star: Our Top Picks
@@ -58,8 +63,8 @@ These radios pair with your phone over Bluetooth so you can type messages on you
 
 | Device | Battery | Est. Battery Life | Screen | Price | Best For |
 |---|---|---|---|---|---|
-| **Wio Tracker L1** | 800 mAh | ~2-3 days | 0.96" OLED | ~$30 | :material-star: Budget pick |
-| **Wio Tracker L1 Pro** | 2000 mAh | ~2.5 days | 1.3" OLED | ~$43 | Budget w/ joystick + solar |
+| **Wio Tracker L1** | 800 mAh | ~2-3 days | 0.96" OLED | ~$34 | :material-star: Budget pick |
+| **Wio Tracker L1 Pro** | 2000 mAh | ~2.5 days | 1.3" OLED | ~$53 | Budget w/ joystick + solar |
 | **Heltec T114** | 800-3000 mAh | Up to a week (18650) | 1.14" Color | ~$25-45 | Battery champion |
 | **LILYGO T-Echo** | 850 mAh | ~5-7 days | 1.54" E-Ink | ~$60-68 | Mid-range, sunlight-readable |
 | **RAK WisMesh Pocket V2** | 3200 mAh | ~3+ days (GPS on) | 1.3" OLED | ~$89-99 | :material-trophy: Best overall |
@@ -86,17 +91,17 @@ These radios pair with your phone over Bluetooth so you can type messages on you
 
 ---
 
-#### :material-star-outline: Budget Pick: Seeed Wio Tracker L1 (~$30)
+#### :material-star-outline: Budget Pick: Seeed Wio Tracker L1 (~$34)
 
-The best value in Meshtastic right now. For around $30 you get a radio, GPS, screen, and battery. Ready to go.
+The best value in Meshtastic right now. For around $34 you get a radio, GPS, screen, and battery. Ready to go.
 
 - **Battery:** 800 mAh (~2-3 days typical)
 - **Screen:** 0.96" OLED
 - **GPS:** Built-in
 
-The **L1 Pro** (~$43) is worth the extra $13. Bigger 1.3" OLED screen, joystick navigation, solar charging, 2000 mAh battery, and an RP-SMA antenna connector for upgrades.
+The **L1 Pro** (~$53) adds a bigger 1.3" OLED screen, joystick navigation, solar charging, 2000 mAh battery, and an RP-SMA antenna connector for upgrades.
 
-:material-cart: [Seeed Studio L1 ($29.90)](https://www.seeedstudio.com/Wio-Tracker-L1-p-6453.html) | [L1 Pro ($42.90)](https://www.seeedstudio.com/Wio-Tracker-L1-Pro-p-6454.html) | [Amazon (L1 Pro)](https://www.amazon.com/seeed-studio-L1-Pro-Tracker/dp/B0FNCS5ST1)
+:material-cart: [Seeed Studio L1 ($33.99)](https://www.seeedstudio.com/Wio-Tracker-L1-p-6453.html?sensecap_affiliate=jjSRQDC&referring_service=link) | [L1 Pro ($52.99)](https://www.seeedstudio.com/Wio-Tracker-L1-Pro-p-6454.html?sensecap_affiliate=jjSRQDC&referring_service=link) | [Amazon (L1 Pro)](https://www.amazon.com/seeed-studio-L1-Pro-Tracker/dp/B0FNCS5ST1)
 
 ---
 
@@ -190,7 +195,7 @@ Similar card form factor but **smaller battery (700 mAh)** and **much lower TX p
 !!! warning "Make sure you buy the T-1000**e**"
     The "e" is the Meshtastic-compatible version. Other T-1000 models won't work with Meshtastic.
 
-:material-cart: [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html) | [Amazon](https://www.amazon.com/SenseCAP-Card-Tracker-T1000-Meshtastic/dp/B0DJ6KGXKB)
+:material-cart: [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html?sensecap_affiliate=jjSRQDC&referring_service=link) | [Amazon](https://www.amazon.com/SenseCAP-Card-Tracker-T1000-Meshtastic/dp/B0DJ6KGXKB)
 
 ---
 
@@ -295,11 +300,11 @@ Don't want to build anything? These come fully assembled. Mount them, configure 
 | Device | Solar | Battery | GPS | Price | Buy |
 |---|---|---|---|---|---|
 | **WisMesh Repeater** | Built-in | Built-in | No | ~$70-90 | [RAK Store](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater) |
-| **SenseCAP Solar P1 Pro** | 5W panel | 4x 18650 included | Yes | ~$90 | [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html) |
+| **SenseCAP Solar P1 Pro** | 5W panel | 4x 18650 included | Yes | ~$101 | [Seeed Studio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html?sensecap_affiliate=jjSRQDC&referring_service=link) |
 | **Atlavox Beacon** | Built-in | Built-in | Yes | ~$150-200 | [Atlavox](https://atlavox.com/products/atlavox-beacon-solar-meshtastic-node) |
 | **Heltec V4 Solar Node** | 25W panel | 6x 18650 | No | ~$120-180 | [Etsy](https://www.etsy.com/listing/4310813646/outdoor-solar-2510w-meshtastic-or) |
 
-- **Best value:** SenseCAP Solar P1 Pro. 5W solar panel, 4x 18650 batteries, GPS, ~$90
+- **Best value:** SenseCAP Solar P1 Pro. 5W solar panel, 4x 18650 batteries, GPS, ~$101
 - **Easiest deploy:** WisMesh Repeater. IP67 weatherproof, mount and forget
 - **Want the Repeater Mini?** Skip the stock version and build the **1W upgrade** instead. It's [our #1 rooftop pick](/docs/wismesh-repeater-mini-1w.html): same enclosure, 6x the TX power, no soldering.
 - **Premium turnkey:** Atlavox Beacon. Professional mounting hardware, dual SMA connectors, rugged build
@@ -395,7 +400,7 @@ For most Arizona rooftop nodes, an **omnidirectional fiberglass antenna** is the
 | **Atlavox** | [atlavox.com](https://atlavox.com/) | Pre-built solar nodes and accessories |
 | **Muziworks** | [muzi.works](https://muzi.works/) | Cases, antennas, and the R1 Neo. Assembled in USA |
 | **PeakMesh** | [Etsy shop](https://www.etsy.com/shop/PeakMesh) | Pre-built solar nodes (RAK-based), excellent reviews, ships from FL |
-| **Seeed Studio** | [seeedstudio.com](https://www.seeedstudio.com/) | Wio Tracker, SenseCAP, Solar P1 |
+| **Seeed Studio** | [seeedstudio.com](https://www.seeedstudio.com/meshtastic-products?sensecap_affiliate=jjSRQDC&referring_service=link) | Wio Tracker, SenseCAP, Solar P1 |
 
 !!! danger "Watch out for fakes on Amazon"
     There are **a lot** of knockoff Meshtastic devices and antennas on Amazon. A poorly made antenna can actually make your signal *worse*. **Buy from the retailers above whenever possible.** If you buy on Amazon, verify the seller is the official brand store.
