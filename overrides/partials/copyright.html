@@ -1,0 +1,25 @@
+{#-
+  Override of Material's copyright partial (mirrors its markup; re-check on a
+  major theme upgrade).
+
+  The only change is the Accessibility / Privacy footer links: they are built
+  from {{ base_url }} so they resolve at every page depth AND under any base
+  path -- the production root (azmsh.net) and any project-pages build served
+  from a sub-path. Absolute "/accessibility.html" links resolve on azmsh.net
+  but 404 under a sub-path, so they are intentionally not used here.
+-#}
+<div class="md-copyright">
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">
+      {{ config.copyright }}
+      &nbsp;&middot;&nbsp; <a href="{{ base_url }}/accessibility.html">Accessibility</a>
+      &nbsp;&middot;&nbsp; <a href="{{ base_url }}/privacy.html">Privacy Policy</a>
+    </div>
+  {% endif %}
+  {% if not config.extra.generator == false %}
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  {% endif %}
+</div>
