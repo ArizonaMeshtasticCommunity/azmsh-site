@@ -34,6 +34,7 @@ nav:
   - Home: index.md
   - How to Connect: docs/how-to-connect.md
   - What Now?: docs/what-now.md
+  - FAQ & Troubleshooting: docs/faq.md
   - Recommended Hardware: docs/recommended-hardware.md
   - Recommended Settings: docs/recommended-settings.md
   - Suggested Channels: docs/suggested_channels.md
