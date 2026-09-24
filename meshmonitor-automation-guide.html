@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>MeshMonitor Automation Guide</title>
 <meta name="description" content="A settings-page walkthrough of MeshMonitor's Automation tab with Will C's values and notes, for the Arizona Mesh community.">
 <style>
@@ -307,9 +308,8 @@ stop     → cancels an active session</div></div>
         <div class="field"><label>Reply Template (Multi-hop)</label>
           <div class="input area need">🤖 Heard you at Oracle &amp; Ina · {TIME}
 3️⃣ 3 hops — via repeaters
-📶 Good · SNR {SNR}dB · RSSI {RSSI}
 📍 8.7 mi away</div>
-          <span class="help">On a multi-hop packet, SNR/RSSI describe the last relay into your node, not the sender's radio.</span></div>
+          <span class="help"><b>No signal line on multi-hop.</b> The SNR/RSSI on a relayed packet describe the <em>last relay into your node</em>, not the tester's radio — if your roof node hears the city and hands to you at +13 dB, every relayed test would read "Excellent" regardless of how weak the sender actually was. Only report signal on direct (0-hop) receptions. (Tyler, azmsh.)</span></div>
         <div class="field"><label>Trailer (on channels other than your test channel, and on DMs)</label>
           <div class="input area">📻 Please run further tests on the &lt;TEST_CHANNEL&gt; channel · &lt;YOUR_COMMUNITY_URL&gt;</div>
           <span class="help">Note the word "tests", plural, on purpose: \btest\b does not match "tests", so your own reply can't trigger your own rule (or a neighbour's). See flood guards below.</span></div>
@@ -378,11 +378,11 @@ Prefer a strict, whole-message rule (quieter; won't answer "New antenna test"):
           <tr><td><code>{LONG_NAME}</code> / <code>{SHORT_NAME}</code></td><td>The sender's node name</td></tr>
           <tr><td><code>{NODE_ID}</code></td><td>Their node ID (hex)</td></tr>
           <tr><td><code>{HOPS}</code></td><td>Hops from them to you</td></tr>
-          <tr><td><code>{SNR}</code> / <code>{RSSI}</code></td><td>Signal of the packet as received by your node (last hop on multi-hop)</td></tr>
+          <tr><td><code>{SNR}</code> / <code>{RSSI}</code></td><td>Signal of the packet as received by your node. Meaningful only when {HOPS} is 0 — on a relayed packet it grades the last relay's link, not the sender's, so leave it out of the multi-hop template.</td></tr>
           <tr><td><code>{TIME}</code> / <code>{DATE}</code></td><td>When you received it</td></tr>
           <tr><td><code>{NODECOUNT}</code></td><td>Nodes currently active in your database</td></tr>
         </table>
-        <p class="desc">Guidelines that keep replies useful: include <b>where you are</b> (cross-streets or a landmark), because "how far did I reach?" is the question people are really asking. Keep it <b>under ~200 characters</b> so it fits a single LoRa packet. On the multi-hop template, note that SNR/RSSI describe the last relay, not their radio.</p>
+        <p class="desc">Guidelines that keep replies useful: include <b>where you are</b> (cross-streets or a landmark), because "how far did I reach?" is the question people are really asking. Keep it <b>under ~200 characters</b> so it fits a single LoRa packet. On the multi-hop template, drop SNR/RSSI entirely: they describe the last relay's link, not the sender's, and reporting them misleads the tester.</p>
 
         <div class="sub">6. Turning SNR into words</div>
         <p class="desc">"SNR −7.25 dB" means nothing to someone who just unboxed a node, so Will's reply translates it. The bands aren't arbitrary: each is the LoRa demodulation floor for the <b>MEDIUM_FAST</b> preset (SF9/BW250, −12.5 dB) plus a round amount of margin.</p>
