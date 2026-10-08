@@ -39,7 +39,7 @@ Thinking about letting us put a Meshtastic node on your property? Awesome! Here'
         We use **magnetic mounts, pole clamps, or zip ties**. No drilling into your roof, walls, or structure unless you specifically approve it. The equipment can be removed without leaving any trace.
 
 ??? question "Does it use my internet or Wi-Fi?"
-    **No.** The node communicates entirely over radio frequencies (the 906.875 MHz unlicensed band). It does not connect to your Wi-Fi, use your internet bandwidth, or access any of your home network.
+    **No.** The node communicates entirely over radio frequencies (the 900 MHz unlicensed ISM band). It does not connect to your Wi-Fi, use your internet bandwidth, or access any of your home network.
 
     There is an optional feature called MQTT that *can* connect to the internet for extended range, but that is never enabled without your knowledge and permission. The default setup is fully radio-only and self-contained.
 
@@ -100,7 +100,7 @@ Thinking about letting us put a Meshtastic node on your property? Awesome! Here'
     The magic of a mesh network is that each node extends the range. Your node doesn't need to reach the whole city. It just needs to reach the *next* node, and the message hops along from there.
 
 ??? question "Will it interfere with my Wi-Fi, TV, or garage door?"
-    **No.** Meshtastic operates on **906.875 MHz**, which is a completely different frequency from:
+    **No.** Meshtastic operates on the **900 MHz ISM band**, which is a completely different frequency from:
 
     - Wi-Fi (2.4 GHz / 5 GHz / 6 GHz)
     - Cell phones (700 MHz-2.5 GHz, different bands)
