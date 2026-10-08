@@ -83,7 +83,7 @@ A typical packet travels like this:
 2. A node on the mesh that is connected to MQTT relays that packet to an MQTT
    broker.
 3. Our ingestion tool reads the packet from the broker and decodes it using the
-   public default key (AQ==).
+   well-known public default key that ships with every Meshtastic device.
 4. The decoded data is shown in our tools, such as view.azmsh.net.
 
 Our broker is set up for uploads only. Nodes can send data to it, but downlink is
@@ -95,9 +95,9 @@ changes how your node behaves.**
 ## Important: public-channel data is not private
 
 Meshtastic's standard channels are secured only with a default encryption key
-(AQ==) that ships with every device and is publicly known. This is not unique to
-one channel. The same default key is used by the common presets, such as LongFast
-and MediumFast, whenever a channel is left on the default key. Because that key is
+that ships with every device and is publicly known. This is not unique to
+one channel. The same default key is used by the common modem presets whenever a
+channel is left on the default key. Because that key is
 public, anyone running Meshtastic can read traffic that uses it. It is not
 private, even though it is technically "encrypted."
 

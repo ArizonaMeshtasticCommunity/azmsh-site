@@ -27,7 +27,7 @@ Pick your platform below. The flow is the same idea everywhere: open the Meshtas
 find the **Channels** editor, add a channel, and enter the **Name** and **Key** from the
 [table further down](#the-channels) exactly as written.
 
-???+ note "Android"
+??? note "Android"
 
     1. Open the **Meshtastic** app and make sure your node is connected over Bluetooth.
     2. Tap the **Settings** tab, then open **Channels**.
@@ -39,7 +39,7 @@ find the **Channels** editor, add a channel, and enter the **Name** and **Key** 
     6. Leave **Uplink/Downlink** at their defaults unless you have a reason to change them.
     7. Tap **Save** / the send button to write the channel to your node.
 
-    > To use **MediumFast** as your primary channel, you can leave the primary channel's
+    > To use the default preset as your primary channel, you can leave the primary channel's
     > name **blank**. An empty primary name is the `default` channel.
 
 ??? note "iOS / iPadOS / macOS"
@@ -54,7 +54,7 @@ find the **Channels** editor, add a channel, and enter the **Name** and **Key** 
     6. Enter the **Key** (PSK) from the table exactly as written.
     7. Tap **Save**, then make sure you **send the configuration** back to your node.
 
-    > To use **MediumFast** as your primary channel, you can leave the primary channel's
+    > To use the default preset as your primary channel, you can leave the primary channel's
     > name **blank**. An empty primary name is the `default` channel.
 
 ??? note "Other (Web Client / Apple Watch / CLI)"
@@ -93,7 +93,6 @@ see every column.
 
 | Channel Name (case sensitive) | Key | Size (iOS only) | Description |
 |:------------------------------|:----|:----------------|:------------|
-| `MediumFast` | `AQ==` | Default | The default primary MediumFast channel. Name can also be left blank. |
 | `azmsh` | `AQ==` | Default | The Arizona channel, great for running tests and general chatter. |
 | `Weather` | `Ww==` | 1-byte | Users post from their weather stations on their roofs, great for checking the weather every hour and making sure your node is consistently receiving. |
 | `Traffic` | `TQ==` | 1-byte | Local traffic reports along with waypoints showing where there is traffic on the map. |
