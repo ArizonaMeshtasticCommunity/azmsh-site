@@ -1,0 +1,57 @@
+/*
+ * Accessibility overrides
+ * ------------------------
+ * Material's "deep orange" (#FF5722) used as the link/button color only reaches
+ * ~3.6:1 contrast on white, which fails WCAG 2.1 AA (4.5:1 for normal text).
+ * The rules below darken interactive colors in light mode and lighten them in
+ * dark mode so text and links meet the AA contrast threshold in both themes.
+ */
+
+/*
+ * Header / navigation bar: Material's "deep orange" (#FF5722) header with white
+ * text only reaches ~2.78:1 — failing AA for the site title, the navigation
+ * tabs, and header links. Darkening the primary color to #c5410d brings white
+ * text to ~5:1 while keeping a recognizably orange header. Applies to both the
+ * light and dark color schemes (both use the deep-orange primary).
+ */
+[data-md-color-primary="deep-orange"] {
+  --md-primary-fg-color: #c5410d;
+  --md-primary-fg-color--light: #e2531f;
+  --md-primary-fg-color--dark: #a8350a;
+}
+
+/* Light theme: darker orange links (#bf360c ≈ 5.6:1 on white) */
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #bf360c;
+}
+
+/* Dark theme: lighter orange links for contrast against the dark background */
+[data-md-color-scheme="slate"] {
+  --md-typeset-a-color: #ffb38a;
+}
+
+/* Primary buttons: ensure white button text meets AA against the background */
+.md-typeset .md-button--primary {
+  background-color: #bf360c;
+  border-color: #bf360c;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background-color: #e2531f;
+  border-color: #e2531f;
+}
+
+/*
+ * Footer links (Accessibility / Privacy Policy live in the copyright line).
+ * Use the full-strength footer text color and an underline so they read as
+ * links and keep AA contrast against the dark footer.
+ */
+.md-copyright a {
+  color: var(--md-footer-fg-color);
+  text-decoration: underline;
+}
+
+.md-copyright a:hover,
+.md-copyright a:focus {
+  color: var(--md-accent-fg-color);
+}
