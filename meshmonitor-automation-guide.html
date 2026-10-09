@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>MeshMonitor Automation Guide</title>
+<meta name="description" content="A settings-page walkthrough of MeshMonitor's Automation tab with Will C's values and notes, for the Arizona Mesh community.">
+<style>
+  :root{
+    --bg:#0f1420; --panel:#161d2c; --panel-2:#1c2436; --border:#2a3550;
+    --text:#e6ebf5; --muted:#8e9ab5; --accent:#4f8cff; --accent-2:#7aa7ff;
+    --good:#34c76f; --warn:#f2b636; --warn-bg:#3a2e12; --chip:#243050;
+    --note-bg:#121a2b; --note-border:#33507f; --radius:10px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+  a{color:var(--accent-2)}
+  .top{position:sticky;top:0;z-index:5;background:#0b1019;border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .brand{font-weight:700;font-size:17px;display:flex;align-items:center;gap:8px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--good);box-shadow:0 0 8px var(--good)}
+  .top .meta{color:var(--muted);font-size:13px}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid var(--border);background:#0e1320}
+  .tabs a{font-size:12px;padding:5px 9px;border-radius:6px;background:var(--chip);color:var(--text);text-decoration:none;border:1px solid transparent}
+  .tabs a:hover{border-color:var(--accent)}
+  main{max-width:1180px;margin:0 auto;padding:18px 16px 60px}
+  .intro{background:var(--note-bg);border:1px solid var(--note-border);border-radius:var(--radius);padding:14px 16px;margin-bottom:18px}
+  .intro h1{margin:0 0 6px;font-size:22px}
+  .intro p{margin:6px 0;color:var(--muted)}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:9px 14px;border-radius:8px;margin:4px 10px 4px 0}
+  .btn:hover{background:var(--accent-2)}
+  .btn.alt{background:var(--chip);border:1px solid var(--border)}
+  .btn.alt:hover{border-color:var(--accent)}
+  .tabs a.deep{border-color:var(--accent);color:#dbe6ff}
+  .deep-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:36px 0 10px;padding-top:24px;border-top:2px solid var(--border)}
+  .deep-head h2{margin:0;font-size:20px;flex:1}
+  .deep-head p{width:100%;margin:0;color:var(--muted);font-size:14px}
+  .frame{width:100%;border:1px solid var(--border);border-radius:var(--radius);background:#fff;display:block;min-height:600px}
+  .totop{position:fixed;right:16px;bottom:16px;z-index:6;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:9px 12px;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.4);font-size:13px}
+  .vcap{font-size:13px;color:var(--muted)}
+  .warn{border:1px solid var(--warn);background:var(--warn-bg);color:#f7dfa0;border-radius:8px;padding:12px 14px;margin:12px 0 4px;font-size:14px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .legend .l1::before{background:var(--panel-2);border:1px solid var(--border)}
+  .legend .l2::before{background:var(--note-border)}
+  .legend .l3::before{background:var(--warn)}
+
+  section.auto,.deep-head{scroll-margin-top:96px}
+  section.auto{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);margin:0 0 16px;overflow:hidden}
+  .head{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#131a2a;border-bottom:1px solid var(--border)}
+  .head h2{margin:0;font-size:16px;flex:1}
+  .toggle{width:38px;height:20px;border-radius:20px;background:#3a4661;position:relative;flex:none}
+  .toggle::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#cfd6e6}
+  .toggle.on{background:var(--accent)}
+  .toggle.on::after{left:20px}
+  .toggle.opt{background:#5a4a1f}
+  .rec{font-size:11px;padding:2px 8px;border-radius:12px;background:var(--chip);color:var(--muted);white-space:nowrap}
+  .rec.yes{color:var(--good)} .rec.opt{color:var(--warn)} .rec.no{color:var(--muted)}
+  .body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:0}
+  .settings{padding:14px 16px;border-right:1px solid var(--border)}
+  .notes{padding:14px 16px;background:var(--note-bg)}
+  .notes h3{margin:0 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2)}
+  .notes p{margin:0 0 10px;font-size:14px}
+  .notes ul{margin:0 0 10px 18px;padding:0;font-size:14px}
+  .notes li{margin:4px 0}
+  .desc{color:var(--muted);font-size:13px;margin:0 0 12px}
+  .field{margin:0 0 12px}
+  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+  .field .help{display:block;font-size:11px;color:#6f7b96;margin-top:3px}
+  .input{background:#0e1422;border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:var(--mono);font-size:13px;min-height:34px;display:flex;align-items:center}
+  .input.area{white-space:pre-wrap;align-items:flex-start;min-height:56px;line-height:1.45}
+  .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .check{display:flex;align-items:center;gap:8px;font-size:14px;margin:6px 0}
+  .box{width:16px;height:16px;border:1px solid var(--border);border-radius:4px;background:#0e1422;flex:none;position:relative}
+  .box.on{background:var(--accent);border-color:var(--accent)}
+  .box.on::after{content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .chip{font-size:12px;padding:3px 8px;border-radius:12px;background:var(--chip);border:1px solid var(--border)}
+  .chip.on{border-color:var(--accent);color:#dbe6ff}
+  .sub{margin:14px 0 8px;font-size:13px;font-weight:600;color:#c9d3ea;border-top:1px dashed var(--border);padding-top:10px}
+  .need{border:1px solid var(--warn);background:var(--warn-bg);color:#f7dfa0;font-family:var(--mono);font-size:12.5px}
+  .tag{display:inline-block;font-size:11px;font-weight:700;color:#1a1300;background:var(--warn);padding:1px 7px;border-radius:4px;margin-bottom:6px;letter-spacing:.03em}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--border)}
+  th{color:var(--muted);font-weight:600;font-size:12px}
+  td.ok{color:var(--good)} td.bad{color:#ff7a7a}
+  .stats{display:flex;gap:18px;margin:4px 0 12px}
+  .stat b{display:block;font-size:22px;color:var(--accent-2)}
+  .stat span{font-size:11px;color:var(--muted)}
+  code{font-family:var(--mono);font-size:12.5px;background:#0e1422;padding:1px 5px;border-radius:4px}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:24px 0 0}
+  @media (max-width:820px){.body{grid-template-columns:1fr}.settings{border-right:0;border-bottom:1px solid var(--border)}}
+</style>
+</head>
+<body>
+
+<div id="page-top"></div>
+<div class="top">
+  <div class="brand"><span class="dot"></span>MeshMonitor <span class="meta">· Settings › Automation</span></div>
+  <div class="meta">Community guide · Arizona Mesh</div>
+</div>
+
+<nav class="tabs">
+  <a href="#welcome">Auto Welcome</a><a href="#favorite">Auto Favorite</a><a href="#traceroute">Auto Traceroute</a>
+  <a href="#ping">Auto Ping</a><a href="#heap">Auto Heap Management</a><a href="#admin">Remote Admin Scanner</a>
+  <a href="#timesync">Auto Time Sync</a><a href="#ack">Auto Acknowledge</a><a href="#ack-howto">Customizing Auto Ack</a><a href="#announce">Auto Announce</a>
+  <a href="#responders">Auto Responders</a><a href="#keys">Auto Key Management</a><a href="#timed">Timed Events</a>
+  <a href="#geofence">Geofence Triggers</a><a href="#retention">Node Retention</a><a href="#vnode">Virtual Node</a><a href="#deep-dive" class="deep">Dive deeper: Auto-Ack Cookbook</a>
+</nav>
+
+<main>
+  <div class="intro">
+    <h1>MeshMonitor Automations — settings walkthrough</h1>
+    <p>Each block below mirrors a section of MeshMonitor's Automation tab, filled with the values from Will Curran's (<b>Will See</b> on Discord) Arizona home-base instance, and his reasoning beside it. Copy the values as a starting point, then tune for your node and role.</p>
+    <p><a class="btn" href="https://youtu.be/lbMGufT1OOI" target="_blank" rel="noopener">▶ Watch Will's walkthrough on YouTube</a> <a class="btn alt" href="#deep-dive">⤓ Power users: the full Auto-Ack Cookbook</a> <span class="vcap">Everything on this page is drawn from the video; watch it once and the settings below will make a lot more sense.</span></p>
+    <div class="warn">
+      <b>Read this before you copy anything.</b> These are one operator's settings for one specific node (a busy Router-Late home base). They are not a checklist to switch on wholesale. Every automation here transmits, and every transmission is shared airtime for the whole city. Read the use-case for <em>your</em> node and role, turn on only what serves it, and start conservative. A few over-eager MeshMonitor instances can flood a mesh; the goal is a healthier mesh, not a louder one.
+    </div>
+    <p>The Auto Acknowledge section includes a ready-to-paste trigger pattern and reply templates, plus a short guide to customizing them for your own node.</p>
+    <div class="legend"><span class="l1">Settings as they appear in MeshMonitor</span><span class="l2">Will's notes</span><span class="l3">Example copy — edit for your node</span></div>
+  </div>
+
+  <!-- AUTO WELCOME -->
+  <section class="auto" id="welcome">
+    <div class="head"><span class="toggle on"></span><h2>Auto Welcome</h2><span class="rec yes">Recommended: on</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Automatically send a welcome message when a new node is first discovered.</p>
+        <div class="check"><span class="box on"></span>Wait for Name <span class="help">— only greet once the node's full name/info has arrived</span></div>
+        <div class="row">
+          <div class="field"><label>Maximum Hops</label><div class="input">10</div><span class="help">Meshtastic caps at 7; 10 is the field max (MeshCore). Will just maxes it.</span></div>
+          <div class="field"><label>Broadcast Target</label><div class="input">Direct Message to Node</div></div>
+        </div>
+        <div class="field"><label>Welcome Message</label><div class="input area">Hey {LONG_NAME}! First time seeing you on the mesh. Your node is getting out — feel free to DM back.</div><span class="help">Tokens: {LONG_NAME} {SHORT_NAME} {NODE_ID} {HOPS} {SNR} {RSSI} {DATE} {TIME}</span></div>
+        <div class="field"><label>Sample Message Preview</label><div class="input">Hey Meshtastic ab12! First time seeing you on the mesh…</div></div>
+      </div>
+      <aside class="notes">
+        <h3>Will's notes</h3>
+        <p>When he started, he wished someone had DM'd him to say "you're online, you're working." This gives newcomers that moment, and an opening to reply and start a conversation.</p>
+        <ul>
+          <li><b>Wait for Name on</b> so you only greet fully-resolved nodes.</li>
+          <li><b>DM only.</b> Never on a public channel — a lot of Arizona runs MeshMonitor now, and channel noise adds up fast.</li>
+          <li>Side benefit: constant small transmissions keep your node an active player on the mesh.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- AUTO FAVORITE -->
+  <section class="auto" id="favorite">
+    <div class="head"><span class="toggle opt"></span><h2>Auto Favorite</h2><span class="rec opt">Router / Router-Late only</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Automatically favorite nodes that are direct neighbors, and un-favorite them when stale.</p>
+        <div class="field"><label>Staleness Threshold (hours)</label><div class="input">72</div><span class="help">Nodes not heard directly for this long are un-favorited.</span></div>
+      </div>
+      <aside class="notes">
+        <h3>Will's notes</h3>
+        <p>He runs Router-Late, so favoriting direct nodes matters: favorites get zero-cost hop routing.</p>
+        <ul>
+          <li>If you're <b>Client</b> or <b>Client Mute</b>, this doesn't do much for you. Skip it.</li>
+          <li>Roles and favoriting done wrong can degrade a whole city's mesh. If you don't understand Router vs Router-Late vs Client Base vs Client vs Client Mute, stay in Client/Client Mute and leave this off.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- AUTO TRACEROUTE -->
+  <section class="auto" id="traceroute">
+    <div class="head"><span class="toggle on"></span><h2>Auto Traceroute</h2><span class="rec yes">On, gently</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Periodically traceroute nodes and record the path.</p>
+        <div class="row">
+          <div class="field"><label>Traceroute Interval (minutes)</label><div class="input">10</div><span class="help">Default is 3. Do not leave it at 3.</span></div>
+          <div class="field"><label>Re-scan After (hours)</label><div class="input">25–30</div><span class="help">How long before the same node is traced again.</span></div>
+        </div>
+        <div class="check"><span class="box on"></span>Prioritize Clean Nodes</div>
+        <div class="check"><span class="box"></span>Restrict to Time Window</div>
+        <div class="sub">Limit to Specific Nodes</div>
+        <div class="check"><span class="box on"></span>Filter by Role <span class="chips"><span class="chip on">Client</span><span class="chip on">Client Base</span><span class="chip on">Router</span><span class="chip on">Router Late</span><span class="chip">Client Mute</span></span></div>
+        <div class="check"><span class="box on"></span>Filter by Name (regex) <div class="input" style="flex:1">^(?!.*mobile).*$</div></div>
+        <div class="check"><span class="box on"></span>Last Heard Within <div class="input">168 h</div></div>
+        <div class="check"><span class="box"></span>Hop Range</div>
+      </div>
+      <aside class="notes">
+        <h3>Will's notes</h3>
+        <p>Traceroutes keep links warm and build a history of how paths change, and he notices his nodes connect better when it's on. But every traceroute is airtime.</p>
+        <ul>
+          <li><b>Interval well above 3 minutes.</b> He's at 10, and traces each Phoenix node about once every 25 hours.</li>
+          <li>Skip <b>Client Mute</b> nodes (they don't route, so the trace tells you nothing).</li>
+          <li>Skip anything with <b>"mobile"</b> in the name.</li>
+          <li>Only trace nodes heard within the last <b>~168 h</b>.</li>
+          <li>He hit a bug where some of these filters wouldn't save; if yours won't stick, it's not you.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- AUTO PING -->
+  <section class="auto" id="ping">
+    <div class="head"><span class="toggle on"></span><h2>Auto Ping</h2><span class="rec yes">Recommended: on</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">When someone DMs "ping N", reply with N spaced pings so they can test their link.</p>
+        <div class="row">
+          <div class="field"><label>Ping Interval (seconds)</label><div class="input">30</div></div>
+          <div class="field"><label>Max Pings Per Session</label><div class="input">20</div></div>
+          <div class="field"><label>Ping Timeout (seconds)</label><div class="input">60</div></div>
+        </div>
+        <div class="field"><label>DM Commands</label><div class="input area">ping N   → starts a session of N pings ("ping 1 of N", "2 of N" …)
+stop     → cancels an active session</div></div>
+      </div>
+      <aside class="notes">
+        <h3>Will's notes</h3>
+        <p>Someone DMs "ping 10", you reply "auto ping starting" and send 1 of 10, 2 of 10… spaced 30 s apart. Great for a new person who isn't sure they're reaching you.</p>
+        <ul>
+          <li>Cap sessions at <b>20</b> so nobody can make you ping forever.</li>
+          <li>60 s timeout ends a stalled session cleanly.</li>
+          <li>His Auto Acknowledge DM tells people this exists ("DM me ping N to test further"), so the two features feed each other.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- HEAP -->
+  <section class="auto" id="heap">
+    <div class="head"><span class="toggle"></span><h2>Auto Heap Management</h2><span class="rec no">Not covered</span></div>
+    <div class="body">
+      <div class="settings"><p class="desc">Automatically reboot or trim the connected node when free heap memory drops below a threshold.</p></div>
+      <aside class="notes"><h3>Will's notes</h3><p>Not discussed in the walkthrough. Leave at defaults unless your node is running out of memory.</p></aside>
+    </div>
+  </section>
+
+  <!-- REMOTE ADMIN SCANNER -->
+  <section class="auto" id="admin">
+    <div class="head"><span class="toggle opt"></span><h2>Remote Admin Scanner</h2><span class="rec opt">Only if you run remote admin</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Periodically scan nodes you administer remotely and confirm your admin key is still accepted.</p>
+        <div class="stats"><div class="stat"><b>4</b><span>Nodes with admin</span></div><div class="stat"><b>158</b><span>Nodes checked</span></div><div class="stat"><b>722</b><span>Explicit fails</span></div></div>
+        <div class="row">
+          <div class="field"><label>Scan Interval (minutes)</label><div class="input">60</div></div>
+          <div class="field"><label>Re-scan After (hours)</label><div class="input">168</div></div>
+        </div>
+        <div class="check"><span class="box"></span>Restrict to Time Window</div>
+        <div class="sub">Recent Scan Results</div>
+        <table><tr><th>Scanned</th><th>Node</th><th>Admin</th><th>Firmware</th></tr>
+          <tr><td>today 08:32</td><td>Will Base (admin test)</td><td class="ok">✓</td><td>2.7.x</td></tr>
+          <tr><td>today 07:31</td><td>Will Van (admin test)</td><td class="ok">✓</td><td>2.7.x</td></tr>
+          <tr><td>today 06:30</td><td>Rooftop node</td><td class="bad">✗</td><td>—</td></tr></table>
+      </div>
+      <aside class="notes">
+        <h3>Will's notes</h3>
+        <p>If you don't remote-admin any nodes, don't even turn this on. If you do, it's a quiet watchdog that tells you when an admin relationship breaks (key rotated, node wiped) before you actually need it.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TIME SYNC -->
+  <section class="auto" id="timesync">
+    <div class="head"><span class="toggle on"></span><h2>Auto Time Sync</h2><span class="rec yes">Recommended: on</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Push the current time to nodes whose clocks have drifted.</p>
+        <div class="row">
+          <div class="field"><label>Sync Interval (minutes)</label><div class="input">60</div></div>
+          <div class="field"><label>Re-sync After (hours)</label><div class="input">24</div></div>
+        </div>
+        <div class="check"><span class="box"></span>Limit to Specific Nodes</div>
+      </div>
+      <aside class="notes"><h3>Will's notes</h3><p>For nodes that never see the internet (solar, remote), this keeps their clocks right so timestamps and schedules make sense. Cheap and helpful.</p></aside>
+    </div>
+  </section>
+
+  <!-- AUTO ACKNOWLEDGE -->
+  <section class="auto" id="ack">
+    <div class="head"><span class="toggle on"></span><h2>Auto Acknowledge</h2><span class="rec yes">The one everyone should run</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">When a message matches the pattern, reply automatically with a tapback (hop count) and/or a message.</p>
+        <div class="field"><label>Message Pattern (Regular Expression)</label>
+          <div class="input area need">(?i)\b(test|testing)\b|^[^0-9A-Za-z_]*ping\b|\bcheck[^0-9A-Za-z_]*$|\bradio[^0-9A-Za-z_]+check\b</div>
+          <span class="help">Will's field-tested pattern (backtested against a month of real messages). "test" fires anywhere in a message; "ping" only when the message starts with it; "check" only when the message ends with it; "radio check" anywhere. Explained piece by piece in "Customizing Auto Acknowledge" below.</span></div>
+        <div class="row">
+          <div class="field"><label>Cooldown (seconds)</label><div class="input">60</div><span class="help">Scope: per node. One reply per sender per minute.</span></div>
+          <div class="field"><label>Delay before tapback (s)</label><div class="input">10</div><span class="help">Lets the sender's radio finish its own TX/ACK cycle first.</span></div>
+          <div class="field"><label>Delay before DM (s)</label><div class="input">30</div><span class="help">Keeps your two transmissions out of one airtime window.</span></div>
+        </div>
+        <div class="field"><label>Active Channels</label>
+          <div class="chips"><span class="chip on">Direct Messages</span><span class="chip on">Primary / MediumFast</span><span class="chip on">Weather</span><span class="chip on">Traffic</span><span class="chip on">Trivia</span><span class="chip on">azmsh</span><span class="chip on">…all channels</span></div></div>
+        <div class="sub">Response Delivery</div>
+        <div class="check"><span class="box on"></span>Always respond via Direct Message</div>
+        <div class="check"><span class="box"></span>Skip incomplete nodes</div>
+        <div class="sub">Direct (0 hops) — what the tester receives</div>
+        <div class="check"><span class="box on"></span>Tapback with Hop Count (*️⃣ on a direct hit)</div>
+        <div class="check"><span class="box on"></span>Reply with Message</div>
+        <div class="field"><label>Reply Template (Direct)</label>
+          <div class="input area need">🤖 Heard you at Oracle &amp; Ina · {TIME}
+*️⃣ Direct — no repeaters
+📶 Excellent · SNR {SNR}dB · RSSI {RSSI}
+📍 3.2 mi away</div>
+          <span class="help">Will's format. The quality word ("Excellent") and the distance line come from a small script; see below. Replace "Oracle &amp; Ina" with your own landmark. If you skip the script, drop those two pieces and the template still works.</span></div>
+        <div class="sub">Multi-hop (1+ hops) — only the second line changes</div>
+        <div class="field"><label>Reply Template (Multi-hop)</label>
+          <div class="input area need">🤖 Heard you at Oracle &amp; Ina · {TIME}
+3️⃣ 3 hops — via repeaters
+📍 8.7 mi away</div>
+          <span class="help"><b>No signal line on multi-hop.</b> The SNR/RSSI on a relayed packet describe the <em>last relay into your node</em>, not the tester's radio — if your roof node hears the city and hands to you at +13 dB, every relayed test would read "Excellent" regardless of how weak the sender actually was. Only report signal on direct (0-hop) receptions. (Tyler, azmsh.)</span></div>
+        <div class="field"><label>Trailer (on channels other than your test channel, and on DMs)</label>
+          <div class="input area">📻 Please run further tests on the &lt;TEST_CHANNEL&gt; channel · &lt;YOUR_COMMUNITY_URL&gt;</div>
+          <span class="help">Note the word "tests", plural, on purpose: \btest\b does not match "tests", so your own reply can't trigger your own rule (or a neighbour's). See flood guards below.</span></div>
+        <div class="sub">Pattern Testing</div>
+        <table><tr><th>Input</th><th>Result</th></tr>
+          <tr><td>test · test 123 · test at 5th and Main · Mobile test · New antenna test</td><td class="ok">fires</td></tr>
+          <tr><td>Radio check · radio check from the truck · Ping from downtown · distance check</td><td class="ok">fires</td></tr>
+          <tr><td>Check this out · checking this out · Check back tomorrow · Where do I check the hops?</td><td class="bad">quiet</td></tr>
+          <tr><td>trying to ping someone · you can type !ping to get a report</td><td class="bad">quiet</td></tr>
+          <tr><td>Good morning check in. · 🥵 Heat Check · 10:25 · Temp 106°F</td><td class="bad">quiet</td></tr></table>
+      </div>
+      <aside class="notes">
+        <h3>Will's notes</h3>
+        <p>The killer feature. Every new operator wonders "is anyone hearing me?" Meshtastic's own ack/retry status is confusing and sometimes wrong. With this, the instruction is simply: <b>go to primary and say "test" until you get a number back.</b> The number is how many hops away you are, and proof you got out.</p>
+        <ul>
+          <li><b>All channels active</b>, because people get confused about where to test.</li>
+          <li><b>Always respond via DM: on.</b> The tapback still lands in the channel they tested on (instant visual confirmation), but the detailed reply with cross-streets, SNR, RSSI goes to their DMs. This is what keeps primary usable once several people run MeshMonitor.</li>
+          <li><b>Skip incomplete nodes: off.</b> People need to test before you have their full name.</li>
+          <li>Cross-streets in the reply matter for static/city nodes: people want to know how far they're reaching.</li>
+          <li>The reply advertises Auto Ping, so testers know the next step.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CUSTOMIZING AUTO ACK -->
+  <section class="auto" id="ack-howto">
+    <div class="head"><span class="toggle on"></span><h2>Customizing Auto Acknowledge</h2><span class="rec yes">Read before editing</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">The pattern and templates above are a working starting point. Here's how to bend them to your node without breaking them.</p>
+
+        <div class="sub">1. The trigger pattern, piece by piece</div>
+        <p class="desc">The trick is that the four keywords get <em>different</em> strictness, because people use them differently. "test" is unambiguous on a mesh, so it can fire anywhere. "check" and "ping" show up constantly in normal talk ("check this out", "trying to ping someone"), so they only fire in one position.</p>
+        <table>
+          <tr><th>Piece</th><th>Rule in plain language</th></tr>
+          <tr><td><code>(?i)</code></td><td>Case-insensitive for the whole pattern. "Test", "TEST", "test" all match.</td></tr>
+          <tr><td><code>\b(test|testing)\b</code></td><td><b>Loose.</b> Anywhere in the message: "test", "test 123", "New antenna test", "test at 5th &amp; Main".</td></tr>
+          <tr><td><code>^[^0-9A-Za-z_]*ping\b</code></td><td><b>Strict.</b> Only when the message <em>starts</em> with ping (leading emoji/punctuation allowed). "Ping from downtown" fires; "trying to ping someone" doesn't.</td></tr>
+          <tr><td><code>\bcheck[^0-9A-Za-z_]*$</code></td><td><b>Strict.</b> Only when the message <em>ends</em> with check. "Radio check", "distance check" fire; "Check this out" doesn't.</td></tr>
+          <tr><td><code>\bradio[^0-9A-Za-z_]+check\b</code></td><td>Rescues "radio check" mid-sentence ("radio check from the truck"), which the end-anchor above would miss.</td></tr>
+        </table>
+
+        <div class="sub">2. Adding or removing trigger words</div>
+        <p class="desc">Each keyword is its own alternative, separated by <code>|</code>. Decide whether a new word is safe to fire anywhere (add it to the loose group) or needs a position (copy the ping or check shape):</p>
+        <div class="input area">Add "hello" as a loose word:
+(?i)\b(test|testing|hello)\b|^[^0-9A-Za-z_]*ping\b|\bcheck[^0-9A-Za-z_]*$|\bradio[^0-9A-Za-z_]+check\b
+
+Drop "check" entirely (too many false hits in your area):
+(?i)\b(test|testing)\b|^[^0-9A-Za-z_]*ping\b
+
+Prefer a strict, whole-message rule (quieter; won't answer "New antenna test"):
+(?i)^\s*(?:(?:test(?:ing)?|(?:radio\s+)?check)(?:\s+\d+(?:\s+\d+)*)?|ping)\s*[!?.]*\s*$</div>
+        <p class="desc">The third one is a legitimate alternative if your channel is chatty and you'd rather miss the occasional "Mobile test" than answer a stray one. Will's version came out ahead when backtested against a month of real Arizona traffic; pick based on your own channel's habits.</p>
+
+        <div class="sub">3. RE2, not JavaScript regex</div>
+        <p class="desc">MeshMonitor compiles the pattern with RE2 for safety. That means <b>no lookahead, lookbehind, or backreferences</b>; exclusions have to be expressed as anchors and character classes (which is why the pattern is shaped the way it is). Inline flags like <code>(?i)</code> <em>are</em> supported. <code>^</code> and <code>$</code> mean start and end of the whole message.</p>
+        <p class="desc"><b>An invalid pattern fails silently.</b> If it doesn't compile, the rule just never fires and nothing in the UI tells you why. So:</p>
+
+        <div class="sub">4. Always use the Pattern Testing box</div>
+        <p class="desc">Before saving, type your trigger words (fire), the same words inside a sentence (quiet), and a couple of real messages from your channel history. If anything's wrong, fix it before it goes live; a bad pattern on a busy channel replies to everyone. If you have database access, the Cookbook linked below shows how to backtest a pattern against every message you've ever received without transmitting a thing.</p>
+
+        <div class="sub">5. Writing the reply templates</div>
+        <table>
+          <tr><th>Token</th><th>Becomes</th></tr>
+          <tr><td><code>{LONG_NAME}</code> / <code>{SHORT_NAME}</code></td><td>The sender's node name</td></tr>
+          <tr><td><code>{NODE_ID}</code></td><td>Their node ID (hex)</td></tr>
+          <tr><td><code>{HOPS}</code></td><td>Hops from them to you</td></tr>
+          <tr><td><code>{SNR}</code> / <code>{RSSI}</code></td><td>Signal of the packet as received by your node. Meaningful only when {HOPS} is 0 — on a relayed packet it grades the last relay's link, not the sender's, so leave it out of the multi-hop template.</td></tr>
+          <tr><td><code>{TIME}</code> / <code>{DATE}</code></td><td>When you received it</td></tr>
+          <tr><td><code>{NODECOUNT}</code></td><td>Nodes currently active in your database</td></tr>
+        </table>
+        <p class="desc">Guidelines that keep replies useful: include <b>where you are</b> (cross-streets or a landmark), because "how far did I reach?" is the question people are really asking. Keep it <b>under ~200 characters</b> so it fits a single LoRa packet. On the multi-hop template, drop SNR/RSSI entirely: they describe the last relay's link, not the sender's, and reporting them misleads the tester.</p>
+
+        <div class="sub">6. Turning SNR into words</div>
+        <p class="desc">"SNR −7.25 dB" means nothing to someone who just unboxed a node, so Will's reply translates it. The bands aren't arbitrary: each is the LoRa demodulation floor for the <b>MEDIUM_FAST</b> preset (SF9/BW250, −12.5 dB) plus a round amount of margin.</p>
+        <table>
+          <tr><th>SNR</th><th>Word</th><th>Margin above floor</th></tr>
+          <tr><td>≥ +5 dB</td><td class="ok"><b>Excellent</b></td><td>~17.5 dB</td></tr>
+          <tr><td>≥ 0 dB</td><td class="ok"><b>Strong</b></td><td>~12.5 dB</td></tr>
+          <tr><td>≥ −5 dB</td><td><b>Good</b></td><td>~7.5 dB</td></tr>
+          <tr><td>≥ −10 dB</td><td><b>Fair</b></td><td>~2.5 dB — still works; rain or foliage will take it</td></tr>
+          <tr><td>&lt; −10 dB</td><td class="bad"><b>Marginal</b></td><td>&lt; 2.5 dB — the next bit of weather drops the link</td></tr>
+        </table>
+        <p class="desc">Steps of 5 dB on purpose: a single packet's reported SNR moves by more than that between transmissions, so finer bands are false precision. If you run a different preset (LongFast has a lower floor), shift the whole ladder. <b>RSSI is printed, not interpreted</b>: below the noise floor it isn't comparable between radios, so turning it into a word would be inventing information.</p>
+        <table>
+          <tr><th>Hops</th><th>Tapback glyph</th><th>Note</th></tr>
+          <tr><td>0</td><td>*️⃣</td><td>Keycap asterisk, not 0️⃣: it reads as "direct," not "zero."</td></tr>
+          <tr><td>1–6</td><td>1️⃣ … 6️⃣</td><td>Literal hop count.</td></tr>
+          <tr><td>7+</td><td>7️⃣</td><td>Clamped; Meshtastic's hop limit maxes at 7.</td></tr>
+          <tr><td>unknown</td><td>none</td><td>Tapback skipped and the hop line omitted. Telling a range-tester they were direct when you don't know is a lie.</td></tr>
+        </table>
+        <p class="desc">The words and the distance line ("📍 3.2 mi away") come from a small Python script the automation runs before it sends, with every fragment carrying its own separator so a missing value disappears cleanly instead of leaving "📶 SNR dB". The full script, the automation JSON graph, and the setup steps are in the <a href="#cookbook">Cookbook</a>. If you don't want the script, drop the quality word and distance from the template; the rest works on MeshMonitor's built-in tokens.</p>
+
+        <div class="sub">7. Channel vs DM, and why the two delays</div>
+        <p class="desc"><b>Always respond via Direct Message: on.</b> The hop-count tapback still lands in the channel they tested on, so they get instant confirmation; the wordy reply goes to their DMs and stays out of primary. Will actually runs it as <b>three automations</b> with identical internals: one for a dedicated test channel (no trailer), one for every other channel (reply ends with "please run further tests on the test channel"), one for DMs. That nudges casual testing off the busy channels.</p>
+        <p class="desc">The <b>10 s delay before the tapback</b> lets the sender's own radio finish its transmit/ACK cycle; replying instantly collides with it and produces NAKs. The <b>30 s delay before the DM</b> keeps your two transmissions out of the same airtime window. On a busy channel that's the difference between a helpful station and one everybody mutes. Leave <b>Skip incomplete nodes</b> off so people can test before you've learned their full name.</p>
+
+        <div class="sub">8. Keeping it from flooding the mesh</div>
+        <p class="desc">An auto-responder that answers another auto-responder is the classic way to take a mesh down. What protects you, and what doesn't:</p>
+        <table>
+          <tr><th>Guard</th><th>What it actually stops</th></tr>
+          <tr><td><b>Self-origin drop</b> (engine)</td><td>Your own node's packets never trigger your rules. A direct self-loop is impossible.</td></tr>
+          <tr><td><b>Per-node cooldown</b> 60 s</td><td>One reply per sender per minute. Bounds a spammer, and bounds a bot-vs-bot exchange to one round per minute.</td></tr>
+          <tr><td><b>30 s spacing</b></td><td>Airtime discipline, not loop prevention.</td></tr>
+          <tr><td class="bad"><b>Not protected:</b> somebody else's bot</td><td>If a neighbour's auto-reply contains one of your trigger words, you answer it, and if yours contains theirs, they answer you. The cooldown limits it; it doesn't stop it.</td></tr>
+        </table>
+        <p class="desc">Two habits that actually prevent the loop: <b>keep your trigger words out of your own reply text</b> (write "run further <em>tests</em>", since <code>\btest\b</code> doesn't match "tests"), and <b>watch your run log for bot-shaped replies</b> from other stations; if one keeps showing up, add a "message does not contain" condition for its prefix. And know that the <b>cooldown lives in memory and resets when MeshMonitor restarts</b>: a crash-looping container has no rate limit at all. The cooldown is a courtesy to your neighbours, not a safety mechanism.</p>
+      </div>
+      <aside class="notes">
+        <h3>Why this shape</h3>
+        <p>Will's first pattern matched all four words anywhere in a message, which is why it answered him when he said he was "checking something out." The fix wasn't to make everything strict; it was to notice that "test" is unambiguous on a mesh and "check"/"ping" aren't, and treat them differently.</p>
+        <ul>
+          <li>Loose on <b>test</b>: people write "New antenna test" and expect an answer.</li>
+          <li>Strict on <b>ping</b> and <b>check</b>: they're ordinary English words.</li>
+          <li>"Radio check" gets its own rule because the strict check-rule would miss it mid-sentence.</li>
+          <li>The plural "tests" in the trailer is deliberate: it keeps your own reply from being a trigger.</li>
+        </ul>
+        <p>Derive your own cut-offs from your own history rather than copying blindly. Read every message a new rule would <em>stop</em> answering by hand; a percentage hides the two genuine tests you just broke.</p>
+        <p id="cookbook"><b>The deep end:</b> Will's full <a href="#deep-dive">Mesh Auto-Ack Cookbook</a> has the complete automation JSON graph, the <code>ack_enrich.py</code> script, the placeholder list, and read-only SQL to verify it all from the run log without transmitting. Start there when you're ready to build it exactly.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- AUTO ANNOUNCE -->
+  <section class="auto" id="announce">
+    <div class="head"><span class="toggle opt"></span><h2>Auto Announce</h2><span class="rec opt">Optional</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Send a scheduled announcement on a channel.</p>
+        <div class="row"><div class="field"><label>Interval (hours)</label><div class="input">24</div></div><div class="field"><label>Channel</label><div class="input">Primary</div></div></div>
+        <div class="field"><label>Message</label><div class="input area">Good morning from [node]. Running MeshMonitor — say "test" on primary to check your reach, or DM me "ping 5".</div></div>
+      </div>
+      <aside class="notes"><h3>Will's notes</h3><p>He does his morning message (with a dad joke) via the API instead, but this does the same thing. Anecdotally, nodes that post in the morning hold good links all day. Once a day, no more. Don't flood.</p></aside>
+    </div>
+  </section>
+
+  <!-- AUTO RESPONDERS -->
+  <section class="auto" id="responders">
+    <div class="head"><span class="toggle opt"></span><h2>Auto Responders</h2><span class="rec opt">Optional / advanced</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Match a pattern and reply with text, an HTTP call, a script, or a mailbox.</p>
+        <table><tr><th>Trigger</th><th>Type</th><th>Response</th><th>Channels</th></tr>
+          <tr><td><code>^calendar</code></td><td>Script</td><td>forecast_today.py</td><td>DM</td></tr>
+          <tr><td><code>^weather</code></td><td>Script</td><td>tempest_local.py</td><td>DM</td></tr>
+          <tr><td><code>^help</code></td><td>Text</td><td>Commands: test · ping N · weather · calendar</td><td>DM</td></tr></table>
+      </div>
+      <aside class="notes"><h3>Will's notes</h3><p>Where it gets creative. His examples: a local Tempest weather station read entirely offline, a "what's on the calendar today" bot via a pop-culture calendar API, a daily dad joke. If "Python script" means nothing to you, skip this section entirely.</p></aside>
+    </div>
+  </section>
+
+  <!-- KEY MGMT -->
+  <section class="auto" id="keys">
+    <div class="head"><span class="toggle on"></span><h2>Auto Key Management</h2><span class="rec yes">On, with a cap</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Detect public-key mismatches, drop the stale key, and re-exchange automatically.</p>
+        <div class="row">
+          <div class="field"><label>Interval Between Attempts (minutes)</label><div class="input">60</div></div>
+          <div class="field"><label>Maximum Exchange Attempts</label><div class="input">3</div><span class="help">Set this. Uncapped, key exchanges can flood the mesh.</span></div>
+        </div>
+        <div class="check"><span class="box on"></span>Auto-Purge After Exceeding Attempts</div>
+        <div class="check"><span class="box on"></span>Immediate Purge on Key Mismatch</div>
+        <div class="sub">Activity Log</div>
+        <table><tr><th>Time</th><th>Node</th><th>Action</th><th>Old key</th><th>New key</th></tr>
+          <tr><td>today 10:02</td><td>Biggy</td><td>Purged + re-learned</td><td>ghrf…baWQ</td><td>Un5o…J2k</td></tr></table>
+      </div>
+      <aside class="notes"><h3>Will's notes</h3><p>When someone wipes a node and gets a new key, Meshtastic just silently stops delivering to them. This spots the mismatch, deletes the old key, and lets the new one in. <b>Be careful:</b> he's seen it flood the network when people don't set the max attempts. Cap it.</p></aside>
+    </div>
+  </section>
+
+  <!-- TIMED EVENTS -->
+  <section class="auto" id="timed">
+    <div class="head"><span class="toggle opt"></span><h2>Timed Events</h2><span class="rec opt">Optional</span></div>
+    <div class="body">
+      <div class="settings"><p class="desc">Fire a message or script on a schedule with no trigger message.</p>
+        <table><tr><th>Schedule</th><th>Action</th><th>Target</th></tr><tr><td>Daily 07:00</td><td>Weather report</td><td>Weather channel</td></tr></table></div>
+      <aside class="notes"><h3>Will's notes</h3><p>Daily weather, scheduled reminders. Same rule: don't flood.</p></aside>
+    </div>
+  </section>
+
+  <!-- GEOFENCE -->
+  <section class="auto" id="geofence">
+    <div class="head"><span class="toggle opt"></span><h2>Geofence Triggers</h2><span class="rec opt">Optional</span></div>
+    <div class="body">
+      <div class="settings"><p class="desc">Act when a node enters or leaves a defined area.</p>
+        <table><tr><th>Zone</th><th>Node</th><th>On enter</th><th>On leave</th></tr>
+          <tr><td>Home (500 m)</td><td>Will Van</td><td>Role → Client Mute</td><td>Role → Client</td></tr></table></div>
+      <aside class="notes"><h3>Will's notes</h3><p>His truck switches from Client Mute at home to Client when it leaves, automatically. You could also greet a node that wanders into your neighborhood. Lots of room to get clever here.</p></aside>
+    </div>
+  </section>
+
+  <!-- RETENTION -->
+  <section class="auto" id="retention">
+    <div class="head"><span class="toggle on"></span><h2>Node Retention (Settings › Nodes)</h2><span class="rec yes">Part of the recipe</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Not on the Automation tab, but these control how long nodes stay in your database.</p>
+        <div class="row">
+          <div class="field"><label>Maximum Node Age (hours)</label><div class="input">730</div><span class="help">≈ 30 days</span></div>
+          <div class="field"><label>Mark Inactive After (hours)</label><div class="input">25</div><span class="help">Odd on purpose — see notes</span></div>
+          <div class="field"><label>Inactive Check Interval (hours)</label><div class="input">1</div></div>
+        </div>
+      </div>
+      <aside class="notes"><h3>Will's notes</h3><p>He keeps a month of nodes so he can see who comes and goes and spot flaky links. <b>25 hours, not 24</b> (Tyler's tip): a node that only sends its info once every 24 h can be missed forever by a check that lands at the same clock time each day. An odd interval drifts through the day and catches it.</p></aside>
+    </div>
+  </section>
+
+  <!-- VIRTUAL NODE -->
+  <section class="auto" id="vnode">
+    <div class="head"><span class="toggle on"></span><h2>Virtual Node Server (Info tab)</h2><span class="rec yes">Turn it on</span></div>
+    <div class="body">
+      <div class="settings">
+        <p class="desc">Expose a stand-in node over TCP that the Meshtastic app or CLI can connect to while MeshMonitor owns the real connection.</p>
+        <div class="row"><div class="field"><label>Virtual Node Port</label><div class="input">4404</div></div><div class="field"><label>Max Clients</label><div class="input">5</div></div></div>
+      </div>
+      <aside class="notes"><h3>Will's notes</h3><p>MeshMonitor takes the node's whole TCP connection; the app and CLI can't reach it directly while MeshMonitor runs. The Virtual Node fixes that: point the app or CLI at it and keep sending messages or running commands without fighting for the slot.</p></aside>
+    </div>
+  </section>
+
+
+  <!-- DEEP DIVE: WILL'S COOKBOOK, VERBATIM -->
+  <div class="deep-head" id="deep-dive">
+    <h2>Dive even deeper: the Mesh Auto-Ack Cookbook</h2>
+    <a class="btn alt" href="#page-top">↑ Back to the guide</a>
+    <p>Will's complete write-up, reproduced as he published it: the automation JSON graph, the <code>ack_enrich.py</code> script, the placeholder list, and read-only SQL to verify everything from the run log without transmitting. For people building it exactly.</p>
+  </div>
+  <iframe class="frame" id="cookbook-frame" title="Mesh Auto-Ack Cookbook by Will See" srcdoc="&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf8&gt;&lt;meta name=viewport content=&quot;width=device-width,initial-scale=1,viewport-fit=cover&quot;&gt;&lt;style&gt;:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;
+&lt;title&gt;Mesh Auto-Ack Cookbook&lt;/title&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap&quot;&gt;
+&lt;style&gt;
+:root{
+  --paper:#eef1f3; --surface:#ffffff; --sunken:#e4e9ec;
+  --ink:#15191e; --muted:#5a6672; --line:#d5dbe0; --line-soft:#e5eaed;
+  --accent:#1f5d7a; --accent-soft:#e0edf3; --accent-ink:#164657;
+  --amber:#985516; --amber-soft:#f6ecdf;
+  --good:#2b6b4b; --good-soft:#e2efe8;
+  --stop:#9d3527; --stop-soft:#f6e6e3;
+  --shadow:0 1px 2px rgba(20,35,45,.06),0 8px 24px -14px rgba(20,35,45,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme=&quot;light&quot;]){
+  --paper:#0e1216; --surface:#161c22; --sunken:#11161b;
+  --ink:#e4eaef; --muted:#94a3af; --line:#27313b; --line-soft:#1e262e;
+  --accent:#74bcd7; --accent-soft:#12303d; --accent-ink:#a8d8ea;
+  --amber:#dda75a; --amber-soft:#2e2515;
+  --good:#65bd8e; --good-soft:#12291f;
+  --stop:#dd8878; --stop-soft:#301a16;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -16px rgba(0,0,0,.7);
+}
+}
+:root[data-theme=&quot;dark&quot;]{
+  --paper:#0e1216; --surface:#161c22; --sunken:#11161b;
+  --ink:#e4eaef; --muted:#94a3af; --line:#27313b; --line-soft:#1e262e;
+  --accent:#74bcd7; --accent-soft:#12303d; --accent-ink:#a8d8ea;
+  --amber:#dda75a; --amber-soft:#2e2515;
+  --good:#65bd8e; --good-soft:#12291f;
+  --stop:#dd8878; --stop-soft:#301a16;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:&quot;Source Sans 3&quot;,ui-sans-serif,system-ui,-apple-system,&quot;Segoe UI&quot;,sans-serif;
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding-inline:20px; padding-block:0 40px}
+.col{max-width:70ch}
+h1,h2,h3,h4{font-family:Bitter,Georgia,serif; text-wrap:balance; margin:0; line-height:1.22}
+h1{font-size:clamp(2.1rem,5.2vw,3.05rem); font-weight:700; letter-spacing:-.018em}
+h2{font-size:clamp(1.42rem,3vw,1.78rem); font-weight:600; letter-spacing:-.012em}
+h3{font-size:1.1rem; font-weight:600}
+h4{font-size:.95rem; font-weight:600}
+p{margin:0}
+a{color:var(--accent); text-underline-offset:3px}
+code,kbd,pre{font-family:&quot;JetBrains Mono&quot;,ui-monospace,SFMono-Regular,Menlo,monospace}
+code{font-size:.855em; background:var(--sunken); padding:.12em .36em; border-radius:4px; border:1px solid var(--line-soft)}
+pre{margin:0; overflow-x:auto; font-size:.8rem; line-height:1.65}
+pre code{background:none; border:none; padding:0; font-size:inherit}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:1px solid var(--line); background:var(--surface)}
+.mast .wrap{padding-block:clamp(40px,7vw,68px) clamp(32px,5vw,48px)}
+.eyebrow{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.68rem; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--accent); font-weight:600}
+.mast h1{margin-top:14px}
+.lede{margin-top:18px; font-size:1.1rem; color:var(--muted); max-width:62ch}
+.mast-grid{display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr); gap:44px; align-items:start}
+@media (max-width:760px){.mast-grid{grid-template-columns:1fr; gap:32px}}
+
+/* the sample ack, styled as a radio message */
+.ack{
+  background:var(--sunken); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.815rem;
+  line-height:1.75; white-space:pre-wrap; word-break:break-word;
+}
+.ack-cap{margin-top:10px; font-size:.78rem; color:var(--muted); font-style:italic}
+
+/* ---------- sections ---------- */
+section{margin-top:clamp(52px,7vw,80px)}
+.sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:8px;
+  padding-bottom:10px; border-bottom:2px solid var(--ink)}
+.sec-num{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.74rem; font-weight:600;
+  color:var(--accent); letter-spacing:.08em; padding-top:4px}
+.stack{display:flex; flex-direction:column; gap:18px; margin-top:22px}
+.stack-tight{display:flex; flex-direction:column; gap:12px; margin-top:16px}
+
+/* ---------- pipeline strip ---------- */
+.pipe{display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; margin-top:24px}
+.step{
+  flex:1 1 128px; min-width:0; background:var(--surface); border:1px solid var(--line);
+  border-radius:8px; padding:11px 12px; display:flex; flex-direction:column; gap:3px;
+}
+.step .k{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.63rem; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--muted)}
+.step .v{font-size:.9rem; font-weight:600; line-height:1.3}
+.step .n{font-size:.78rem; color:var(--muted); line-height:1.4}
+.step.wait{background:var(--amber-soft); border-color:transparent}
+.step.emit{background:var(--accent-soft); border-color:transparent}
+
+/* ---------- tables ---------- */
+.tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.885rem; min-width:460px}
+th,td{text-align:left; padding:10px 14px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+thead th{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.66rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); font-weight:600; background:var(--sunken);
+  border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+td code{font-size:.82em}
+.num{font-variant-numeric:tabular-nums; white-space:nowrap}
+
+/* ---------- code blocks ---------- */
+.codeblock{background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.codeblock &gt; pre{padding:16px 18px}
+.codehead{display:flex; justify-content:space-between; align-items:center; gap:12px;
+  padding:8px 14px; background:var(--sunken); border-bottom:1px solid var(--line);
+  font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.68rem; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--muted)}
+.scrolly &gt; pre{max-height:520px; overflow-y:auto}
+
+/* ---------- callouts ---------- */
+.note{border-left:3px solid var(--accent); background:var(--accent-soft);
+  padding:13px 16px; border-radius:0 8px 8px 0; font-size:.93rem}
+.note.warn{border-left-color:var(--amber); background:var(--amber-soft)}
+.note.stop{border-left-color:var(--stop); background:var(--stop-soft)}
+.note h4{margin-bottom:4px}
+
+/* ---------- SNR ladder ---------- */
+.ladder{display:flex; flex-direction:column; gap:0; margin-top:24px;
+  border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface)}
+.rung{display:grid; grid-template-columns:96px 1fr 92px; align-items:center; gap:14px;
+  padding:11px 16px; border-bottom:1px solid var(--line-soft)}
+.rung:last-child{border-bottom:none}
+@media (max-width:560px){.rung{grid-template-columns:78px 1fr; gap:10px} .rung .margin{display:none}}
+.rung .db{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.82rem; font-weight:600;
+  font-variant-numeric:tabular-nums}
+.rung .word{display:flex; align-items:center; gap:10px}
+.rung .word b{font-size:.98rem; font-weight:600}
+.rung .margin{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.72rem; color:var(--muted);
+  text-align:right; font-variant-numeric:tabular-nums}
+.bar{height:7px; border-radius:99px; background:currentColor; flex:1; max-width:210px; opacity:.85}
+.r1{color:#2b8f63} .r2{color:#4f9a45} .r3{color:#a08a1e} .r4{color:#b4702a} .r5{color:#a8443a}
+:root[data-theme=&quot;dark&quot;] .r1{color:#63c193} :root[data-theme=&quot;dark&quot;] .r2{color:#8bc06a}
+:root[data-theme=&quot;dark&quot;] .r3{color:#d3b855} :root[data-theme=&quot;dark&quot;] .r4{color:#dd9a5e}
+:root[data-theme=&quot;dark&quot;] .r5{color:#dd8072}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=&quot;light&quot;]) .r1{color:#63c193}
+  :root:not([data-theme=&quot;light&quot;]) .r2{color:#8bc06a}
+  :root:not([data-theme=&quot;light&quot;]) .r3{color:#d3b855}
+  :root:not([data-theme=&quot;light&quot;]) .r4{color:#dd9a5e}
+  :root:not([data-theme=&quot;light&quot;]) .r5{color:#dd8072}
+}
+.floor{padding:10px 16px; background:var(--sunken); font-size:.8rem; color:var(--muted);
+  font-family:&quot;JetBrains Mono&quot;,monospace; border-top:1px solid var(--line)}
+
+/* ---------- fire / quiet examples ---------- */
+.verdicts{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:22px}
+@media (max-width:680px){.verdicts{grid-template-columns:1fr}}
+.vcol{border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface)}
+.vhead{padding:9px 14px; font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.68rem;
+  letter-spacing:.09em; text-transform:uppercase; font-weight:600}
+.vcol.yes .vhead{background:var(--good-soft); color:var(--good)}
+.vcol.no .vhead{background:var(--stop-soft); color:var(--stop)}
+.vcol ul{list-style:none; margin:0; padding:8px 14px 12px}
+.vcol li{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.76rem; padding:4px 0;
+  border-bottom:1px dashed var(--line-soft); word-break:break-word}
+.vcol li:last-child{border-bottom:none}
+
+/* ---------- placeholder list ---------- */
+.ph{display:grid; gap:0; border:1px solid var(--line); border-radius:10px;
+  overflow:hidden; background:var(--surface); margin-top:22px}
+.ph &gt; div{display:grid; grid-template-columns:230px 1fr; gap:16px; padding:12px 16px;
+  border-bottom:1px solid var(--line-soft)}
+.ph &gt; div:last-child{border-bottom:none}
+@media (max-width:600px){.ph &gt; div{grid-template-columns:1fr; gap:4px}}
+.ph .key{font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.78rem; color:var(--accent-ink);
+  font-weight:600; word-break:break-all}
+:root[data-theme=&quot;dark&quot;] .ph .key{color:var(--accent)}
+@media (prefers-color-scheme:dark){ :root:not([data-theme=&quot;light&quot;]) .ph .key{color:var(--accent)} }
+.ph .desc{font-size:.88rem; color:var(--muted)}
+
+/* ---------- ordered setup ---------- */
+ol.steps{list-style:none; counter-reset:s; margin:22px 0 0; padding:0;
+  display:flex; flex-direction:column; gap:20px}
+ol.steps &gt; li{counter-increment:s; display:grid; grid-template-columns:34px 1fr; gap:14px}
+ol.steps &gt; li::before{content:counter(s,decimal-leading-zero);
+  font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.74rem; font-weight:600; color:var(--accent);
+  padding-top:3px; border-top:2px solid var(--accent); align-self:start}
+ol.steps h3{margin-bottom:5px}
+ol.steps .body{display:flex; flex-direction:column; gap:11px; min-width:0}
+ul.plain{margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:6px}
+ul.plain li{padding-left:2px}
+footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line);
+  font-size:.85rem; color:var(--muted)}
+.tag{display:inline-block; font-family:&quot;JetBrains Mono&quot;,monospace; font-size:.66rem;
+  letter-spacing:.07em; text-transform:uppercase; padding:2px 7px; border-radius:99px;
+  border:1px solid currentColor; font-weight:600}
+.tag.loose{color:var(--good)} .tag.strict{color:var(--amber)}
+&lt;/style&gt;
+
+&lt;header class=&quot;mast&quot;&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;div class=&quot;mast-grid&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;eyebrow&quot;&gt;MeshMonitor 4.14 · Automation Engine&lt;/div&gt;
+        &lt;h1&gt;Mesh Auto-Ack Cookbook&lt;/h1&gt;
+        &lt;p class=&quot;lede&quot;&gt;A station that answers &lt;code&gt;test&lt;/code&gt; on a LoRa mesh with a signal report a human can actually read — hop count, plain-English link quality, and distance. This is the exact working configuration, with every private value replaced by a placeholder.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;ack&quot;&gt;🤖 Heard you at &amp;lt;YOUR_LANDMARK&amp;gt; · 5:16 PM
+*️⃣ Direct — no repeaters
+📶 Excellent · SNR 10.75dB · RSSI -38
+📍 3.2 mi away&lt;/div&gt;
+        &lt;p class=&quot;ack-cap&quot;&gt;What a tester receives. Every line degrades cleanly on its own if the data behind it is missing.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;div class=&quot;wrap&quot;&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;01&lt;/span&gt;&lt;h2&gt;How it is put together&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;Everything runs inside one MeshMonitor instance. There is no external bot, no MQTT subscription, and nothing polling the mesh. MeshMonitor already holds a single TCP connection to the radio, and the Automation Engine evaluates each received message in-process as it arrives.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;pipe&quot;&gt;
+    &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;k&quot;&gt;Listens&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;Radio TCP&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MeshMonitor&#x27;s own connection to &lt;code&gt;meshtasticd&lt;/code&gt; on port 4403. One client only.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;k&quot;&gt;Decides&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;Automation Engine&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;In-process. Three saved automations, evaluated per message.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;k&quot;&gt;Enriches&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;Python script&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;One script under the data directory, run per ack.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;step emit&quot;&gt;&lt;span class=&quot;k&quot;&gt;Replies&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;Tapback + DM&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;An emoji reaction, then a direct message.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;k&quot;&gt;Stores&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;Postgres&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Config, message history, and a run log per firing.&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;div class=&quot;note&quot;&gt;
+      &lt;h4&gt;One radio, one MeshMonitor&lt;/h4&gt;
+      &lt;p&gt;&lt;code&gt;meshtasticd&lt;/code&gt; accepts exactly one TCP API client. Two MeshMonitor instances pointed at the same node evict each other roughly once a minute, forever, and each eviction replays the whole node database. On a 2&amp;nbsp;GB Pi that is enough to drive the radio daemon into swap. If you already run MeshMonitor somewhere, add the automations there rather than standing up a second instance.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;note stop&quot;&gt;
+      &lt;h4&gt;Read section 06 before you enable anything&lt;/h4&gt;
+      &lt;p&gt;The only thing standing between this and a flood is a 60&amp;nbsp;second per-node cooldown that lives &lt;b&gt;in memory and resets every time MeshMonitor restarts&lt;/b&gt;. It does not stop another operator&#x27;s auto-responder from trading messages with yours. If you and a neighbour both copy this guide onto nodes in range of each other, you have built the flood — and it will look to everyone else on the channel like your station&#x27;s fault. Section 06 says what to do about it; it takes about a minute.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;note warn&quot;&gt;
+      &lt;h4&gt;Do not subscribe to the global MQTT firehose&lt;/h4&gt;
+      &lt;p&gt;None of this needs MQTT. If you add an MQTT bridge anyway, scope it to your own topics and set a container &lt;code&gt;mem_limit&lt;/code&gt;. Subscribing to the public global feed with no memory cap is a reliable way to OOM a Raspberry Pi.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Three automations, not one&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;Per-channel differentiation is not a setting inside one rule — it is three separate saved automations with identical internals and different channel filters. Splitting them means the reply wording, the delivery shape, and the channel list can each change without touching the others.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tblwrap&quot; style=&quot;margin-top:22px&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Automation&lt;/th&gt;&lt;th&gt;Fires on&lt;/th&gt;&lt;th&gt;Reply differs how&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;b&gt;Auto-Ack — test channel&lt;/b&gt;&lt;/td&gt;
+        &lt;td&gt;Broadcasts on &lt;code&gt;&amp;lt;TEST_CHANNEL&amp;gt;&lt;/code&gt; only&lt;/td&gt;
+        &lt;td&gt;No trailer. They are already in the right place, so nothing is appended.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;b&gt;Auto-Ack — other channels&lt;/b&gt;&lt;/td&gt;
+        &lt;td&gt;Broadcasts on &lt;code&gt;&amp;lt;CHANNEL_A&amp;gt;&lt;/code&gt; … &lt;code&gt;&amp;lt;CHANNEL_F&amp;gt;&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Appends a trailer pointing at the test channel, to move casual testing off the busy channels.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;b&gt;Auto-Ack — direct messages&lt;/b&gt;&lt;/td&gt;
+        &lt;td&gt;Direct messages, any channel&lt;/td&gt;
+        &lt;td&gt;Same trailer, plus &lt;code&gt;replyToTrigger: true&lt;/code&gt; so the DM threads under their message.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;The channel filter lives on the trigger and matches &lt;em&gt;by name&lt;/em&gt;, not by slot index — so the same export works on another node where the channel sits in a different slot.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;codeblock&quot; style=&quot;margin-top:20px&quot;&gt;
+    &lt;div class=&quot;codehead&quot;&gt;&lt;span&gt;trigger.message — channel filter&lt;/span&gt;&lt;span&gt;per automation&lt;/span&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;// Automation A — test channel only
+&quot;channels&quot;: [ { &quot;name&quot;: &quot;&amp;lt;TEST_CHANNEL&amp;gt;&quot;, &quot;protocol&quot;: &quot;meshtastic&quot; } ]
+
+// Automation B — every other channel you want covered
+&quot;channels&quot;: [
+  { &quot;name&quot;: &quot;&amp;lt;CHANNEL_A&amp;gt;&quot;, &quot;protocol&quot;: &quot;meshtastic&quot; },
+  { &quot;name&quot;: &quot;&amp;lt;CHANNEL_B&amp;gt;&quot;, &quot;protocol&quot;: &quot;meshtastic&quot; },
+  { &quot;name&quot;: &quot;&amp;lt;CHANNEL_C&amp;gt;&quot;, &quot;protocol&quot;: &quot;meshtastic&quot; }
+]
+
+// Automation C — direct messages: omit &quot;channels&quot; entirely,
+// then gate on isDM == 1 in the conditions below.&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;h3 style=&quot;margin-top:12px&quot;&gt;Inside each automation: two branches&lt;/h3&gt;
+    &lt;p&gt;Each automation fans out into two condition chains that differ only in the &lt;code&gt;zeroHop&lt;/code&gt; test, so a direct contact and a repeated contact get different wording. Every node in the graph is listed below in firing order.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;codeblock&quot; style=&quot;margin-top:20px&quot;&gt;
+    &lt;div class=&quot;codehead&quot;&gt;&lt;span&gt;config graph — one branch&lt;/span&gt;&lt;span&gt;JSON&lt;/span&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;{ &quot;id&quot;:&quot;t&quot;,    &quot;type&quot;:&quot;trigger.message&quot;,
+  &quot;params&quot;:{ &quot;regex&quot;:&quot;&amp;lt;SEE SECTION 03&amp;gt;&quot;, &quot;cooldownSeconds&quot;:60,
+             &quot;cooldownScope&quot;:&quot;node&quot;,
+             &quot;channels&quot;:[{&quot;name&quot;:&quot;&amp;lt;TEST_CHANNEL&amp;gt;&quot;,&quot;protocol&quot;:&quot;meshtastic&quot;}] } }
+
+{ &quot;id&quot;:&quot;f&quot;,    &quot;type&quot;:&quot;flow.fanout&quot;, &quot;params&quot;:{} }
+
+{ &quot;id&quot;:&quot;r0c0&quot;, &quot;type&quot;:&quot;condition.sourceFilter&quot;,
+  &quot;params&quot;:{ &quot;sourceIds&quot;:[&quot;&amp;lt;YOUR_SOURCE_ID&amp;gt;&quot;] } }      // only your own radio
+{ &quot;id&quot;:&quot;r0c1&quot;, &quot;type&quot;:&quot;condition.numeric&quot;,
+  &quot;params&quot;:{ &quot;field&quot;:&quot;isDM&quot;,    &quot;op&quot;:&quot;==&quot;, &quot;value&quot;:&quot;0&quot; } }   // 1 in the DM automation
+{ &quot;id&quot;:&quot;r0c2&quot;, &quot;type&quot;:&quot;condition.numeric&quot;,
+  &quot;params&quot;:{ &quot;field&quot;:&quot;zeroHop&quot;, &quot;op&quot;:&quot;==&quot;, &quot;value&quot;:&quot;1&quot; } }   // 0 in the other branch
+
+{ &quot;id&quot;:&quot;r0a0&quot;,  &quot;type&quot;:&quot;action.delay&quot;,     &quot;params&quot;:{ &quot;seconds&quot;:10 } }
+{ &quot;id&quot;:&quot;r0a1&quot;,  &quot;type&quot;:&quot;action.tapback&quot;,   &quot;params&quot;:{ &quot;emojiMode&quot;:&quot;hopCount&quot; } }
+{ &quot;id&quot;:&quot;r0a1d&quot;, &quot;type&quot;:&quot;action.delay&quot;,     &quot;params&quot;:{ &quot;seconds&quot;:30 } }
+{ &quot;id&quot;:&quot;r0a1s&quot;, &quot;type&quot;:&quot;action.runScript&quot;,
+  &quot;params&quot;:{ &quot;scriptPath&quot;:&quot;ack_enrich.py&quot;, &quot;resultVariable&quot;:&quot;ack&quot;,
+             &quot;timeoutSeconds&quot;:15 } }
+{ &quot;id&quot;:&quot;r0a2&quot;,  &quot;type&quot;:&quot;action.sendMessage&quot;,
+  &quot;params&quot;:{ &quot;text&quot;:&quot;&amp;lt;SEE SECTION 05&amp;gt;&quot;, &quot;to&quot;:&quot;{{ trigger.from }}&quot; } }&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;div class=&quot;note&quot;&gt;
+      &lt;h4&gt;Why the two delays&lt;/h4&gt;
+      &lt;p&gt;The &lt;b&gt;10&amp;nbsp;s&lt;/b&gt; delay before the tapback lets the sender&#x27;s own radio finish its transmit and ACK cycle — replying instantly collides with it and produces NAKs. The &lt;b&gt;30&amp;nbsp;s&lt;/b&gt; delay between the tapback and the text message keeps two transmissions from the same station out of the same airtime window. On a busy channel this is the difference between a helpful station and a station everyone mutes.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;code&gt;zeroHop&lt;/code&gt; is a total 1/0 field: it is true only when the packet travelled zero hops &lt;em&gt;and&lt;/em&gt; did not arrive via MQTT. It is never undefined, so it is safe inside a flat AND-chain. The raw &lt;code&gt;hops&lt;/code&gt; field can be undefined or even negative on a malformed packet — do not branch on it.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;03&lt;/span&gt;&lt;h2&gt;What counts as a test&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;This is the part worth tuning. A rule that simply looks for the words &lt;code&gt;test&lt;/code&gt;, &lt;code&gt;ping&lt;/code&gt; and &lt;code&gt;check&lt;/code&gt; anywhere in a message will answer half the ordinary conversation on your mesh — &quot;check this out&quot;, &quot;check back tomorrow&quot;, &quot;I should check mine&quot;. The fix is to treat the four keywords with different strictness, because people use them differently.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;codeblock&quot; style=&quot;margin-top:22px&quot;&gt;
+    &lt;div class=&quot;codehead&quot;&gt;&lt;span&gt;trigger.message → params.regex&lt;/span&gt;&lt;span&gt;RE2 syntax&lt;/span&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;(?i)\b(test|testing)\b|^[^0-9A-Za-z_]*ping\b|\bcheck[^0-9A-Za-z_]*$|\bradio[^0-9A-Za-z_]+check\b&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tblwrap&quot; style=&quot;margin-top:18px&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Alternative&lt;/th&gt;&lt;th&gt;Keyword&lt;/th&gt;&lt;th&gt;Rule in plain language&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;\b(test|testing)\b&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;tag loose&quot;&gt;Loose&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Anywhere in the message. &quot;test&quot;, &quot;test 123&quot;, &quot;test at 5th &amp;amp; Main&quot;, &quot;New antenna test&quot; all fire. The word is unambiguous on a mesh, and people learn not to use it casually.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;^[^0-9A-Za-z_]*ping\b&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;tag strict&quot;&gt;Strict&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Only when the message &lt;em&gt;opens&lt;/em&gt; with it. &quot;Ping from downtown&quot; fires; &quot;trying to ping someone&quot;, &quot;type !ping to get a report&quot;, &quot;ping pong ball size hail&quot; do not. Leading emoji or punctuation is allowed through.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;\bcheck[^0-9A-Za-z_]*$&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;tag strict&quot;&gt;Strict&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Only when the message &lt;em&gt;ends&lt;/em&gt; with it. &quot;Radio check&quot;, &quot;parking lot check&quot;, &quot;distance check&quot; fire; &quot;Check this out&quot;, &quot;check back tomorrow&quot;, &quot;where do I check the hops&quot; do not.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;\bradio[^0-9A-Za-z_]+check\b&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;tag strict&quot;&gt;Strict&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Rescues the idiom mid-sentence: &quot;radio check from the truck&quot;. Without this, the end-anchor above would miss it.&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;verdicts&quot;&gt;
+    &lt;div class=&quot;vcol yes&quot;&gt;&lt;div class=&quot;vhead&quot;&gt;Fires&lt;/div&gt;&lt;ul&gt;
+      &lt;li&gt;test&lt;/li&gt;&lt;li&gt;test 123&lt;/li&gt;&lt;li&gt;test at 5th and Main&lt;/li&gt;
+      &lt;li&gt;Testing from the north side&lt;/li&gt;&lt;li&gt;Mobile test&lt;/li&gt;&lt;li&gt;New antenna test&lt;/li&gt;
+      &lt;li&gt;Radio check&lt;/li&gt;&lt;li&gt;radio check from the truck&lt;/li&gt;&lt;li&gt;Ping from downtown&lt;/li&gt;
+      &lt;li&gt;Approx location for distance check&lt;/li&gt;
+    &lt;/ul&gt;&lt;/div&gt;
+    &lt;div class=&quot;vcol no&quot;&gt;&lt;div class=&quot;vhead&quot;&gt;Stays quiet&lt;/div&gt;&lt;ul&gt;
+      &lt;li&gt;Check this out: https://…&lt;/li&gt;&lt;li&gt;checking this out&lt;/li&gt;
+      &lt;li&gt;trying to ping someone&lt;/li&gt;&lt;li&gt;Check back tomorrow&lt;/li&gt;
+      &lt;li&gt;Good morning check in.&lt;/li&gt;&lt;li&gt;Where do I check the hops?&lt;/li&gt;
+      &lt;li&gt;you can type !ping to get a signal report&lt;/li&gt;
+      &lt;li&gt;🥵 Heat Check · 10:25 · Temp 106°F&lt;/li&gt;
+      &lt;li&gt;Somebody check the answer key&lt;/li&gt;&lt;li&gt;Ghost, check dm&lt;/li&gt;
+    &lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;div class=&quot;note warn&quot;&gt;
+      &lt;h4&gt;RE2, not JavaScript regex&lt;/h4&gt;
+      &lt;p&gt;MeshMonitor compiles this pattern with RE2 for linear-time matching, so &lt;b&gt;lookahead, lookbehind and backreferences are not available&lt;/b&gt;. Exclusions have to be expressed as anchors and character classes, which is why the rules above are shaped the way they are. Inline flags like &lt;code&gt;(?i)&lt;/code&gt; &lt;em&gt;are&lt;/em&gt; supported. &lt;code&gt;^&lt;/code&gt; and &lt;code&gt;$&lt;/code&gt; mean start and end of the whole message, not of a line.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;note stop&quot;&gt;
+      &lt;h4&gt;An invalid pattern fails silently&lt;/h4&gt;
+      &lt;p&gt;If the regex does not compile, the matcher catches the error and returns &quot;no match&quot; — the automation simply never fires, with nothing in the UI to say why. Verify a new pattern before trusting it (section 08).&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Tuning advice: derive your own cut-offs from your own history rather than copying these. Section 08 shows how to backtest a candidate pattern against stored messages without sending anything.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;04&lt;/span&gt;&lt;h2&gt;Turning SNR into words&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;&quot;SNR −7.25 dB&quot; means nothing to somebody who just unboxed a node. The band names are the useful part of the reply, and they are not arbitrary — each is a statement about how much &lt;em&gt;margin&lt;/em&gt; the link has above the point where the demodulator stops working.&lt;/p&gt;
+    &lt;p&gt;For the MEDIUM_FAST preset (SF9 / BW250) the LoRa demodulation floor is &lt;b&gt;−12.5&amp;nbsp;dB&lt;/b&gt;. Every threshold below is that floor plus a round amount of margin.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;ladder&quot;&gt;
+    &lt;div class=&quot;rung&quot;&gt;&lt;span class=&quot;db&quot;&gt;≥ +5 dB&lt;/span&gt;
+      &lt;span class=&quot;word r1&quot;&gt;&lt;b&gt;Excellent&lt;/b&gt;&lt;span class=&quot;bar&quot; style=&quot;width:100%&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;margin&quot;&gt;~17.5 dB&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;rung&quot;&gt;&lt;span class=&quot;db&quot;&gt;≥ 0 dB&lt;/span&gt;
+      &lt;span class=&quot;word r2&quot;&gt;&lt;b&gt;Strong&lt;/b&gt;&lt;span class=&quot;bar&quot; style=&quot;width:78%&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;margin&quot;&gt;~12.5 dB&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;rung&quot;&gt;&lt;span class=&quot;db&quot;&gt;≥ −5 dB&lt;/span&gt;
+      &lt;span class=&quot;word r3&quot;&gt;&lt;b&gt;Good&lt;/b&gt;&lt;span class=&quot;bar&quot; style=&quot;width:56%&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;margin&quot;&gt;~7.5 dB&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;rung&quot;&gt;&lt;span class=&quot;db&quot;&gt;≥ −10 dB&lt;/span&gt;
+      &lt;span class=&quot;word r4&quot;&gt;&lt;b&gt;Fair&lt;/b&gt;&lt;span class=&quot;bar&quot; style=&quot;width:34%&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;margin&quot;&gt;~2.5 dB&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;rung&quot;&gt;&lt;span class=&quot;db&quot;&gt;&amp;lt; −10 dB&lt;/span&gt;
+      &lt;span class=&quot;word r5&quot;&gt;&lt;b&gt;Marginal&lt;/b&gt;&lt;span class=&quot;bar&quot; style=&quot;width:14%&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;margin&quot;&gt;&amp;lt; 2.5 dB&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;floor&quot;&gt;demodulation floor · MEDIUM_FAST (SF9/BW250) · −12.5 dB&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;&lt;b&gt;Why these five.&lt;/b&gt; &quot;Fair&quot; is deliberately the last band that still says the link works — about 2.5&amp;nbsp;dB of margin, which weather or foliage will take away. &quot;Marginal&quot; means the next bit of rain drops the link. Splitting more finely than 5&amp;nbsp;dB is false precision: reported SNR on a single packet moves by more than that between transmissions.&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Check the anchor against your own data.&lt;/b&gt; Measured over 30 days on the station this was built for, the floor sat at −16&amp;nbsp;dB with a 1st percentile of −13.1&amp;nbsp;dB, which brackets the theoretical −12.5 and confirms it. If you run a different modem preset, move the whole ladder: the floor for LONG_FAST is lower, so your &quot;Good&quot; starts further down.&lt;/p&gt;
+    &lt;div class=&quot;note warn&quot;&gt;
+      &lt;h4&gt;RSSI is printed, not interpreted&lt;/h4&gt;
+      &lt;p&gt;The reply carries the raw RSSI number and stops there. RSSI on a LoRa link below the noise floor is not comparable between radios or antennas, so translating it into a word would be inventing information. SNR is what the band names are built on.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;h3 style=&quot;margin-top:14px&quot;&gt;Hop count → glyph&lt;/h3&gt;
+    &lt;p&gt;The same table drives both the emoji tapback and the second line of the text reply, so the reaction and the message can never disagree.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tblwrap&quot; style=&quot;margin-top:18px&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Hops&lt;/th&gt;&lt;th&gt;Glyph&lt;/th&gt;&lt;th&gt;Note&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td class=&quot;num&quot;&gt;0&lt;/td&gt;&lt;td&gt;*️⃣&lt;/td&gt;&lt;td&gt;Keycap asterisk, not 0️⃣ — it reads as &quot;direct&quot;, not &quot;zero&quot;.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;num&quot;&gt;1 – 6&lt;/td&gt;&lt;td&gt;1️⃣ … 6️⃣&lt;/td&gt;&lt;td&gt;Literal hop count.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;num&quot;&gt;7 or more&lt;/td&gt;&lt;td&gt;7️⃣&lt;/td&gt;&lt;td&gt;Clamped. Meshtastic&#x27;s hop limit maxes at 7.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;num&quot;&gt;unknown&lt;/td&gt;&lt;td&gt;— none —&lt;/td&gt;&lt;td&gt;The tapback is skipped and the reply omits the hop clause entirely. Telling a range-tester they were direct when you do not know is a lie.&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;05&lt;/span&gt;&lt;h2&gt;The reply template and the enrichment script&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;MeshMonitor&#x27;s own template tokens cover &lt;code&gt;{{ trigger.snr }}&lt;/code&gt;, &lt;code&gt;{{ trigger.rssi }}&lt;/code&gt; and &lt;code&gt;{{ trigger.from }}&lt;/code&gt;. Everything else — the clock, the quality word, the hop clause, the distance — is computed by a small Python script the automation runs just before it sends.&lt;/p&gt;
+    &lt;p&gt;The contract between the two is the important design decision: &lt;b&gt;every computed fragment carries its own separator&lt;/b&gt;. The template holds only the literal skeleton, so a field that fails to resolve disappears cleanly instead of leaving a stray &quot;·&amp;nbsp;&quot; or an empty &quot;📍&amp;nbsp;&amp;nbsp;mi away&quot;.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;codeblock&quot; style=&quot;margin-top:22px&quot;&gt;
+    &lt;div class=&quot;codehead&quot;&gt;&lt;span&gt;action.sendMessage → params.text&lt;/span&gt;&lt;span&gt;three variants&lt;/span&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;// A — test channel, zero hops
+🤖 Heard you at &amp;lt;YOUR_LANDMARK&amp;gt;{{ var.ack.at }}
+{{ var.ack.hop2 }}Direct — no repeaters
+📶 {{ var.ack.q }}SNR {{ trigger.snr }}dB · RSSI {{ trigger.rssi }}{{ var.ack.pos }}
+
+// A — test channel, multi hop  (only the third line differs)
+{{ var.ack.hop2 }}via repeaters
+
+// B and C — other channels and DMs: identical, plus one trailer line
+📻 Please run further tests on the &amp;lt;TEST_CHANNEL&amp;gt; channel · &amp;lt;YOUR_COMMUNITY_URL&amp;gt;
+// NOTE the plural. &quot;Please test on ...&quot; would put one of your own trigger
+// words inside your own reply — see section 06.&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tblwrap&quot; style=&quot;margin-top:18px&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Variable&lt;/th&gt;&lt;th&gt;Example value&lt;/th&gt;&lt;th&gt;Empty when&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;var.ack.at&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;&quot; · 5:16 PM&quot;&lt;/code&gt;&lt;/td&gt;&lt;td&gt;the clock is unreadable&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;var.ack.hop2&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;&quot;3️⃣ 3 hops — &quot;&lt;/code&gt;&lt;/td&gt;&lt;td&gt;hop count unknown&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;var.ack.q&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;&quot;Excellent · &quot;&lt;/code&gt;&lt;/td&gt;&lt;td&gt;no SNR on the packet&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;var.ack.pos&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;&quot;\n📍 3.2 mi away&quot;&lt;/code&gt;&lt;/td&gt;&lt;td&gt;either node lacks a fresh position&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;h3 style=&quot;margin-top:14px&quot;&gt;What the script is given&lt;/h3&gt;
+    &lt;p&gt;MeshMonitor passes every trigger field as an environment variable named &lt;code&gt;MM_&amp;lt;UPPER_SNAKE&amp;gt;&lt;/code&gt;, plus a few legacy aliases, plus the process environment (so &lt;code&gt;DATABASE_URL&lt;/code&gt; is available).&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tblwrap&quot; style=&quot;margin-top:18px&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Variable&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_TIMESTAMP&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Receive time of the trigger, epoch ms. Use this, not the clock — the 30&amp;nbsp;s delay sits between receive and send and can cross a minute boundary.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_SNR&lt;/code&gt; / &lt;code&gt;SNR&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Packet SNR in dB.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_RSSI&lt;/code&gt; / &lt;code&gt;RSSI&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Packet RSSI.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_HOPS&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Raw hop count. May be absent or negative.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_HOP_EMOJI&lt;/code&gt;&lt;/td&gt;&lt;td&gt;The glyph the engine already picked. Read this instead of re-deriving it.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_FROM&lt;/code&gt; / &lt;code&gt;FROM_NODE&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Sender node number.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_SOURCE_ID&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Which radio heard it. Required to scope any database lookup.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;MM_TEXT&lt;/code&gt; / &lt;code&gt;MESSAGE&lt;/code&gt;&lt;/td&gt;&lt;td&gt;The message body.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;DATABASE_URL&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Inherited from the process environment.&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;div class=&quot;note stop&quot;&gt;
+      &lt;h4&gt;The script must always exit 0&lt;/h4&gt;
+      &lt;p&gt;A non-zero exit makes the action throw, and a throw aborts the whole branch — which costs you the reply entirely. Every failure path falls through to printing whatever fields did resolve. The two subtler traps are in the comments below: catching &lt;code&gt;BaseException&lt;/code&gt; around &lt;code&gt;sys.exit()&lt;/code&gt; prints the fallback twice and produces unparseable output, and emitting a key named &lt;code&gt;response&lt;/code&gt; turns the result into a queued message instead of a return value.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;codeblock scrolly&quot; style=&quot;margin-top:20px&quot;&gt;
+    &lt;div class=&quot;codehead&quot;&gt;&lt;span&gt;&amp;lt;DATA_DIR&amp;gt;/scripts/ack_enrich.py&lt;/span&gt;&lt;span&gt;chmod +x&lt;/span&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/env python3
+&quot;&quot;&quot;ack_enrich.py — Auto-Ack message enrichment for the MeshMonitor Automation Engine.
+
+Invoked by `action.runScript`. Emits a JSON object into `{{ var.ack.* }}` so the
+sendMessage template can render:
+
+    🤖 Heard you at &amp;lt;YOUR_LANDMARK&amp;gt; · 5:16 PM
+    *️⃣ Direct — no repeaters
+    📶 Excellent · SNR 10.75dB · RSSI -38
+    📍 3.2 mi away
+
+CONTRACT — every field carries its own separator so a MISSING field degrades to
+a clean message instead of a stray &quot;· &quot; or an empty &quot;📍  mi away&quot;.
+
+MUST ALWAYS EXIT 0. A non-zero exit aborts the rule and costs us the reply.
+&quot;&quot;&quot;
+from __future__ import annotations
+
+import json
+import math
+import os
+import sys
+from datetime import datetime
+
+# --- Your station. Read from the DB by nodeNum so a GPS or override change
+# follows automatically; the literals are only the fallback.
+LOCAL_NODE_NUM = &amp;lt;YOUR_NODE_NUM&amp;gt;          # decimal, not !hex
+LOCAL_LAT = &amp;lt;YOUR_LAT&amp;gt;
+LOCAL_LON = &amp;lt;YOUR_LON&amp;gt;
+
+# A position older than this is not evidence of where the sender is NOW.
+POSITION_MAX_AGE_S = 24 * 3600
+
+# SNR quality bands (dB), anchored to the demodulator floor for YOUR modem
+# preset. MEDIUM_FAST = SF9/BW250 → -12.5 dB floor. See section 04.
+SNR_BANDS = ((5.0, &quot;Excellent&quot;), (0.0, &quot;Strong&quot;), (-5.0, &quot;Good&quot;), (-10.0, &quot;Fair&quot;))
+SNR_FLOOR_WORD = &quot;Marginal&quot;
+
+
+def quality_word(snr: float) -&gt; str:
+    for threshold, word in SNR_BANDS:
+        if snr &amp;gt;= threshold:
+            return word
+    return SNR_FLOOR_WORD
+
+
+def haversine_mi(lat1, lon1, lat2, lon2) -&amp;gt; float:
+    r_mi = 3958.7613
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dp = math.radians(lat2 - lat1)
+    dl = math.radians(lon2 - lon1)
+    a = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return 2 * r_mi * math.asin(min(1.0, math.sqrt(a)))
+
+
+def fmt_distance(mi: float) -&amp;gt; str:
+    # Tenths under 10 mi, whole miles above. Both fit in 3 characters.
+    return f&quot;{mi:.1f}&quot; if mi &amp;lt; 10 else f&quot;{mi:.0f}&quot;
+
+
+def env_float(name: str):
+    raw = os.environ.get(name)
+    if raw is None or raw == &quot;&quot;:
+        return None
+    try:
+        return float(raw)
+    except ValueError:
+        return None
+
+
+def node_position(cur, node_num: int, source_id: str, require_fresh: bool):
+    &quot;&quot;&quot;Best-known lat/lon for a node, honoring a manual position override.&quot;&quot;&quot;
+    cur.execute(
+        &#x27;&#x27;&#x27;SELECT CASE WHEN &quot;positionOverrideEnabled&quot; THEN &quot;latitudeOverride&quot; ELSE latitude END,
+                  CASE WHEN &quot;positionOverrideEnabled&quot; THEN &quot;longitudeOverride&quot; ELSE longitude END,
+                  &quot;positionOverrideEnabled&quot;, &quot;positionTimestamp&quot;, &quot;updatedAt&quot;
+             FROM nodes WHERE &quot;nodeNum&quot; = %s AND &quot;sourceId&quot; = %s&#x27;&#x27;&#x27;,
+        (node_num, source_id),
+    )
+    row = cur.fetchone()
+    if not row:
+        return None
+    lat, lon, overridden, pos_ts, updated_at = row
+    if lat is None or lon is None:
+        return None
+    if require_fresh and not overridden:
+        # positionTimestamp is the node&#x27;s GPS fix time in epoch SECONDS;
+        # updatedAt is the row&#x27;s write time in epoch MILLISECONDS.
+        now = datetime.now().timestamp()
+        age = None
+        if pos_ts:
+            age = now - float(pos_ts)
+        elif updated_at:
+            age = now - float(updated_at) / 1000.0
+        if age is None or age &amp;gt; POSITION_MAX_AGE_S:
+            return None
+    return float(lat), float(lon)
+
+
+def build_pos(fields: dict) -&amp;gt; None:
+    &quot;&quot;&quot;Fill fields[&#x27;pos&#x27;] with the 📍 line, or leave it &quot;&quot; on any doubt.&quot;&quot;&quot;
+    dsn = os.environ.get(&quot;DATABASE_URL&quot;)
+    from_raw = os.environ.get(&quot;MM_FROM&quot;) or os.environ.get(&quot;FROM_NODE&quot;)
+    source_id = os.environ.get(&quot;MM_SOURCE_ID&quot;)
+    if not dsn or not from_raw or not source_id:
+        return
+    try:
+        from_num = int(float(from_raw))
+    except ValueError:
+        return
+
+    import psycopg  # imported late so a missing dep still yields the other fields
+
+    with psycopg.connect(dsn, connect_timeout=5) as conn:
+        with conn.cursor() as cur:
+            cur.execute(&quot;SET LOCAL statement_timeout = &#x27;4s&#x27;&quot;)
+            # The station is fixed infrastructure, so its position is never
+            # freshness-gated; a sender&#x27;s is.
+            here = node_position(cur, LOCAL_NODE_NUM, source_id, require_fresh=False) \
+                or (LOCAL_LAT, LOCAL_LON)
+            there = node_position(cur, from_num, source_id, require_fresh=True)
+
+    if not there:
+        return
+    mi = haversine_mi(here[0], here[1], there[0], there[1])
+    if not math.isfinite(mi) or mi &amp;lt; 0:
+        return
+    fields[&quot;pos&quot;] = f&quot;\n📍 {fmt_distance(mi)} mi away&quot;
+
+
+def emit(fields: dict) -&amp;gt; None:
+    # No `response`/`responses` key: those would be parsed as messages to send
+    # instead of a plain return value.
+    sys.stdout.write(json.dumps(fields, ensure_ascii=False))
+    sys.stdout.flush()
+
+
+def main() -&amp;gt; int:
+    fields = {&quot;at&quot;: &quot;&quot;, &quot;hop2&quot;: &quot;&quot;, &quot;q&quot;: &quot;&quot;, &quot;pos&quot;: &quot;&quot;}
+
+    try:
+        # &quot;Heard you at ...&quot; must be the RECEIVE time, not the send time — the
+        # 30s anti-NAK delay sits between them and can straddle a minute boundary.
+        ts = env_float(&quot;MM_TIMESTAMP&quot;)
+        if ts and ts &amp;gt; 0:
+            # Milliseconds in practice; tolerate seconds rather than render 1970.
+            heard = datetime.fromtimestamp(ts / 1000.0 if ts &amp;gt; 1e11 else ts)
+        else:
+            heard = datetime.now()
+        # Built by hand rather than %I so there is no leading zero to strip;
+        # the container runs TZ=&amp;lt;YOUR_TZ&amp;gt;.
+        fields[&quot;at&quot;] = f&quot; · {heard.hour % 12 or 12}:{heard.minute:02d} {&#x27;AM&#x27; if heard.hour &amp;lt; 12 else &#x27;PM&#x27;}&quot;
+    except Exception as e:
+        print(f&quot;ack_enrich: time: {e}&quot;, file=sys.stderr)
+
+    try:
+        # Mirror the engine: no glyph means the tapback was skipped too.
+        emoji = os.environ.get(&quot;MM_HOP_EMOJI&quot;) or &quot;&quot;
+        if emoji:
+            hops = env_float(&quot;MM_HOPS&quot;)
+            if hops is None or hops &amp;lt;= 0:
+                fields[&quot;hop2&quot;] = f&quot;{emoji} &quot;
+            else:
+                n = int(hops)
+                fields[&quot;hop2&quot;] = f&quot;{emoji} {n} hop{&#x27;&#x27; if n == 1 else &#x27;s&#x27;} — &quot;
+    except Exception as e:
+        print(f&quot;ack_enrich: hop: {e}&quot;, file=sys.stderr)
+
+    try:
+        snr = env_float(&quot;MM_SNR&quot;) if os.environ.get(&quot;MM_SNR&quot;) else env_float(&quot;SNR&quot;)
+        if snr is not None:
+            fields[&quot;q&quot;] = f&quot;{quality_word(snr)} · &quot;
+    except Exception as e:
+        print(f&quot;ack_enrich: snr: {e}&quot;, file=sys.stderr)
+
+    try:
+        build_pos(fields)
+    except Exception as e:
+        # Distance is the only field that touches the network. Losing it must
+        # never cost us the message.
+        print(f&quot;ack_enrich: position: {e}&quot;, file=sys.stderr)
+
+    emit(fields)
+    return 0
+
+
+if __name__ == &quot;__main__&quot;:
+    # NOTE: catch Exception, never BaseException — wrapping sys.exit() in a
+    # BaseException handler catches its own SystemExit and prints the fallback a
+    # SECOND time, producing two concatenated JSON objects on stdout. That is not
+    # parseable, so the engine stores raw stdout in the variable and every
+    # {{ var.ack.* }} lookup silently renders empty.
+    try:
+        main()
+    except Exception as e:
+        print(f&quot;ack_enrich: fatal: {e}&quot;, file=sys.stderr)
+        sys.stdout.write(&#x27;{&quot;at&quot;:&quot;&quot;,&quot;hop2&quot;:&quot;&quot;,&quot;q&quot;:&quot;&quot;,&quot;pos&quot;:&quot;&quot;}&#x27;)
+    sys.exit(0)&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;06&lt;/span&gt;&lt;h2&gt;Keeping it from flooding the mesh&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;An auto-responder that answers another auto-responder is the classic way to take a mesh down. Here is exactly what stands between this configuration and that outcome — including what does &lt;em&gt;not&lt;/em&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tblwrap&quot; style=&quot;margin-top:22px&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Guard&lt;/th&gt;&lt;th&gt;Where&lt;/th&gt;&lt;th&gt;What it actually stops&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;Self-origin drop&lt;/b&gt;&lt;/td&gt;&lt;td&gt;Engine, before any rule is evaluated&lt;/td&gt;
+        &lt;td&gt;Events originating from your own node are discarded outright, so your reply can never re-trigger the rule that sent it. This is the guard that makes a direct self-loop impossible.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;Per-node cooldown&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;cooldownSeconds: 60&lt;/code&gt;, &lt;code&gt;cooldownScope: &quot;node&quot;&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;One firing per sending node per automation per 60&amp;nbsp;s. A node hammering &lt;code&gt;test&lt;/code&gt; gets one reply a minute, not one per message.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;30&amp;nbsp;s spacing&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;action.delay&lt;/code&gt; between tapback and text&lt;/td&gt;
+        &lt;td&gt;Keeps your two transmissions out of one airtime window. Airtime discipline, not loop prevention.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;Source pin&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;condition.sourceFilter&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Stops a second radio or an MQTT-derived source from firing the same rule a second time.&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;div class=&quot;note stop&quot;&gt;
+      &lt;h4&gt;What is NOT protected: somebody else&#x27;s bot&lt;/h4&gt;
+      &lt;p&gt;The self-origin guard only knows about &lt;em&gt;your&lt;/em&gt; node. If another station on the channel runs its own auto-responder, and its reply text contains one of your trigger words, you will answer it — and if your reply contains one of &lt;em&gt;their&lt;/em&gt; trigger words, they will answer you. The 60&amp;nbsp;s per-node cooldown bounds this to one exchange per minute per pair rather than a runaway flood, but it does not stop it.&lt;/p&gt;
+      &lt;p style=&quot;margin-top:8px&quot;&gt;Two things worth doing before you deploy:&lt;/p&gt;
+      &lt;ul class=&quot;plain&quot; style=&quot;margin-top:8px&quot;&gt;
+        &lt;li&gt;&lt;b&gt;Keep your trigger words out of your own reply text.&lt;/b&gt; A trailer reading &quot;Please test on …&quot; contains &lt;code&gt;test&lt;/code&gt;. Writing it as &quot;Please run further &lt;i&gt;tests&lt;/i&gt; on …&quot; is enough — &lt;code&gt;\btest\b&lt;/code&gt; does not match &lt;code&gt;tests&lt;/code&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;b&gt;Watch for bot-shaped acks in your history.&lt;/b&gt; Other stations&#x27; replies often start with a recognisable prefix. If you see one repeatedly in your run log, add a &lt;code&gt;condition.string&lt;/code&gt; node with &lt;code&gt;op: &quot;notContains&quot;&lt;/code&gt; on the message text ahead of the actions.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;note warn&quot;&gt;
+      &lt;h4&gt;The cooldown is in memory only — it does not survive a restart&lt;/h4&gt;
+      &lt;p&gt;The cooldown map lives in the engine process. Restart MeshMonitor and every node is immediately eligible again. Say that out loud before you rely on it: &lt;b&gt;a container that is crash-looping has effectively no rate limit at all&lt;/b&gt;, because each restart re-arms every node. A redeploy does the same. This is why the cooldown is a courtesy to your neighbours, not a safety mechanism — the thing that actually prevents a loop is keeping your trigger words out of your own reply text.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;07&lt;/span&gt;&lt;h2&gt;Building it from scratch&lt;/h2&gt;&lt;/div&gt;
+
+  &lt;h3 style=&quot;margin-top:24px&quot;&gt;Before you start&lt;/h3&gt;
+  &lt;ul class=&quot;plain col&quot; style=&quot;margin-top:12px&quot;&gt;
+    &lt;li&gt;MeshMonitor 4.14 or later, already connected to your radio and showing messages. The Automation Engine landed in 4.x; earlier builds only have the older settings-based auto-ack.&lt;/li&gt;
+    &lt;li&gt;A writable data directory the container can reach — the same one holding your database. Scripts are resolved under &lt;code&gt;&amp;lt;DATA_DIR&amp;gt;/scripts&lt;/code&gt; and path traversal out of it is blocked.&lt;/li&gt;
+    &lt;li&gt;Python 3 inside the MeshMonitor container, plus &lt;code&gt;psycopg&lt;/code&gt; if you want the distance line. Without it the script still returns every other field.&lt;/li&gt;
+    &lt;li&gt;Your channels already configured and named on the radio. The rules match channels by name.&lt;/li&gt;
+    &lt;li&gt;A separate low-traffic channel to test on. Do not iterate on your Primary channel.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;ol class=&quot;steps&quot;&gt;
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Find your source ID&lt;/h3&gt;
+      &lt;p&gt;Every rule is pinned to one radio. Read the ID from the database rather than guessing — it is a UUID, not the node ID.&lt;/p&gt;
+      &lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;&lt;code&gt;SELECT id, name, enabled, config FROM sources WHERE enabled;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Find your node number and position&lt;/h3&gt;
+      &lt;p&gt;The script needs your station&#x27;s node number in &lt;b&gt;decimal&lt;/b&gt;, not &lt;code&gt;!hex&lt;/code&gt; form, and its coordinates as a fallback.&lt;/p&gt;
+      &lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;&lt;code&gt;SELECT &quot;nodeNum&quot;, &quot;nodeId&quot;, &quot;longName&quot;, latitude, longitude
+  FROM nodes
+ WHERE &quot;sourceId&quot; = &#x27;&amp;lt;YOUR_SOURCE_ID&amp;gt;&#x27;
+   AND &quot;longName&quot; = &#x27;&amp;lt;YOUR_NODE_NAME&amp;gt;&#x27;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      &lt;div class=&quot;note warn&quot;&gt;&lt;p&gt;If you ever factory-reset the radio, its node number changes and this constant goes stale. The script keeps working — it falls back to the literal coordinates — so nothing breaks loudly. Re-check it after any reset.&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Install the enrichment script&lt;/h3&gt;
+      &lt;p&gt;Drop &lt;code&gt;ack_enrich.py&lt;/code&gt; into &lt;code&gt;&amp;lt;DATA_DIR&amp;gt;/scripts/&lt;/code&gt;, make it executable, and edit the three constants at the top. Set &lt;code&gt;TZ&lt;/code&gt; on the container so the clock line is local time.&lt;/p&gt;
+      &lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;&lt;code&gt;chmod +x &amp;lt;DATA_DIR&amp;gt;/scripts/ack_enrich.py
+echo &quot;psycopg[binary]&quot; &amp;gt; &amp;lt;DATA_DIR&amp;gt;/scripts/requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Create the first automation&lt;/h3&gt;
+      &lt;p&gt;Build it in the Automations UI, or POST the graph directly. Start with the test-channel one, leave it &lt;b&gt;disabled&lt;/b&gt;, and confirm it saves without a validation error.&lt;/p&gt;
+      &lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;&lt;code&gt;curl -X POST http://&amp;lt;YOUR_HOST&amp;gt;:8080/api/automations \
+  -H &quot;Authorization: Bearer &amp;lt;YOUR_API_TOKEN&amp;gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d @auto-ack-test-channel.json&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      &lt;div class=&quot;note stop&quot;&gt;&lt;h4&gt;Never edit an automation directly in the database&lt;/h4&gt;&lt;p&gt;Only the API routes call the engine&#x27;s reload. A &lt;code&gt;psql&lt;/code&gt; or &lt;code&gt;sqlite3&lt;/code&gt; &lt;code&gt;UPDATE&lt;/code&gt; against the &lt;code&gt;automations&lt;/code&gt; table is silently a no-op — the row changes, the running engine keeps the old graph, and nothing tells you. It will appear to work after the next restart, which is the worst possible way to find out. Use the UI or &lt;code&gt;PUT /api/automations/:id&lt;/code&gt;, which accepts a partial &lt;code&gt;{&quot;config&quot;: …}&lt;/code&gt; body.&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Duplicate it twice and change three things&lt;/h3&gt;
+      &lt;p&gt;For the other-channels copy: swap the channel list, and append the trailer line to both &lt;code&gt;sendMessage&lt;/code&gt; texts. For the DM copy: remove &lt;code&gt;channels&lt;/code&gt; entirely, flip both &lt;code&gt;isDM&lt;/code&gt; conditions to &lt;code&gt;&quot;1&quot;&lt;/code&gt;, and add &lt;code&gt;&quot;replyToTrigger&quot;: true&lt;/code&gt; to both &lt;code&gt;sendMessage&lt;/code&gt; nodes.&lt;/p&gt;
+    &lt;/div&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Prove the regex compiles before enabling anything&lt;/h3&gt;
+      &lt;p&gt;A pattern that fails to compile never matches and never logs. Read the deployed value back out of the database and run it through the engine&#x27;s own RE2 — this touches no radio.&lt;/p&gt;
+      &lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;&lt;code&gt;docker exec &amp;lt;CONTAINER&amp;gt; node --input-type=module -e &#x27;
+  import { compileUserRegex } from &quot;/app/dist/utils/safeRegex.js&quot;;
+  import fs from &quot;node:fs&quot;;
+  const re = compileUserRegex(fs.readFileSync(&quot;/tmp/regex.txt&quot;,&quot;utf8&quot;).trim());
+  for (const s of [&quot;test 123&quot;,&quot;Check this out&quot;,&quot;radio check&quot;])
+    console.log(re.test(s) ? &quot;FIRE &quot; : &quot;quiet&quot;, JSON.stringify(s));
+&#x27;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Backtest against your own history&lt;/h3&gt;
+      &lt;p&gt;You already have thousands of real messages. Use them instead of transmitting. Pull the candidates, apply your pattern offline, and read both error directions — the messages you would newly ignore matter more than the ones you would stop answering.&lt;/p&gt;
+      &lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;&lt;code&gt;SELECT channel, &quot;fromNodeNum&quot;,
+       to_char(to_timestamp(timestamp/1000),&#x27;YYYY-MM-DD&#x27;) AS day, text
+  FROM messages
+ WHERE &quot;sourceId&quot; = &#x27;&amp;lt;YOUR_SOURCE_ID&amp;gt;&#x27;
+   AND &quot;fromNodeNum&quot; &amp;lt;&amp;gt; &amp;lt;YOUR_NODE_NUM&amp;gt;
+   AND text ~* &#x27;\m(test|testing|ping|check)\M&#x27;
+ ORDER BY timestamp;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      &lt;p&gt;Read every message the new rule would &lt;em&gt;stop&lt;/em&gt; answering by hand. A percentage hides the two genuine tests you just broke.&lt;/p&gt;
+    &lt;/div&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;div class=&quot;body&quot;&gt;
+      &lt;h3&gt;Enable the test-channel automation only&lt;/h3&gt;
+      &lt;p&gt;Leave the other two off for a day. Watch the run log (section 08). Enable the rest once the first one is behaving.&lt;/p&gt;
+    &lt;/div&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;08&lt;/span&gt;&lt;h2&gt;Verifying it without transmitting&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;Every send-probe is a real transmission to every node on the channel. You do not need one. The engine writes a row per firing with a full node-by-node trace, so you can confirm the whole path from stored evidence.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;codeblock&quot; style=&quot;margin-top:22px&quot;&gt;
+    &lt;div class=&quot;codehead&quot;&gt;&lt;span&gt;run log&lt;/span&gt;&lt;span&gt;read-only&lt;/span&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;-- Did it fire, and did it succeed?
+SELECT &quot;automationId&quot;, status, count(*)
+  FROM automation_runs GROUP BY 1,2 ORDER BY 3 DESC;
+
+-- What went wrong, most recent first
+SELECT to_timestamp(&quot;startedAt&quot;/1000), log
+  FROM automation_runs
+ WHERE status = &#x27;failed&#x27;
+ ORDER BY &quot;startedAt&quot; DESC LIMIT 10;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;Each &lt;code&gt;log&lt;/code&gt; entry is a JSON array of steps with an &lt;code&gt;outcome&lt;/code&gt; per node — &lt;code&gt;activated&lt;/code&gt;, &lt;code&gt;condition:true&lt;/code&gt;, &lt;code&gt;condition:false&lt;/code&gt;, &lt;code&gt;action:error&lt;/code&gt;, &lt;code&gt;cooldown&lt;/code&gt;. A rule that fires but stops at a condition tells you which condition; a rule that never appears at all was filtered at the trigger, meaning the channel name or the regex did not match.&lt;/p&gt;
+    &lt;p&gt;Two more read-only checks worth doing: confirm the engine actually reloaded after an edit (&lt;code&gt;docker logs&lt;/code&gt; will say it loaded N enabled automations), and re-read the config straight out of the &lt;code&gt;automations&lt;/code&gt; table rather than trusting that the UI saved what you typed.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;h3 style=&quot;margin-top:34px&quot;&gt;Failure modes seen in practice&lt;/h3&gt;
+  &lt;div class=&quot;tblwrap&quot; style=&quot;margin-top:16px&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Symptom&lt;/th&gt;&lt;th&gt;Cause&lt;/th&gt;&lt;th&gt;Fix&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Nothing fires, no run rows, no errors&lt;/td&gt;&lt;td&gt;Regex failed to compile, or the channel name does not match what the radio reports&lt;/td&gt;&lt;td&gt;Compile-check the pattern (step 06); compare the name in &lt;code&gt;channels&lt;/code&gt; against the filter, case-insensitively&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Reply arrives with empty gaps — &quot;📶 SNR dB&quot;&lt;/td&gt;&lt;td&gt;The script returned unparseable stdout, so every &lt;code&gt;var.ack.*&lt;/code&gt; renders empty&lt;/td&gt;&lt;td&gt;Run the script by hand with the env vars set and confirm it prints exactly one JSON object&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;script &quot;ack_enrich.py&quot; failed: Script timed out after 15s&lt;/code&gt;&lt;/td&gt;&lt;td&gt;The database lookup for the distance line stalled&lt;/td&gt;&lt;td&gt;Expected occasionally; the &lt;code&gt;statement_timeout&lt;/code&gt; caps it. If frequent, drop the distance line or raise &lt;code&gt;timeoutSeconds&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;code&gt;Not connected to Meshtastic node&lt;/code&gt;&lt;/td&gt;&lt;td&gt;The radio link dropped between the trigger and the send, 40&amp;nbsp;s later&lt;/td&gt;&lt;td&gt;Nothing to fix in the rule. Check why the link flaps&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Database query errors inside an action&lt;/td&gt;&lt;td&gt;The database was briefly unavailable mid-run&lt;/td&gt;&lt;td&gt;Transient. Persistent errors mean the database is genuinely down&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Reply claims &quot;Direct — no repeaters&quot; but hop count is wrong&lt;/td&gt;&lt;td&gt;Branching on raw &lt;code&gt;hops&lt;/code&gt; instead of &lt;code&gt;zeroHop&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Use &lt;code&gt;zeroHop&lt;/code&gt;; it is never undefined and excludes MQTT-delivered packets&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Distance line silently missing for everyone&lt;/td&gt;&lt;td&gt;Your node number constant is stale, or &lt;code&gt;psycopg&lt;/code&gt; is not installed&lt;/td&gt;&lt;td&gt;Re-read the node number; check stderr in the container logs for &lt;code&gt;ack_enrich: position:&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;div class=&quot;sec-head&quot;&gt;&lt;span class=&quot;sec-num&quot;&gt;09&lt;/span&gt;&lt;h2&gt;Things you must change&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class=&quot;col stack&quot;&gt;
+    &lt;p&gt;Every placeholder below appears somewhere above. None of them will work as written.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;ph&quot;&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_SOURCE_ID&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;The UUID of your radio in the &lt;code&gt;sources&lt;/code&gt; table. Appears in every &lt;code&gt;condition.sourceFilter&lt;/code&gt; and in the backtest query.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_NODE_NUM&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;Your station&#x27;s node number in decimal. In &lt;code&gt;ack_enrich.py&lt;/code&gt; as &lt;code&gt;LOCAL_NODE_NUM&lt;/code&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_NODE_NAME&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;Your station&#x27;s long name, used only to look the node up.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_LAT&amp;gt; / &amp;lt;YOUR_LON&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;Fallback coordinates for the distance calculation. Only used when the database lookup fails.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_LANDMARK&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;The human-readable place name in the first line of every reply — a cross-street or neighbourhood, at whatever precision you are comfortable broadcasting.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;TEST_CHANNEL&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;The channel that gets the no-trailer reply. Must match the channel name on your radio exactly (matching is case-insensitive).&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;CHANNEL_A&amp;gt; … &amp;lt;CHANNEL_F&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;Every other channel you want covered, by name. Leave one out and that channel is silent.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_COMMUNITY_URL&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;The link in the trailer. Drop the whole trailer line if you do not have one.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_HOST&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;Where MeshMonitor&#x27;s API is reachable. Port 8080 by default.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_API_TOKEN&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;A MeshMonitor API token with write access, if you script the setup instead of using the UI.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;CONTAINER&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;Your MeshMonitor container name, for the compile check and log reads.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;DATA_DIR&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;MeshMonitor&#x27;s data directory. Scripts live in &lt;code&gt;&amp;lt;DATA_DIR&amp;gt;/scripts&lt;/code&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;&amp;lt;YOUR_TZ&amp;gt;&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;The container&#x27;s &lt;code&gt;TZ&lt;/code&gt;, so the clock line reads as local time.&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;key&quot;&gt;SNR band thresholds&lt;/span&gt;&lt;span class=&quot;desc&quot;&gt;Correct for MEDIUM_FAST (SF9/BW250). A different modem preset has a different demodulation floor — move the whole ladder.&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;footer class=&quot;col&quot;&gt;
+  &lt;p&gt;Documented from a live MeshMonitor 4.14.0 instance by reading its configuration, database schema and source. No test transmissions were made. Values specific to the original station have been replaced with placeholders.&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;" loading="lazy"></iframe>
+
+  <footer>Based on Will Curran's (<b>Will See</b> on Discord) <a href="https://youtu.be/lbMGufT1OOI">MeshMonitor walkthrough</a> and his <a href="#deep-dive">Mesh Auto-Ack Cookbook</a> (MeshMonitor 4.14 Automation Engine) · values are his starting points, not gospel · roles: if you don't know why you'd be a Router, stay Client / Client Mute.</footer>
+</main>
+<a class="totop" href="#page-top">↑ Top</a>
+<script>
+(function(){
+  var f=document.getElementById('cookbook-frame');
+  function fit(){try{var d=f.contentDocument||f.contentWindow.document;var h=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight);if(h>0)f.style.height=(h+24)+'px';}catch(e){}}
+  f.addEventListener('load',function(){fit();setTimeout(fit,600);setTimeout(fit,2000);});
+  window.addEventListener('resize',fit);
+})();
+</script>
+</body>
+</html>
