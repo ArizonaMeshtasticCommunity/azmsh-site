@@ -52,9 +52,7 @@ Make sure every setting on the [Recommended Settings](/docs/recommended-settings
 
 ### Still receiving or transmitting unreliably?
 
-A lot of solar and battery-powered nodes transmit at very low wattage: **0.05W to 0.5W**. If you've tried every location, gotten your node as high as possible, and confirmed your settings, it might be time to look at the **1W and higher** options on our [Recommended Hardware](/docs/recommended-hardware.html) page.
-
-A better antenna is often the **single biggest** improvement you can make before upgrading the radio itself.
+Work through [FAQ & Troubleshooting → I can receive, but I can't send](faq.md#cant-send). It covers placement, antennas, low-wattage solar nodes, and when it's time to upgrade the radio.
 
 ---
 
