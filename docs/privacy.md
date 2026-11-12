@@ -6,7 +6,7 @@ hide:
 
 # Privacy Policy
 
-_Last updated: June 8, 2026_
+_Last updated: November 11, 2026_
 
 This policy explains what information the Arizona Meshtastic Community handles
 when you visit this website (azmsh.net), sign in to our tools, or send traffic
@@ -19,6 +19,10 @@ design.
 ## The short version
 
 - This website does not use cookies, analytics, or trackers.
+- The coverage map on the home page draws its map background from
+  [OpenStreetMap](https://www.openstreetmap.org/), so your browser asks OpenStreetMap's
+  servers for those map images, the same as any site that shows an OpenStreetMap map.
+  The coverage colours come from our own server and show no individual nodes.
 - To use our tools (like the map and node viewer at view.azmsh.net), you sign in
   with Discord. Discord tells us who you are and which servers you belong to, so
   we can confirm you are part of the community and let you in. We do not see your

@@ -18,7 +18,7 @@ Whether you're brand new to radio or a seasoned operator, this is your hub to ge
 
 <div class="grid cards" markdown>
 
--   __Total Nodes__
+-   __Total Nodes: Last 30 Days__
 
     ---
 
@@ -47,3 +47,9 @@ Whether you're brand new to radio or a seasoned operator, this is your hub to ge
     <span id="nodes24hr" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 50px;"></span>
 
 </div>
+
+## Coverage Map
+
+How well the mesh heard nodes over the last 30 days. Red is weak, blue is strong. No colour just means no one sent a position from there.
+
+<iframe class="azmsh-coverage-map" src="https://api.azmsh.net/coverage" title="Arizona Meshtastic coverage map: where the mesh heard node positions in the last 30 days" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>

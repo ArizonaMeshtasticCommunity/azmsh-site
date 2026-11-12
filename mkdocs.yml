@@ -75,6 +75,7 @@ extra_css:
 extra_javascript:
   - assets/js/nodeData.js # Node Info
   - assets/js/a11y.js # Skip-link focus management
+  - assets/js/coverageTheme.js # Coverage map follows the light/dark toggle
 
 copyright: >
   Copyright &copy; 2026 Arizona Meshtastic Community
