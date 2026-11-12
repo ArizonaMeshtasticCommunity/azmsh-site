@@ -50,6 +50,6 @@ Whether you're brand new to radio or a seasoned operator, this is your hub to ge
 
 ## Coverage Map
 
-Where the mesh heard node positions in the last 30 days. It is a record, not a prediction: no colour does not mean no coverage, only that no node sent its position from there. No individual nodes are shown.
+How well the mesh heard nodes over the last 30 days. Red is weak, blue is strong. No colour just means no one sent a position from there.
 
 <iframe class="azmsh-coverage-map" src="https://api.azmsh.net/coverage" title="Arizona Meshtastic coverage map: where the mesh heard node positions in the last 30 days" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
