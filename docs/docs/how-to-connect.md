@@ -58,7 +58,7 @@ To connect to our local Arizona mesh network, you will need the community-specif
 
 [:fontawesome-brands-discord: Join the Arizona Meshtastic Discord](https://discord.gg/HrKtyuFEQk){ .md-button .md-button--primary }
 
-Once you are in the server, head to the setup channel and you will find everything you need to get on the Arizona mesh.
+Once you are in the server, head to the #getting-started channel and you will find everything you need to get on the Arizona mesh.
 
 ---
 
